@@ -1,6 +1,19 @@
-# JDBC
+# JDBC - Java Database Connectivity (API)
+work with a mysql/oracle/ibm/etc database
+## setup
+ * right click on project > Build Path > Add External Archives > mysql-connector-java (mysql connector jar ?)
+ ## access the database through java
+ ### load the driver
+ * 4 types, type 4 is the best
+`Class.forName("com.mysql.jdbc.Driver");`
+### establish the connection
+```
+conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/DATABASENAME?servertTimeZone=UTC", "root", "root123");
+```
+
+
 # JPA - Java Persistent API
-work witha mysql database as an underlying storage using some provided methods
+work with a mysql database as an underlying storage using some provided methods
 ## add 2 dependencies (pom.xml)
 * mysql-connector-java
   * groupId = mysql
