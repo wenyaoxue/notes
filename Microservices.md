@@ -19,6 +19,7 @@ app.run(args);
 # Define REST Service Functionality - class that defines paths and their handlers
 ## annotate class declaration
 `@Controller` or `@RestController` - latter IFF all methods return direct output (and not template names)
+
 `@RequestMapping("rooturl")` - note rooturl & /rooturl are equivalent
 ## path handler method
 ### annotate declaration
