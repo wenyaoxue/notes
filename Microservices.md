@@ -17,6 +17,7 @@ app.setDefaultProperties(Collections.singletonMap("server.port", "7777"));
 app.run(args);
 ```
 # Define REST Service Functionality - class that defines paths and their handlers
+main method: component scan to find this class (if in different package)
 ## annotate class declaration
 `@Controller` or `@RestController` - latter IFF all methods return direct output (and not template names)
 
