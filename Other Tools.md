@@ -16,6 +16,7 @@ use annotations to create common class methods (instead of writing out the code)
   * right click on project > Maven > Update Project > Force Update > Ok
   * File > Restart
 # Aspect Oriented Programming
-separate out functional (client requirement) and non-functional (eg logs and security) code (and link related activities) 
+separate out functional (client requirement) and non-functional (eg logs and security) code (and link related behaviors) 
 * add dependency (pom.xml)
- * 
+ * groupId = org.springframework.boot
+ * artifactId = spring-boot-starter-app
