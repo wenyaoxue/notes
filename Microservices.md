@@ -21,7 +21,7 @@ main method: component scan to find this class (if in different package)
 ## annotate class declaration
 `@Controller` or `@RestController` - latter IFF all methods return direct output (and not template names)
 
-`@RequestMapping("rooturl")` - note rooturl & /rooturl are equivalent
+`@RequestMapping("rooturl")` - optional (url directly starts at the method level); note rooturl & /rooturl are equivalent
 ## path handler method
 ### annotate declaration
 `@RequestMapping(value="pathcont", method=RequestMethod.GET)` or `@GetMapping("pathCont")` - the 2 are equivalent (also pathcont & /pathcont are equivalent)
