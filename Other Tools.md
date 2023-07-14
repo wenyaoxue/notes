@@ -15,3 +15,7 @@ use annotations to create common class methods (instead of writing out the code)
 * apply changes (get rid of warnings and errors)
   * right click on project > Maven > Update Project > Force Update > Ok
   * File > Restart
+# Aspect Oriented Programming
+separate out functional (client requirement) and non-functional (eg logs and security) code (and link related activities) 
+* add dependency (pom.xml)
+ * 
