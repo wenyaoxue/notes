@@ -1,8 +1,10 @@
 # High level view
 MVC - model (holds the data), view (represents the data), controller (mediates the model and view)
 * human communicates with a client application - ie making requests (Http methods, get post put(=update) delete)
-* client/DispatcherServlet communicates with the relevant microservice and returns a response
-* a microservice/rest service/application handles a set of requests with its own resources (likely a dedicated database)
+* client/DispatcherServlet is a rest service/application (accessed through its own server/port) communicates with the relevant microservice and returns a response
+* a microservice is a rest service/application that handles a set of requests (at its own sever/port) with its own resources (likely a dedicated database)
+advantages
+* focused components, multiple points of failure, availability, convenience
 # REST service setup
 * import > existing maven projects > (path from spring.start.io > generate (dependencies: spring web and devtools) > select pom.xml > finish
 * setting the port
@@ -16,7 +18,7 @@ SpringApplication app = new SpringApplication(MainClassName.class);
 app.setDefaultProperties(Collections.singletonMap("server.port", "7777"));
 app.run(args);
 ```
-# Define REST Service Functionality - class that defines paths and their handlers
+# Define REST Service Functionality - controller class that defines paths and their handlers
 main method: component scan to find this class (if in different package)
 ## annotate class declaration
 `@Controller` or `@RestController` - latter IFF all methods return direct output (and not template names)
@@ -69,4 +71,23 @@ attributes: `String msg`, `List<String> details`
   * new ResponseEntity(err, HttpStatus.BAD_REQUEST);
     * where err is an ErrorResponseObject, with custom msg, and details that can be taken from part of ex
       * eg ex.getLocalizedMessage()
-
+# components of inter-communicating applications
+note you can have multiple executions, even of the same project, display selected console drop down to manage
+## client application
+communicates with other applications (microservices) - ie its paths produce responses retrieved from other application paths (ie newserver/newpath = oldserver/oldpath)
+* controller class includes an @Autowired attribute of a delegator class:
+* delegator class
+  * annotate class declaration @Service
+  * include attribute RestTemplate template = new RestTemplate();
+  * method that retrieves a response from another application path, use to retrieve the String response:
+```
+template.exchange(
+  OTHERURLSTRING, //ie httpL//localhost:PORTNO/PATH
+  HttpMethod.GET, //post, put, delete
+  PARAMS, //ie null
+  TYPEOFRESP //ie new ParameterizedTypeReference<String>() {}
+).getBody();
+```
+note: may produce errors in the console, but the URL's could still work
+## registry
+* 
