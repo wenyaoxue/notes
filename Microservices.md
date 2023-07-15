@@ -71,6 +71,7 @@ attributes: `String msg`, `List<String> details`
   * new ResponseEntity(err, HttpStatus.BAD_REQUEST);
     * where err is an ErrorResponseObject, with custom msg, and details that can be taken from part of ex
       * eg ex.getLocalizedMessage()
+     
 # components of inter-communicating applications
 note you can have multiple executions, even of the same project, display selected console drop down to manage
 ## client application
