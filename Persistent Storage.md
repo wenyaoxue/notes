@@ -10,20 +10,20 @@ work with a mysql/oracle/ibm/etc database
  * right click on project > Build Path > Add External Archives > mysql-connector-java (mysql connector jar ?)
  ## access the database through java
  ### load the driver
- * 4 types, type 4 is the best
+ * 4 types, type 4 is the best, pure java driver
 `Class.forName("com.mysql.jdbc.Driver");`
 ### establish the connection
 `conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/DATABASENAME?serverTimeZone=UTC", "root", "root123");`
 ### Write the statement
 ```
 String sql = "STATEMENT_USING_?_s_TO_REPRESENT_VARS_TO_SUBSTITUTE"
-PreparedStatement pst = conn.prepareStatement(sql);
+PreparedStatement pst = conn.prepareStatement(sql); //precompiled query, enhanced performance, variables substituted at runtime
 pst.setInt(1, VAR); //first ?
 pst.setString(2, VAR);
 ...
 ```
 ### Execute the statement
-* insert, delete, update - `pst.executeUpdate();`
+* insert, delete, update - `pst.executeUpdate();` //sql exception, classnotfound exception
 * select - `pst.executeQuery();` - returns ResultSet with functions next(), getInt(COLNO), getString(COLNO), ...
 ### WRITE AND EXECUTE MANY STATEMENTS
 ```
