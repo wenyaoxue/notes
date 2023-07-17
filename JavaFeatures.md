@@ -1,4 +1,7 @@
 # Features
+## 5
+* functional interface (sam), default methods (backward comaptibility), lambda expressions (cut fatty class, alternative to anon class, used for functional interfaces), stream api (lazy iteration without storage), optional (avoid nullpointerexception)
+## others
 * platform, not language - easy development
 * platform independent
   * compiler: sourcecode.java -> .class
