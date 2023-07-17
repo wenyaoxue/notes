@@ -44,6 +44,9 @@ the method can return 2 possibilities
   * `return "page";`
   * the path will load the contents of src/main/resources/page.html
     * may include links/buttons to a different path, initiating a new query with parameters (eg form, params using field names)
+    * html sidebar
+      * `<head xmlns:th="http://www.thymeleaf.org">`
+      * `<a th:href="@{/FULLPATH}">text</a>` //link
   * add dependency to pom.xml:
     * groupId org.springframework.boot
     * artifactId spring-boot-starter-thymeleaf
