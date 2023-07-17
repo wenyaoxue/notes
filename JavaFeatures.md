@@ -1,4 +1,5 @@
 # Features
+## java.lang.Object, .WRAPPERS
 ## 5
 * functional interface (sam), default methods (backward comaptibility), lambda expressions (cut fatty class, alternative to anon class, used for functional interfaces), stream api (lazy iteration without storage), optional (avoid nullpointerexception)
 ## others
@@ -60,6 +61,7 @@ public class Outer {
 }
 ```
 # Exceptions
+* Object > Throwable > Exception (Runtime and Checked) ; Error
 * Logical errors
 * Types
   * Runtime
@@ -71,9 +73,9 @@ public class Outer {
     * User handled
 * How
 ## Try {} catch () {} finally {//release resources}
-## throw new ArithmeticException(“ur 2 little”);
+## throw new ArithmeticException(“ur 2 little”); 
 not handling it
-## throws
+## throws //checked exceptions
 * public void methodname() throws FileNotFoundException
   * part of the signature
   * then the client who calls this will see that they need to handle it
