@@ -73,6 +73,7 @@ mockMvcObj.perform(MockMvcRequestBuilders.get(“path”))
   * `@BeforeEach`
   * `@AfterEach`
   * `@Before`
+  * `@BeforeClass`
 * `public void init()`
   * No @Before necessary
 ### Mockito – works on top of JUnit
@@ -86,3 +87,4 @@ mockMvcObj.perform(MockMvcRequestBuilders.get(“path”))
 * Special statements that can cause test success/failure when run
   * `Mockito.verify(obj, Mockito.times(n).func(params);` //passes if obj.func(params) was invoked n times
 # Gradle? spy = partial mocking?
+# Testsuite?
