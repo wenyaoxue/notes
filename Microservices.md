@@ -208,7 +208,7 @@ because while project file property updates are dynamically applied to the serve
   * annotate
     * @Configuration
     * @EnableWebSecurity
-  * inherit from WebSecurityConfigureAdapter
+  * inherit from WebSecurityConfigureAdapter (something about changing some method if not, idk...)
   * if login credentials and associated roles are stored in a database
     * add attributes
       * `@Autowired private DataSource ds;`
