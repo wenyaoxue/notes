@@ -2,11 +2,13 @@
 * Separate framework, apart from Core Java
 * Delete module-info.java
 * Add JUnit 5 Library to the build path – IDE should be able to suggest
+  * Right Click on project > Properties > Java Build Path > Libraries > Classpath > Add Library > Junit > Next > JUnit 4/5 > Apply and close
 * Create test class
   * Just like any other, or right click class > new > junit test case
     * To add library and import some things
   * No main – execute by running as Junit Test Case – alt shift x, t
     * Each test case and its results will be shown (number of runs)
+    * Right Click > Run > Configurations to choose which JUnit
   * In maven, convention src/test/java/samePkgAsComponentBeingTested
 # Test Class Syntax
 * Annotate class declaration
@@ -83,3 +85,4 @@ mockMvcObj.perform(MockMvcRequestBuilders.get(“path”))
   * `when (obj.func(param, param, …)).thenReturn( retVal );`
 * Special statements that can cause test success/failure when run
   * `Mockito.verify(obj, Mockito.times(n).func(params);` //passes if obj.func(params) was invoked n times
+# Gradle? spy = partial mocking?
