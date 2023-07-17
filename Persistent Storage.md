@@ -1,3 +1,9 @@
+# Java BufferedWriter Class
+```
+BufferedWriter writer = new BufferedWrite(new FileWriter(new File("filename.txt")));
+writer.write(strval);
+writer.close();
+```
 # JDBC - Java Database Connectivity (API)
 work with a mysql/oracle/ibm/etc database
 ## setup
@@ -7,10 +13,32 @@ work with a mysql/oracle/ibm/etc database
  * 4 types, type 4 is the best
 `Class.forName("com.mysql.jdbc.Driver");`
 ### establish the connection
+`conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/DATABASENAME?serverTimeZone=UTC", "root", "root123");`
+### Write the statement
 ```
-conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/DATABASENAME?servertTimeZone=UTC", "root", "root123");
+String sql = "STATEMENT_USING_?_s_TO_REPRESENT_VARS_TO_SUBSTITUTE"
+PreparedStatement pst = conn.prepareStatement(sql);
+pst.setInt(1, VAR); //first ?
+pst.setString(2, VAR);
+...
 ```
-
+### Execute the statement
+* insert, delete, update - `pst.executeUpdate();`
+* select - `pst.executeQuery();` - returns ResultSet with functions next(), getInt(COLNO), getString(COLNO), ...
+### WRITE AND EXECUTE MANY STATEMENTS
+```
+conn.setAutoCommit(false);
+String sql = “???”
+PreparedStatement pst = conn.prepareStatement(sql);
+pst.set…
+pst.addBatch();
+pst.set…
+pst.addBatch()
+//reusing the same pst format
+int[] tc = pst.executeBatch();
+if (tc.length > 0)
+  conn.commit()
+```
 
 # JPA - Java Persistent API
 work with a mysql database as an underlying storage using some provided methods
