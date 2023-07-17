@@ -64,3 +64,26 @@ work with a mysql database as an underlying storage using some provided methods
 @EntityScan("PKG")
 @EnableJpaRepositories("PKG")
 ```
+# Git Bash
+in the folder > right click > Git Bash here
+* git status, history
+## filling a new (empty) repo using a local folder
+* option 1
+  * git init
+  * git add .
+  * git commit -m "COMMITMSG"
+  * git remote add origin git@github.com:USERNAME/REPONAME.git
+  * git push -u origin main
+  * git branch -M main
+  * git push -u origin main
+* option 2
+  * git init
+  * git branch -M main
+  * git add .
+  * git commit -m "com"
+  * git remote add origin https://github.com/USERNAME/REPONAME.git
+  * git push -u origin main
+## the local folder and github repo synced -> changes made in the local folder ->
+* git add .
+* git commit -m "COMMITMSG"
+* git push
