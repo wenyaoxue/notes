@@ -7,7 +7,7 @@
 node -v //check exists, see version
 npm init -y //node package manager yes, creates package.json - necessary info, analogous to pom.xml
 node FILENAME.js //see console.logged
-npm i jquery //install jquery (others: jasmine(testing tool), ) -> node_modules folder, package.json, package-lock.json
+npm i jquery //install jquery (others: jasmine(testing tool), express) -> node_modules folder, package.json, package-lock.json
 npm i //generate all the node_modules files missing based on what's in .json
 ```
 # package.json
@@ -18,3 +18,16 @@ npm i //generate all the node_modules files missing based on what's in .json
 }
 --> in command prompt: npm run customcmd == cmds (or just npm customcmd for certain predefined ones like start or test)
 ```
+# express
+* public/index.html
+* server.js
+```
+var express = require('express')
+var app = express()
+app.use(express.static('public')) //folder with resources?
+app.listen(PORTNO, () => {
+  console.log("server is ready");
+})
+```
+* command prompt: node server.js
+* localhost:PORTNO -> index.html
