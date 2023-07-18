@@ -36,4 +36,4 @@ app.listen(PORTNO, () => {
 })
 ```
 * command prompt or Terminal>new terminal: node server.js
-* localhost:PORTNO -> index.html ; localhost:PORTNO/PATH -> somevars
+* localhost:PORTNO -> index.html ; localhost:PORTNO/PATH -> SOMEVARS
