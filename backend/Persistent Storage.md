@@ -118,12 +118,12 @@ in the folder > right click > Git Bash here
 
 # MongoDB
 mongoDB – document based, rather than tables/columns, schema less environment, unstructured, flexibility,
-collection instead of db 
+collection instead of table
 ```
 use DBNAME;
 db.createCollection(‘COLLECTIONNAME’);
 db.COLLECTIONNAME.insert(JSONOBJRECORD);
 db.COLLECTIONNAME.find(JSONOBJTOMATCH); //eg can have 0 to infinity props
 db.COLLECTIONNAME.remove(JSONOBJTOMATCH); //eg can have 0 to infinity props
-db.COLLECTIONNAME.update(JSONOBJTOMATCH, {$set:JSONOBJTOCHANGE}) //eg both objs can have 0 to infinity props, and objtochange can include old or new props
+db.COLLECTIONNAME.update(JSONOBJTOMATCH, {$set:JSONOBJTOCHANGE}) //eg both objs can have 0 to infinity props, old or new
 ```
