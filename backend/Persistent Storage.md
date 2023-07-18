@@ -127,3 +127,5 @@ db.COLLECTIONNAME.find(JSONOBJTOMATCH); //eg can have 0 to infinity props
 db.COLLECTIONNAME.remove(JSONOBJTOMATCH); //eg can have 0 to infinity props
 db.COLLECTIONNAME.update(JSONOBJTOMATCH, {$set:JSONOBJTOCHANGE}) //eg both objs can have 0 to infinity props, old or new
 ```
+## using in express app (node.js)
+see nodejs.md
