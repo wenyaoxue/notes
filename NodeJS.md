@@ -29,12 +29,13 @@ npm i //generate all the node_modules files missing based on what's in .json
 (jquery, jasmine(testing tool), express(creating a rest service/api), body-parser()) 
 * command prompt or Terminal>new terminal: node server.js
 * localhost:PORTNO -> index.html ; localhost:PORTNO/PATH -> SOMEVARS
+* command prompt or Terminal>new terminal: ctrl+c to stop server
 ## express in server.js
 ```
 var app = EXPRESSVAR()
 app.use(EXPRESSVAR.static('NAMEOFFOLDERWITHHTMLFILESTOLOAD')) //eg public for public/index.html
 
-//app.get, post, put, delete
+//app. get, post, put, delete
 app.get('/PATH', (req, res)=> {  //path can include :PARAMNAME that can be accessed through req.params.PARAMNAME
   var OBJVAR = req.body
   res.send(RESPONSETOQUERY)
@@ -52,8 +53,18 @@ app.use(BPVAR.json()) //where app = express()
 ```
 ## underscore in server.js
 collection, function, and object methods
-* UNDERSCOREVAR method
-  * `findWhere(collection, {ELEPROP : TARGETVAL})` returns element where eleprop matches targetval, eg id:1
+* UNDERSCOREVAR methods
+  * `findWhere(collection, {ELEPROP : TARGETVAL})` returns element where eleprop matches targetval, eg id:1 or null
   * `without(COllECTIONVAR, ELEVAR)` returns collectionvar without elevar
   * `pick(OBjVAR, 'ELEPROP', 'ELEPROP')` returns objvar with only eleprops
   * `extend(DSTELE, SRCELE)` replaces dstele values with srcele values
+## mongodb in server.js
+mongodb database, see backend/persistentstorage.d
+* npm i mongodb@2.1.4
+* 
+```
+var MongoClient = MONGODBVAR.MongoClient
+var db
+MongoClient.connect('CONNECTIONSTRING/DATABASENAME', (err, database) => { db=database } )
+db.collection('COLLECTIONNAME').save(NEWJSONOBJ, (err, result)
+```
