@@ -16,6 +16,19 @@
 * can `let var = new funcname(PARAMS)`
 * (PARAMS) => RETVAL
 * callbacks - sent as a parameter to be called inside another function
+* alternative to callbacks: promise
+```
+new Promise((resolve, reject)=>{
+    setTimeout(
+        ()=> {
+            console.log("called the spring boot rest api for loading posts")
+            resolve(
+                [username+'post1', username+'post2', username+'post3']
+            )
+        }, 2000
+    )
+}).then(user => getBlogs(user.name)).then()....catch(err => console.log("Error " + err))
+```
 ### elements in js
 * document.getElementById("TAGID")
 * document.FORMNAME.FORMFIELDNAME
