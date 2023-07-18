@@ -7,7 +7,7 @@
 node -v //check exists, see version
 npm init -y //node package manager yes, creates package.json - necessary info, analogous to pom.xml
 node FILENAME.js //see console.logged
-npm i jquery //install jquery (others: jasmine(testing tool), express) -> node_modules folder, package.json, package-lock.json
+npm i jquery //install jquery (others: jasmine(testing tool), express(creating a rest service/api), body-parser()) -> node_modules folder, package.json, package-lock.json
 npm i //generate all the node_modules files missing based on what's in .json
 ```
 # package.json
