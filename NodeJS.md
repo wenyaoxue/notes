@@ -36,12 +36,10 @@ app.use(EXPRESSVAR.static('NAMEOFFOLDERWITHHTMLFILESTOLOAD')) //eg public for pu
 
 //app.get, post, put, delete
 app.get('/PATH', (req, res)=> {  //path can include :PARAMNAME that can be accessed through req.params.PARAMNAME
-  var objvar = req.body
+  var OBJVAR = req.body
   res.send(RESPONSETOQUERY)
   res.status(404).send()
-
 })
-
 
 app.listen(PORTNO, () => {
   console.log("server is ready");
@@ -55,5 +53,7 @@ app.use(BPVAR.json()) //where app = express()
 ## underscore in server.js
 collection, function, and object methods
 * UNDERSCOREVAR method
-  * `findWhere(collection, {ELEPROPERTY : TARGETVAL})` returns element where eleproperty matches targetval
+  * `findWhere(collection, {ELEPROP : TARGETVAL})` returns element where eleprop matches targetval, eg id:1
   * `without(COllECTIONVAR, ELEVAR)` returns collectionvar without elevar
+  * `pick(OBjVAR, 'ELEPROP', 'ELEPROP')` returns objvar with only eleprops
+  * `extend(DSTELE, SRCELE)` replaces dstele values with srcele values
