@@ -39,6 +39,7 @@ new Promise((resolve, reject)=>{
 * `new Array() // arr[0], arr[1], ... can add elements this way`
 * `let arr = [1,2,3,4]; arr.sort((a,b)=>a-b) //to sort ascending`
 * `arr.map(ele => ele.length)` //returns a new array
+* `arr.push(ele)`
 ### HTML ELEMENT
 * obj = { prop:'strval', prop:'strval', prop:function(){ can use this.prop } }
 * obj.prop, obj.prop(), can reassign outside and use obj.prop
