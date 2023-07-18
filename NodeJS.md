@@ -21,20 +21,7 @@ npm i //generate all the node_modules files missing based on what's in .json
 # express
 * public/index.html
 * server.js
-```
-var express = require('express')
-var app = express()
-app.use(express.static('public')) //folder with resources?
-
-...
-app.get('/PATH', (req, res)=> {
-    res.send(SOMEVARS)
-})
-
-app.listen(PORTNO, () => {
-  console.log("server is ready");
-})
-```
+* terminal > new terminal OR command prompt: node server.js then localhost:portno -> index.html, or localhost:portno/path -> defined in server.js
 # libraries
 ## setup
 * in command prompt/terminal `npm i LIBRARYNAME`
@@ -42,3 +29,31 @@ app.listen(PORTNO, () => {
 (jquery, jasmine(testing tool), express(creating a rest service/api), body-parser()) 
 * command prompt or Terminal>new terminal: node server.js
 * localhost:PORTNO -> index.html ; localhost:PORTNO/PATH -> SOMEVARS
+## express in server.js
+```
+var app = EXPRESSVAR()
+app.use(EXPRESSVAR.static('NAMEOFFOLDERWITHHTMLFILESTOLOAD')) //eg public for public/index.html
+
+//app.get, post, put, delete
+app.get('/PATH', (req, res)=> {  //path can include :PARAMNAME that can be accessed through req.params.PARAMNAME
+  var objvar = req.body
+  res.send(RESPONSETOQUERY)
+  res.status(404).send()
+
+})
+
+
+app.listen(PORTNO, () => {
+  console.log("server is ready");
+})
+```
+## body-parser in server.js
+use with express
+```
+app.use(BPVAR.json()) //where app = express()
+```
+## underscore in server.js
+collection, function, and object methods
+* UNDERSCOREVAR method
+  * `findWhere(collection, {ELEPROPERTY : TARGETVAL})` returns element where eleproperty matches targetval
+  * `without(COllECTIONVAR, ELEVAR)` returns collectionvar without elevar
