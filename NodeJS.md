@@ -25,9 +25,15 @@ npm i //generate all the node_modules files missing based on what's in .json
 var express = require('express')
 var app = express()
 app.use(express.static('public')) //folder with resources?
+
+...
+app.get('/PATH', (req, res)=> {
+    res.send(SOMEVARS)
+})
+
 app.listen(PORTNO, () => {
   console.log("server is ready");
 })
 ```
-* command prompt: node server.js
-* localhost:PORTNO -> index.html
+* command prompt or Terminal>new terminal: node server.js
+* localhost:PORTNO -> index.html ; localhost:PORTNO/PATH -> somevars
