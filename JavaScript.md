@@ -1,5 +1,5 @@
 * dynamic scripting
-* client-side scripting language, event driven, object based, asynchronous in nature
+* client-side scripting language, event driven, object based, asynchronous in nature (no blocking)
 * dynamic typing, browser incompatibility
 # working with visual studio code
 ## .html files
@@ -15,6 +15,7 @@
 * function funcname() { can use this.attr }
 * can `let var = new funcname(PARAMS)`
 * (PARAMS) => RETVAL
+* callbacks - sent as a parameter to be called inside another function
 ### elements in js
 * document.getElementById("TAGID")
 * document.FORMNAME.FORMFIELDNAME
