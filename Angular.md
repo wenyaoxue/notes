@@ -15,11 +15,13 @@
 * index.html manages components, components may manage their sub-components
 ## app.component.ts
 ### @Component
+```
 ({
   selector: 'COMPONENTREF' //ie in index.html or html of another component include this component with `<componentref></componentref>`
   templateUrl: 'PATHTOHTML'
   styleUrl: 'PATHTOCSS'
 })
+```
 ### export class COMPONENTNAMEComponent
 ```
 {
@@ -38,7 +40,7 @@
 ### directives
 * for loop of array variable declared in app.component.ts using `<ul><li *ngFor="let ELE of ARRVARNAME">{{ELE}}</li></ul>`
 # service
-## SERVICENAME.serve.ts
+## SERVICENAME.service.ts
 ### export class SERVICENAMEService
 ```
 {
