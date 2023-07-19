@@ -14,6 +14,7 @@
 ### functions
 * function funcname() { can use this.attr }
 * can `let var = new funcname(PARAMS)`
+* `arguments.length, arguments[i]`
 * (PARAMS) => RETVAL
 * callbacks - sent as a parameter to be called inside another function
 * alternative to callbacks: promise
