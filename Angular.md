@@ -58,7 +58,7 @@
 ### export class SERVICENAMEService
 ```
 {
-  FUNCTIONNAME():RETURNTYPE { return RETVAL } //eg loadUsers():string[] {return ['','']} , eg void
+  FUNCTIONNAME(PARAM:TYPE):RETURNTYPE { return RETVAL } //eg loadUsers():string[] {return ['','']} , eg void
   constructor() {}
 }
 ```
@@ -72,15 +72,34 @@
   * validations
     * html props (HTMLPROP): `required` `email` `minlength="N"`
     * 1 more prop: `#FIELDID="ngModel"`
-    * `required #ERRID="ngModel"`
     * create an error message element (eg div) checking for 1 unfulfilled HTMLPROP, add prop `*ngIf="FIELDID.errors?.['HTMLPROP']"`
       * eg if there's an =, HTMLPROP is what's on the left
     * if there are multiple error messages associated with 1 FIELDID and you want to show one at a time, wrap error message elements in a div with prop `*ngIf="FIELDID.invalid"`
+    * button prop `[DATAVAR]="data.invalid"` - so that button is only enabled when there are no errors
 
 ### ts
 ```
 import {NgForm} from '@angular/forms'
 FUNC(nf:NgForm) {
-  nf.value //is an object with keys names and values values
+  nf.value //is an object with keys names and values values, can pass to other functions
 }
 ```
+# rest service
+* connecting to spring boot app
+## in app.module.ts
+```
+import {HttpClientModule} from '@angular/common/http'
+add to imports array HttpClientModule
+```
+## in service
+```
+import {HttpClient} from '@angular/common/http'
+constructor(private http:HttpClient) {}
+FUNC(data:any) {
+  return this.http.post('http://localhost:SPRINGBOOTPORTNO/SPRINGBOOTPATH',data)
+  .subscribe((data)=>{console.log(data)})
+}
+```
+## spring boot appcontroller
+* add class declaration annotation `@CrossOrigin(origins="httpL//localhost:ANGULARPORTNO")`
+* change method path relevant to @RequestBody instead of ModelAttribute since it's a JSON obj now that we're sending
