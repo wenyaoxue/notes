@@ -3,6 +3,7 @@
 * components are called views
 * using nodejs
 * important: components (views), directives (readymade tags), service, pipe, routing
+* also important; binding (`[property]`
 # setup
 * npm i -g @angular/cli
 * npx new PROJECTNAME > routing features, style sheet choices
@@ -36,7 +37,9 @@
 }
 ```
 ## app.component.html
-* binding - use variable values declared in app.component.ts using `{{VARNAME}}` or LOCALVAR
+* binding (use variable values - let VAR be VARNAME or LOCALVAR declared in app.component.ts)
+  * property: html tag property - `<TAGNAME PROP1="val1" [PROP2]="VAR" ...>`
+  * directly - `{{VAR}}`
 ### directives
 * for loop of array variable declared in app.component.ts using `<ul><li *ngFor="let ELE of ARRVARNAME">{{ELE}}</li></ul>`
 # service
