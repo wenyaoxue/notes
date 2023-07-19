@@ -76,8 +76,8 @@
     * create an error message element (eg div) checking for 1 unfulfilled HTMLPROP, add prop `*ngIf="FIELDID.errors?.['HTMLPROP']"`
       * eg if there's an =, HTMLPROP is what's on the left
     * if there are multiple error messages associated with 1 FIELDID and you want to show one at a time, wrap error message elements in a div with prop `*ngIf="FIELDID.invalid"`
-```
-ts
+
+### ts
 ```
 import {NgForm} from '@angular/forms'
 FUNC(nf:NgForm) {
