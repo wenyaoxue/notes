@@ -52,9 +52,11 @@ EG EACH OF THESE CAN BE COPY PASTED FROM material.angular.io/components CODE, AF
       * for date
         * `<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>`
         * `<mat-datepicker #picker></mat-datepicker>`
-      * `<mat-select formControlName=="FORMFIELDID">
+      * `mat-select`
+        * special property `formControlName="FORMFIELDID"` to send as part of form object
         * nested tag `<mat-option *ngFor="let var of ARRVARFROMTS" [value]="var">{{var}}</mat-option>`
-  * `<mat-radio-group aria-label="Select an option" formControlName="FORMFIELDID">`
+  * `mat-radio-group`
+    * special properties `aria-label="Select an option"`, `formControlName="FORMFIELDID"` to send as part of form object
     * nested tags
       * `mat-label`
       * `mat-radio-button` with property `value`
