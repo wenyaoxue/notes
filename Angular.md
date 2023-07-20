@@ -30,7 +30,9 @@ export class IMPORTGROUPModule {}
 # component
 * every component has a template, ts, and css
 * index.html manages components, components may manage their sub-components
-## app.component.ts
+## COMPONENTNAME.component.ts
+### import { Component } from '@angular/core'
+* may include other imports, of things which are used as variables or parts of functions
 ### @Component
 ```
 ({
@@ -43,6 +45,7 @@ export class IMPORTGROUPModule {}
 ```
 {
   VARNAME=VARVAL
+  VARNAME:TYPE = VARVAL //eg strings:string[] = ['','','']
 
   FUNCTIONNAME() { JSBEHAVIOR }
 
@@ -57,8 +60,8 @@ export class IMPORTGROUPModule {}
   ...
 }
 ```
-## app.component.html
-* binding (use variable values - let VAR be VARNAME or LOCALVAR declared in app.component.ts)
+## COMPONENTNAME.component.html
+* binding (use variable values - let VAR be VARNAME or LOCALVAR declared in COMPONENTNAME.component.ts)
   * property: html tag property - `<TAGNAME PROP1="val1" [PROP2]="VAR" ...>`
     * for form input value property `[value]="VAR"` is by default 1 way, ie receives value from ts but doesn't affect the variables defined there (not synced with `{{}}` value)
     * to make it two way:
