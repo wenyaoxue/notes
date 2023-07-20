@@ -15,6 +15,19 @@
 when importing `PATH/MODULE`, in app.module.ts
 * add `import {MODULE} from 'PATH'`
 * add `MODULE` to the imports array
+## big group import:
+### create a new file `IMPORTGROUP.module.ts`
+```
+import { NgModule } from '@angular/core';
+import { MODULE } from 'PATH';
+...//all relevant big imports
+@NgModule({
+  imports: [MODULE, ...], //all relevant big imports
+  exports" [MODULE, ...] //all relevant big imports
+})
+export class IMPORTGROUPModule {}
+```
+### BIG IMPORT(`./IMPORTGROUP.module/IMPORTGROUPModule`)
 # component
 * every component has a template, ts, and css
 * index.html manages components, components may manage their sub-components
