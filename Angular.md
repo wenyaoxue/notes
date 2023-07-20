@@ -82,7 +82,7 @@ export class IMPORTGROUPModule {}
 }
 ```
 # using forms
-* template driven or something drivn
+* template driven or data driven, here's template
 ### html
 * form tag: `<form (ngSubmit)="FUNC(DATAVAR)" #DATAVAR="ngForm">` (button no longer needs onclick prop)
 * field props:
