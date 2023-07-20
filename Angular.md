@@ -11,6 +11,10 @@
 * npm start > will be prompted with portno/link
 * new component: `npx ng g c NEWCOMPONENTNAME`
 * new service: `npx ng g s FOLDEROPT/SERVICENAME`
+# big imports
+when importing `PATH/MODULE`, in app.module.ts
+* add `import {MODULE} from 'PATH'`
+* add `MODULE` to the imports array
 # component
 * every component has a template, ts, and css
 * index.html manages components, components may manage their sub-components
@@ -46,7 +50,7 @@
   * property: html tag property - `<TAGNAME PROP1="val1" [PROP2]="VAR" ...>`
     * for form input value property `[value]="VAR"` is by default 1 way, ie receives value from ts but doesn't affect the variables defined there (not synced with `{{}}` value)
     * to make it two way:
-      * in app.module.ts add `import {FormsModule} from '@angular/forms'` and add `FormsModule` to the imports array
+      * BIG IMPORT(`@angular/forms/FormsModule`)
       * `[(ngModel)]="VAR"`
   * DATA???: directly - `{{VAR}}`
   * event: where VAR is FUNCTIONNAME - `<TAGNAME (EVENTNOON)="VAR()">` //eg (click)
@@ -86,11 +90,7 @@ FUNC(nf:NgForm) {
 ```
 # rest service
 * connecting to spring boot app
-## in app.module.ts
-```
-import {HttpClientModule} from '@angular/common/http'
-add to imports array HttpClientModule
-```
+* BIG IMPORT(`@angular/common/http/HttpClientModule`)
 ## in service
 ```
 import {HttpClient} from '@angular/common/http'
