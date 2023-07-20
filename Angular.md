@@ -22,7 +22,7 @@ import { NgModule } from '@angular/core';
 import { MODULE } from 'PATH';
 ...//all relevant big imports
 @NgModule({
-  exports" [MODULE, ...] //all relevant big imports
+  exports: [MODULE, ...] //all relevant big imports
 })
 export class IMPORTGROUPModule {}
 ```
