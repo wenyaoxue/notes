@@ -11,7 +11,6 @@
 * npm start > will be prompted with portno/link
 * new component: `npx ng g c NEWCOMPONENTNAME`
 * new service: `npx ng g s FOLDEROPT/SERVICENAME`
-* ?? ([reference](material.angular.io/components/toolbar/overview)): npx ng add @angular/material 
 # component
 * every component has a template, ts, and css
 * index.html manages components, components may manage their sub-components
