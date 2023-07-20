@@ -17,6 +17,11 @@ npx ng add @angular/material
   * whatever service used to load - constructor + import
 * functions
   * `ngOnInit(): void { some behaviors }`
+## html
+* EG EACH OF THESE CAN BE COPY PASTED FROM material.angular.io/components CODE, AFTER MAKING SURE TO ADD THE IMPORT FOUND ON API TO THE BIG GROUP IMPORT
+* big group import MaterialModule with imports such as `@angular/material/toolbar` + ...
+* add buttons that call ts functions
+* add table
 # MYFORMCOMPONENT
 BIG IMPORT(`./MYFORMCOMPONENT/MYFORMCOMPONENT.component/MYFORMCOMPONENTComponent`, `@angular/forms/ FormsModule and ReactiveFormsModule`)
 ## ts
