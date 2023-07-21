@@ -26,7 +26,7 @@ npx ng add @angular/material
   * `table` with properties: `mat-table`, `[dataSource]="DATASOURCEVAR"`, `matSort`
     * `ng-container` with property `matColumnDef="MATCOLUMNDEFVAL"`
       * `th` with properties `mat-header-cell`, `*matHeaderCellDef`, `mat-sort-header` and innerHTML column header
-      * `td` with properties `mat-cell`, `*matCellDef="let row"` and innerHTML `{{row.FORMFIELDID}}`
+      * `td` with properties `mat-cell`, `*matCellDef="let row"` and innerHTML `{{row.FORMFIELDID}}` or something else, eg a button
         * to format, row.FORMFIELDID | TYPE
           * eg TYPE date, currency:'USD'
     * `tr` with properties `mat-header-row`, `*matHeaderRowDef="displayedColumns"`
