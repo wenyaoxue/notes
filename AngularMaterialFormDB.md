@@ -10,7 +10,7 @@ npx ng add @angular/material
     * has method `open(COMPONENT, {JSONOBJDATA})` - to open a component as a popup - ie create a function to call this on html edit button click with param row
       * to work, component needs
         * import `@angular/core/Inject`, `@angular/material/dialog/MAT_DIALOG_DATA`
-        * constructor param `@Inject(MAT_DIALOG_DATA) private data:any`
+        * constructor param `@Inject(MAT_DIALOG_DATA) public data:any`
         * `ngOnInit():void {this.FORMGROUPVAR.oatchValue(this.data)}
     * has method `open(COMPONENT)` - to open a component as a popup - ie create a function to call this on html add button click
       * retval has method `.afterClosed()`
@@ -97,6 +97,9 @@ EG EACH OF THESE CAN BE COPY PASTED FROM material.angular.io/components CODE, AF
 * service: `LOADFUNC(): Observable<any> {return this.http.get('http://localhost:JSONSERVERPORTNO/ALLINFOVAR)}`
 * form component ts load: `this.SERVICEVAR.LOADFUNC().subscribe((data)=>{console.log(data)})`
 * app component ts load: same as above except instead of `{console.log(data)}`, `{next: (res) => {this.dataSource=new MatTableDataSource(res);console.log(res)}, error: console.log}`
+## Update
+* service: `UPDFUNC(id:number, data:any) {return this.http.put('http://localhost:JSONSERVERPORTNO/ALLINFOVAR/'+id, data)}`
+* component ts add edit so that if (this.data), update with this.data.id and this.empform.value, otherwise add
 ## Delete
 * service: `DELFUNC(id:number):Observable<any> { return this.http.delete("http://localhost:JSONSERVERPORTNO/ALLINFOVAR/"+id) }
 * app component ts (bc this function will be called from app component html): `DELFUNCFROMTS(id:number) {this.SERVICEVAR.DELFUNC(id).subscribe({next: (res)=>{}, error: console.log})}`
