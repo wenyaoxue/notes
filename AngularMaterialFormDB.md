@@ -7,7 +7,16 @@ npx ng add @angular/material
 * imports: `@angular/material/dialog/MatDialog`, `./MYFORMCOMPONENT/MYFORMCOMPONENT.component/MYFORMCOMPONENT`
 * args of types
   * `MatDialog` - from constructor
-    * has method `_dialog(COMPONENT)` - to open a component as a popup - ie create a function to call this on html add button click
+    * has method `open(COMPONENT, {JSONOBJDATA})` - to open a component as a popup - ie create a function to call this on html edit button click with param row
+      * to work, component needs
+        * import `@angular/core/Inject`, `@angular/material/dialog/MAT_DIALOG_DATA`
+        * constructor param `@Inject(MAT_DIALOG_DATA) private data:any`
+        * `ngOnInit():void {this.FORMGROUPVAR.oatchValue(this.data)}
+    * has method `open(COMPONENT)` - to open a component as a popup - ie create a function to call this on html add button click
+      * retval has method `.afterClosed()`
+        * retval has method `.subscribe()`
+          * ie can call with param `{next: (val) => {if (val) this.RELOADTABLEFUNC() }}`
+    * but to work the FORMCOMPONENT dialog ref also has to be MatDialogRef<FORMCOMPONENT> and after adding you gotta this.dr.close(true)
 ### to show a table
 * ?????????????????????????????????????????????
 * imports: `@angular/core/ OnInit and ViewChild`, `@angular/material/paginator/MatPaginator`, `@angular/material/table/MatTableDataSource`
@@ -70,7 +79,7 @@ EG EACH OF THESE CAN BE COPY PASTED FROM material.angular.io/components CODE, AF
       * `mat-label`
       * `mat-radio-button` with property `value`
 * button properties
-  * `mat-raised-button`, `color="primary"`
+  * `mat-raised-button`, `color="primary"`, `[mat-dialog-close]` to close the component
 * form properties
   * `[formGroup]="FORMVARFROMTS" (ngSubmit)="ADDFUNCFROMTS()"`
 # Database
@@ -87,6 +96,7 @@ EG EACH OF THESE CAN BE COPY PASTED FROM material.angular.io/components CODE, AF
 ## Read
 * service: `LOADFUNC(): Observable<any> {return this.http.get('http://localhost:JSONSERVERPORTNO/ALLINFOVAR)}`
 * form component ts load: `this.SERVICEVAR.LOADFUNC().subscribe((data)=>{console.log(data)})`
+* app component ts load: same as above except instead of `{console.log(data)}`, `{next: (res) => {this.dataSource=new MatTableDataSource(res);console.log(res)}, error: console.log}`
 ## Delete
 * service: `DELFUNC(id:number):Observable<any> { return this.http.delete("http://localhost:JSONSERVERPORTNO/ALLINFOVAR/"+id) }
 * app component ts (bc this function will be called from app component html): `DELFUNCFROMTS(id:number) {this.SERVICEVAR.DELFUNC(id).subscribe({next: (res)=>{}, error: console.log})}`
