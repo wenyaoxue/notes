@@ -1,6 +1,7 @@
 ```
 npx ng add @angular/material
 ```
+`npm start`, `npx json-server -p PORTNO --watch db.json`, errors might mess up the formatting
 # app.component
 ## ts
 * imports: `@angular/material/dialog/MatDialog`, `./MYFORMCOMPONENT/MYFORMCOMPONENT.component/MYFORMCOMPONENT`
