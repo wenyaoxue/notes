@@ -17,7 +17,7 @@ npx ng add @angular/material
   * `@ViewChild(MatPaginator) paginator!: MatPaginator`
   * whatever service used to load - constructor + import
 * functions
-  * `ngOnInit(): void { this.SERVICEVAR.LOADFUNC().subscribe({next: (res) => {this.dataSource=new MatTableDataSource(res)}}, error: console.log ) }`
+  * `ngOnInit(): void { this.SERVICEVAR.LOADFUNC().subscribe({next: (res) => {this.dataSource=new MatTableDataSource(res)}}, error: console.log ) }` <- or run that code anywhere to reload
 ## html
 * EG EACH OF THESE CAN BE COPY PASTED FROM material.angular.io/components CODE, AFTER MAKING SURE TO ADD THE IMPORT FOUND ON API TO THE BIG GROUP IMPORT
 * big group import MaterialModule with imports such as `@angular/material/toolbar` + ...
