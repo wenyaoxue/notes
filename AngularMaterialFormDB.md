@@ -9,19 +9,19 @@ npx ng add @angular/material
     * has method `_dialog(COMPONENT)` - to open a component as a popup - ie create a function to call this on html add button click
 ### to show a table
 * ?????????????????????????????????????????????
-* imports: `@angular/core/ OnInit and ViewChild`, `@angular/material/paginator/ MatPaginator and MatPaginatorModule`, `@angular/material/table/ MatTableDataSource and MatTableModule`
+* imports: `@angular/core/ OnInit and ViewChild`, `@angular/material/paginator/MatPaginator`, `@angular/material/table/MatTableDataSource`
 * vars
   * `dsiplayedColumns: string[] = ['FORMFIELDID', 'FORMFIELDID', ...]`
-  * `dataSource = new MatTableDataSource<any>`
-  * `@ViewChild(MatPaginator) paginator! : MatPaginator`
+  * `dataSource!: MatTableDataSource<any>`
+  * `@ViewChild(MatPaginator) paginator!: MatPaginator`
   * whatever service used to load - constructor + import
 * functions
-  * `ngOnInit(): void { some behaviors }`
+  * `ngOnInit(): void { this.SERVICEVAR.LOADFUNC().subscribe({next: (res) => {this.dataSource=new MatTableDataSource(res)}}, error: console.log ) }`
 ## html
 * EG EACH OF THESE CAN BE COPY PASTED FROM material.angular.io/components CODE, AFTER MAKING SURE TO ADD THE IMPORT FOUND ON API TO THE BIG GROUP IMPORT
 * big group import MaterialModule with imports such as `@angular/material/toolbar` + ...
   * add buttons that call ts functions
-* add table
+### add table
   * `table` with properties: `mat-table`, `[dataSource]="DATASOURCEVAR"`, `matSort`
     * `ng-container` with property `matColumnDef="FORMFIELDID"`
       * `th` with properties `mat-header-cell`, `*matHeaderCellDef`, `mat-sort-header` and innerHTML column header
