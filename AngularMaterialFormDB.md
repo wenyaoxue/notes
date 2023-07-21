@@ -20,8 +20,16 @@ npx ng add @angular/material
 ## html
 * EG EACH OF THESE CAN BE COPY PASTED FROM material.angular.io/components CODE, AFTER MAKING SURE TO ADD THE IMPORT FOUND ON API TO THE BIG GROUP IMPORT
 * big group import MaterialModule with imports such as `@angular/material/toolbar` + ...
-* add buttons that call ts functions
+  * add buttons that call ts functions
 * add table
+  * `table` with properties: `mat-table`, `[dataSource]="DATASOURCEVAR"`, `matSort`
+    * `ng-container` with property `matColumnDef="FORMFIELDID"`
+      * `th` with properties `mat-header-cell`, `*matHeaderCellDef`, `mat-sort-header` and innerHTML column header
+      * `td` with properties `mat-cell`, `*matCellDef="let row"` and innerHTML `{{row.FORMFIELDID}}`
+        * to format, row.FORMFIELDID | TYPE
+          * eg TYPE date, currency:'USD'
+    * `tr` with properties `mat-header-row`, `*matHeaderRowDef="displayedColumns"`
+    * `tr` with properties `mat-row`, `*matRowDef="let row; columns: displayedColumns;"`
 # MYFORMCOMPONENT
 BIG IMPORT(`./MYFORMCOMPONENT/MYFORMCOMPONENT.component/MYFORMCOMPONENTComponent`, `@angular/forms/ FormsModule and ReactiveFormsModule`)
 ## ts
@@ -66,8 +74,8 @@ EG EACH OF THESE CAN BE COPY PASTED FROM material.angular.io/components CODE, AF
   * `[formGroup]="FORMVARFROMTS" (ngSubmit)="ADDFUNCFROMTS()"`
 # Database
 * BIG IMPORT(`@angular.common/http/HttpClientModule`)
-`npm i -g json-server`
-`npx json-server -p PORTNO --watch db.json`
+* `npm i -g json-server`
+* start json server: `npx json-server -p PORTNO --watch db.json`
 * creates db.json, delete all and replace with `{"ALLINFOVAR":[]}`
 * create service, import `@angular/common/http/HttpClient`, constructor arg `private http:HttpClient`
 * my form component, import `../SERVICEPATH/SERVICENAME/service/SERVICENAMEService` and `@angular/cdk/dialog/DialogRef`,  constructor arg `private SERVICEVAR:SERVICENAMEService`
@@ -75,7 +83,7 @@ EG EACH OF THESE CAN BE COPY PASTED FROM material.angular.io/components CODE, AF
 * service: `ADDFUNC(data:amy) {return this.http.post('http://localhost:JSONSERVERPORTNO/ALLINFOVAR', data)}` //adds to db.json/allinfovar
 * form component ts add: `this.SERVICEVAR.ADDFUNC(this.FORMVAR.value.subscribe((data)=>{this.DIALOGREFVARIEPOPUP.close()})`
 ## Read
-* service: `LOADFUNC() {return this.http.get('http://localhost:JSONSERVERPORTNO/ALLINFOVAR)}`
+* service: import `rxjs/Observable`, `LOADFUNC(): Observable<any> {return this.http.get('http://localhost:JSONSERVERPORTNO/ALLINFOVAR)}` - return in order to be able to view in table
 * form component ts load: `this.SERVICEVAR.LOADFUNC().subscribe((data)=>{console.log(data)})`
 
 table
