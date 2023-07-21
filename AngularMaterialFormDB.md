@@ -12,7 +12,7 @@ npx ng add @angular/material
 * ?????????????????????????????????????????????
 * imports: `@angular/core/ OnInit and ViewChild`, `@angular/material/paginator/MatPaginator`, `@angular/material/table/MatTableDataSource`
 * vars
-  * `dsiplayedColumns: string[] = ['FORMFIELDID', 'FORMFIELDID', ...]`
+  * `dsiplayedColumns: string[] = ['MATCOLUMNDEFVAL', 'MATCOLUMNDEFVAL', ...]`
   * `dataSource!: MatTableDataSource<any>`
   * `@ViewChild(MatPaginator) paginator!: MatPaginator`
   * whatever service used to load - constructor + import
@@ -24,7 +24,7 @@ npx ng add @angular/material
   * add buttons that call ts functions
 ### add table
   * `table` with properties: `mat-table`, `[dataSource]="DATASOURCEVAR"`, `matSort`
-    * `ng-container` with property `matColumnDef="FORMFIELDID"`
+    * `ng-container` with property `matColumnDef="MATCOLUMNDEFVAL"`
       * `th` with properties `mat-header-cell`, `*matHeaderCellDef`, `mat-sort-header` and innerHTML column header
       * `td` with properties `mat-cell`, `*matCellDef="let row"` and innerHTML `{{row.FORMFIELDID}}`
         * to format, row.FORMFIELDID | TYPE
