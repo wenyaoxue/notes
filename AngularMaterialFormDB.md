@@ -80,12 +80,16 @@ EG EACH OF THESE CAN BE COPY PASTED FROM material.angular.io/components CODE, AF
 * creates db.json, delete all and replace with `{"ALLINFOVAR":[]}`
 * create service, import `@angular/common/http/HttpClient`, constructor arg `private http:HttpClient`
 * my form component, import `../SERVICEPATH/SERVICENAME/service/SERVICENAMEService` and `@angular/cdk/dialog/DialogRef`,  constructor arg `private SERVICEVAR:SERVICENAMEService`
+* service, import `rxjs/Observable` in order to be able to view in table ??
 ## Create
 * service: `ADDFUNC(data:amy) {return this.http.post('http://localhost:JSONSERVERPORTNO/ALLINFOVAR', data)}` //adds to db.json/allinfovar
 * form component ts add: `this.SERVICEVAR.ADDFUNC(this.FORMVAR.value.subscribe((data)=>{this.DIALOGREFVARIEPOPUP.close()})`
 ## Read
-* service: import `rxjs/Observable`, `LOADFUNC(): Observable<any> {return this.http.get('http://localhost:JSONSERVERPORTNO/ALLINFOVAR)}` - return in order to be able to view in table
+* service: `LOADFUNC(): Observable<any> {return this.http.get('http://localhost:JSONSERVERPORTNO/ALLINFOVAR)}`
 * form component ts load: `this.SERVICEVAR.LOADFUNC().subscribe((data)=>{console.log(data)})`
-
+## Delete
+* service: `DELFUNC(id:number):Observable<any> { return this.http.delete("http://localhost:JSONSERVERPORTNO/ALLINFOVAR/"+id) }
+* app component ts (bc this function will be called from app component html): `DELFUNCFROMTS(id:number) {this.SERVICEVAR.DELFUNC(id).subscribe({next: (res)=>{}, error: console.log})}`
+* app component html button: `(click)="DELFUNCFROMTS(row.id)"` - nested inside td matCellDef let row
 table
 tsconfigjson strict = false
