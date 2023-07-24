@@ -107,7 +107,7 @@ app.listen(port, function() {})
 * `ele .id .src .innerHTML .innerText .style.color .style.backgroundColor .style[‘background-color’] .href .value .target `
   * `.removeChild(ele) .appendChild(ele) .firstElementChild .lastElementChild .nextElementSibling .previousElementSibgling .children .parentElement .insertBefore, insertAfter`
   * `.classList .add() .remove().contains() `
-  * `.onclick = (e) => {} .addEventListener(‘click’, (e) => {}) (deepest – starts deepest (e.target), bubbles up (each e.currentTarget)) .stopPropagation() .preventDefault()`
+  * `.onclick = (e) => {} .addEventListener(‘click’, (e) => {}) (deepest – starts deepest (e.target), bubbles up (each e.currentTarget)) .stopPropagation() .preventDefault() e.target.elements.FORMFIELDVAR`
   * `.dataset.attribute ; div data-attribute=”123”` , should not +=
 * `history.go(-1)` redirects to previous page
 * `location`, members: `protocol`, `hostname`, `href`(can be reassigned), `replace(newurl)`
