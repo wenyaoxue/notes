@@ -28,7 +28,7 @@ export default class NEWCOMPONENTNAME extends Component {
 # variables
 ## props
 * read only
-* can be declared in a class - ie in render before return, or in export before render (in which case to access you need to qualify with `this`) `const cmptvar = 1`, = `['a', 'b', 'c']`
+* can be declared in a class - ie in render before return, or in export before render (in which case to access you need to qualify with `this`) `const cmptvar = 1`, = `['a', 'b', 'c']` (arrvar.concat(newele) returns a new array)
 * can be sent to child - ie `<CHILDCMPT childvar="childval" />`, and the child can then use variable `this.props.childvar` (the same way this can use cmptvar)
 * can be used to substitute values in the html - `{var}` - either directly, or when sending variables (`childvar={cmptvar}`)
   * if var is an array, you can use the entire array `{var}` or you can use each element `{var.map((ele)=>ONEHTMLTAG)}` - where ONEHTMLTAG can include `<CHILDCMPT childvar={ele}/>`
@@ -39,14 +39,18 @@ export default class NEWCOMPONENTNAME extends Component {
 * initialize
   * `state={VAR:VAL}`
 * render
-  * display html - `this.state.VAR`
+  * display html - `{this.state.VAR}` - can also use this to send as prop to child, that will auto re-render
 * update
   * `this.setState(`
     * `(prvState)=>{`
-      * `return {VAR: prvState.var + 1}
+      * `return {VAR: prvState.VAR + 1}`
     * `}`
   * `)`
 * rerender
+  * auto I think
+  * won't auto re-render if it was just a regular variable
 # functions
 * can be declared in a class - ie in export class before render, `FUNCNAME=()=>{JSBEHAVIOR}` (use variables declared in same scope - this.var)
 * can be used for events - ie `onClick={this.FUNCNAME}` or form `onSubmit={this.FUNCNAME}` (called when form button clicked)
+* can send to child - ie `<CHILDCMPT CHILDFUNC={this.FUNCNAME}/>` and child can `this.props.CHILDFUNC(CHILDPARAMS)`
+* 
