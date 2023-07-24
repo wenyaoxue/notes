@@ -26,10 +26,27 @@ export default class NEWCOMPONENTNAME extends Component {
   * make sure to import
   * should be inside another HTML tag I think?
 # variables
-* can be declared in a class - ie in render before return, `const cmptvar = 1`, = `['a', 'b', 'c']`
+## props
+* read only
+* can be declared in a class - ie in render before return, or in export before render (in which case to access you need to qualify with `this`) `const cmptvar = 1`, = `['a', 'b', 'c']`
 * can be sent to child - ie `<CHILDCMPT childvar="childval" />`, and the child can then use variable `this.props.childvar` (the same way this can use cmptvar)
 * can be used to substitute values in the html - `{var}` - either directly, or when sending variables (`childvar={cmptvar}`)
   * if var is an array, you can use the entire array `{var}` or you can use each element `{var.map((ele)=>ONEHTMLTAG)}` - where ONEHTMLTAG can include `<CHILDCMPT childvar={ele}/>`
+* 
+## state
+* read write
+* object
+* initialize
+  * `state={VAR:VAL}`
+* render
+  * display html - `this.state.VAR`
+* update
+  * `this.setState(`
+    * `(prvState)=>{`
+      * `return {VAR: prvState.var + 1}
+    * `}`
+  * `)`
+* rerender
 # functions
-* can be declared in a class - ie in export class before render, `FUNCNAME=()=>{JSBEHAVIOR}`
+* can be declared in a class - ie in export class before render, `FUNCNAME=()=>{JSBEHAVIOR}` (use variables declared in same scope - this.var)
 * can be used for events - ie `onClick={this.FUNCNAME}` or form `onSubmit={this.FUNCNAME}` (called when form button clicked)
