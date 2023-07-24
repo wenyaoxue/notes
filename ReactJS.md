@@ -15,7 +15,6 @@
 ```
 import { Component } from 'react'
 export default class NEWCOMPONENTNAME extends Component {
-  //declare variables eg const var = val, when including child you can add property VAR={var} then in child you can access this.props.VAR
   render() {
     return (SOME HTML)
   }
