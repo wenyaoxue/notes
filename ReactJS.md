@@ -51,5 +51,11 @@ export default class NEWCOMPONENTNAME extends Component {
 # functions
 * can be declared in a class - ie in export class before render, `FUNCNAME=()=>{JSBEHAVIOR}` (use variables declared in same scope - this.var)
 * can be used for events - ie `onClick={this.FUNCNAME}` or form `onSubmit={this.FUNCNAME}` (called when form button clicked)
+  * can use with variable - ie `onClick={()=>this.props.FUNCNAME(this.props.VARNAME)}`
 * can send to child - ie `<CHILDCMPT CHILDFUNC={this.FUNCNAME}/>` and child can `this.props.CHILDFUNC(CHILDPARAMS)`
+# Material Formatting
+* https://mui.com/material-ui/getting-started/
+* install inside of project folder
+* components - copy paste code, + make sure to expand for imports
+
 * 
