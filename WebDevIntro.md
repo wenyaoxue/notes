@@ -34,12 +34,17 @@
 * trim($str) //whitespace, ret string
 * explode($delimiter, $str); //ret array
 * $db = new SQLite(‘…x.db’); $sql = “sql, no ;, :vartosub”; $statement = $db->prepare($sql); $statement->bindValue(‘:a’, $v); //or bindParam ascii delimiters, injection attacks $result = $statement->execute(); $db->close(); unset($db);
-* while ($row = $result->fetchArray()) { $row[‘colname’] }
+* `while ($row = $result->fetchArray()) { $row[‘colname’] }`
 * $db->lastInsertRowID();
 * foreach ($arrwithstuffinit as &$oneoftheitems) {}
 * substr(“string”, i0, i1half) //returns a string
 * if () {} else if, ! ||, evaluate to 0 or 1
-# HTML form <form action=“file.php” method=“POST” onsubmit="jsstmt"> defaults: same page (api, php, node.js), get (url->output, small), named elements, onsubmit validates before redirecting (doesn't refresh)
+# HTML
+* center
+* enclosing eg body tag properties: link=color, vlink (visited link)=color, alink (active link)=color
+* a tag can include a name, href can include #othertagname eg other.html#position
+* ol (ordered list) types: A, a, I, i, 1; ul (unordered list) types: circle, square, disc
+## HTML form <form action=“file.php” method=“POST” onsubmit="jsstmt"> defaults: same page (api, php, node.js), get (url->output, small), named elements, onsubmit validates before redirecting (doesn't refresh)
 * Eg api.php?command=smt + post data (api eg manips database + headers back?var=x or just prints if fetch)
 * Button or <input type=”submit”>, sends values of elements with name attributes
 # fetch, eg onclick fetch(), eg data not needed / not form (cookie/get) / if results -> edit page eg new div (network req/resp)
