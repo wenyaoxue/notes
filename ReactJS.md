@@ -41,7 +41,7 @@ export default COMPONENTNAME
 * read only
 * can be declared in a class - ie in render before return, or in export before render (in which case to access you need to qualify with `this`) `const cmptvar = 1`, = `['a', 'b', 'c']`
   * array members
-    * `concat(newele)` returns a new array, `length`
+    * `concat(newele)` returns a new array, `length`, `filter((ele)=>TGT != ele)` returns a new array without TGT
     * if array elements are objects, can add element using shortcut `[...ARRVAR, {VAR1, VAR2}]` - equivalent to `concat({VAR1Name: VAR1VAL, VAR2Name: VAR2VAL})`
 * can be sent to child - ie `<CHILDCMPT childvar="childval" />`, and the child can then use variable `this.props.childvar` (the same way this can use cmptvar)
 * can be used to substitute values in the html - `{var}` - either directly, or when sending variables (`childvar={cmptvar}`)
