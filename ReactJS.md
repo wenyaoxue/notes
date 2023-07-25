@@ -39,7 +39,10 @@ export default COMPONENTNAME
 # variables
 ## props
 * read only
-* can be declared in a class - ie in render before return, or in export before render (in which case to access you need to qualify with `this`) `const cmptvar = 1`, = `['a', 'b', 'c']` (arrvar.concat(newele) returns a new array)
+* can be declared in a class - ie in render before return, or in export before render (in which case to access you need to qualify with `this`) `const cmptvar = 1`, = `['a', 'b', 'c']`
+  * array members
+    * `concat(newele)` returns a new array, `length`
+    * if array elements are objects, can add element using shortcut `[...ARRVAR, {VAR1, VAR2}]` - equivalent to `concat({VAR1Name: VAR1VAL, VAR2Name: VAR2VAL})`
 * can be sent to child - ie `<CHILDCMPT childvar="childval" />`, and the child can then use variable `this.props.childvar` (the same way this can use cmptvar)
 * can be used to substitute values in the html - `{var}` - either directly, or when sending variables (`childvar={cmptvar}`)
   * if var is an array, you can use the entire array `{var}` or you can use each element `{var.map((ele)=>ONEHTMLTAG)}` - where ONEHTMLTAG can include `<CHILDCMPT childvar={ele}/>` and should have property `key` to avoid warnings
@@ -83,5 +86,7 @@ export default COMPONENTNAME
 # hooks
 * state imitator that can be used in functional components
 * `const [VARNAME, SETVARFUNC] = useState(INITVAL)`
+  * can just do `const VARNAME`
+  * eg input onChange set val, form onsubmit use val
 * VARNAME can be used anywhere, SETVARFUNC takes 1 parameter (VARNAME val)
 * `import React, {useState} from 'react';`
