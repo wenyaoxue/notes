@@ -8,6 +8,7 @@
 * `cd APPNAME`
 * `npm start`
 * person interacts with index.html, which uses index.js to load components
+  * root.render a div, not a React.StrictMode, or else things will be getting rendered twice?? i guess
 # Component
 * class-based or functional/presentational
 ## user-defined class-based component
