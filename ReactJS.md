@@ -27,12 +27,15 @@ export default class NEWCOMPONENTNAME extends Component {
 ## user-defined functional component
 COMPONENTNAME.js
 ```
+//any imports or variables/functions (regular js)
 function COMPONENTNAME(props) {
-  return <div>{props.VARNAME}</div>
+  //can do things here too
+  return ONETAG__canuse_props.VARNAME
 }
 export default COMPONENTNAME
 ```
 * no `this`, no `render`, ever
+* lightweight, faster to load
 # variables
 ## props
 * read only
@@ -41,7 +44,7 @@ export default COMPONENTNAME
 * can be used to substitute values in the html - `{var}` - either directly, or when sending variables (`childvar={cmptvar}`)
   * if var is an array, you can use the entire array `{var}` or you can use each element `{var.map((ele)=>ONEHTMLTAG)}` - where ONEHTMLTAG can include `<CHILDCMPT childvar={ele}/>`
 * 
-## state - only for class-based components
+## state - only for class-based components (but you can pass state variables as props to functional components)
 * read write
 * object
 * initialize
@@ -60,7 +63,7 @@ export default COMPONENTNAME
 # functions
 * can be declared in a class - ie in export class before render, `FUNCNAME=()=>{JSBEHAVIOR}` (use variables declared in same scope - this.var)
 * can be used for events - ie `onClick={this.FUNCNAME}` or form `onSubmit={this.FUNCNAME}` (called when form button clicked)
-  * can use with variable - ie `onClick={()=>this.props.FUNCNAME(this.props.VARNAME)}`
+  * can use with variable - ie `onClick={(e)=>this.props.FUNCNAME(this.props.VARNAME, otherargs, ...)}`
 * can send to child - ie `<CHILDCMPT CHILDFUNC={this.FUNCNAME}/>` and child can `this.props.CHILDFUNC(CHILDPARAMS)`
 # Material Formatting
 * https://mui.com/material-ui/getting-started/
