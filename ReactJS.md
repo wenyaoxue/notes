@@ -9,8 +9,8 @@
 * `npm start`
 * person interacts with index.html, which uses index.js to load components
 # Component
-* class-based or functional
-## user-defined component
+* class-based or functional/presentational
+## user-defined class-based component
 * make file APPNAME/src/components/NEWCOMPONENTNAME.js
 ```
 import { Component } from 'react'
@@ -24,6 +24,15 @@ export default class NEWCOMPONENTNAME extends Component {
   * app is the default component
   * make sure to import
   * should be inside another HTML tag I think?
+## user-defined functional component
+COMPONENTNAME.js
+```
+function COMPONENTNAME(props) {
+  return <div>{props.VARNAME}</div>
+}
+export default COMPONENTNAME
+```
+* no `this`, no `render`, ever
 # variables
 ## props
 * read only
@@ -32,7 +41,7 @@ export default class NEWCOMPONENTNAME extends Component {
 * can be used to substitute values in the html - `{var}` - either directly, or when sending variables (`childvar={cmptvar}`)
   * if var is an array, you can use the entire array `{var}` or you can use each element `{var.map((ele)=>ONEHTMLTAG)}` - where ONEHTMLTAG can include `<CHILDCMPT childvar={ele}/>`
 * 
-## state
+## state - only for class-based components
 * read write
 * object
 * initialize
@@ -41,7 +50,7 @@ export default class NEWCOMPONENTNAME extends Component {
   * display html - `{this.state.VAR}` - can also use this to send as prop to child, that will auto re-render
 * update
   * `this.setState(`
-    * `(prvState)=>{` //prvState not required
+    * `(prvState)=>{` //prvState not required, other format `(prvState)=>`
       * `return {VAR: prvState.VAR + 1}` //if you have an object var already, return {OBJVAR}
     * `}`
   * `)`
@@ -57,6 +66,14 @@ export default class NEWCOMPONENTNAME extends Component {
 * https://mui.com/material-ui/getting-started/
 * install inside of project folder
 * components - copy paste code, + make sure to expand for imports
-# Component lifecycle functions
+# Component lifecycle functions - only for class-based components
 * `componentDidMount() {}`
 * `componentDidUpdate() {}` - when the state changes
+* eg manage localStorage
+# Communicate with backend
+* `npm i axios`
+* create a new component restapp/RestApp.js
+  * `import axios from "axios"`
+  * `const URL = apiurl` eg `"https://jsonplaceholder.com/typicode.com/users"`, `"http://localhost:SPRINGBOOTPORTNO/SPRINGBOOTPATH"` (also have to make sure spring boot controller class is annotated `@CrossOrigin(origins="http://localhost:REACTPORTNO"` and running)
+  * function that gets api response:
+    * `axios.get(URL).then(response=>response.data).then((data)=>{DO SOMETHING HERE WITH data})`
