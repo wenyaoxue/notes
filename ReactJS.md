@@ -85,10 +85,10 @@ export default COMPONENTNAME
   * function that gets api response:
     * `axios.get(URL).then(response=>response.data).then((data)=>{DO SOMETHING HERE WITH data})`
 # hooks
-* state imitator that can be used in functional components
+* `import React, {useState} from 'react';`
+* state/lifecycle imitator that can be used in functional components - ie do the below in function COMPONENTNAME(props) before return
 * `const [VARNAME, SETVARFUNC] = useState(INITVAL)`
   * can just do `const VARNAME`
   * eg input onChange set val, form onsubmit use val
 * VARNAME can be used anywhere, SETVARFUNC takes 1 parameter (VARNAME val)
-* `import React, {useState} from 'react';`
-* 
+* `useEffect(FUNC)` - calls FUNC on load and on every state variable update, `useEffect(FUNC, [var, var, var])` - calls FUNC on load and on every update of state variable in the list
