@@ -84,3 +84,4 @@ export default COMPONENTNAME
 * state imitator that can be used in functional components
 * `const [VARNAME, SETVARFUNC] = useState(INITVAL)`
 * VARNAME can be used anywhere, SETVARFUNC takes 1 parameter (VARNAME val)
+* `import React, {useState} from 'react';`
