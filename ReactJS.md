@@ -42,7 +42,7 @@ export default COMPONENTNAME
 * can be declared in a class - ie in render before return, or in export before render (in which case to access you need to qualify with `this`) `const cmptvar = 1`, = `['a', 'b', 'c']` (arrvar.concat(newele) returns a new array)
 * can be sent to child - ie `<CHILDCMPT childvar="childval" />`, and the child can then use variable `this.props.childvar` (the same way this can use cmptvar)
 * can be used to substitute values in the html - `{var}` - either directly, or when sending variables (`childvar={cmptvar}`)
-  * if var is an array, you can use the entire array `{var}` or you can use each element `{var.map((ele)=>ONEHTMLTAG)}` - where ONEHTMLTAG can include `<CHILDCMPT childvar={ele}/>`
+  * if var is an array, you can use the entire array `{var}` or you can use each element `{var.map((ele)=>ONEHTMLTAG)}` - where ONEHTMLTAG can include `<CHILDCMPT childvar={ele}/>` and should have property `key` to avoid warnings
 * 
 ## state - only for class-based components (but you can pass state variables as props to functional components)
 * read write
@@ -80,3 +80,7 @@ export default COMPONENTNAME
   * `const URL = apiurl` eg `"https://jsonplaceholder.com/typicode.com/users"`, `"http://localhost:SPRINGBOOTPORTNO/SPRINGBOOTPATH"` (also have to make sure spring boot controller class is annotated `@CrossOrigin(origins="http://localhost:REACTPORTNO"` and running)
   * function that gets api response:
     * `axios.get(URL).then(response=>response.data).then((data)=>{DO SOMETHING HERE WITH data})`
+# hooks
+* state imitator that can be used in functional components
+* `const [VARNAME, SETVARFUNC] = useState(INITVAL)`
+* VARNAME can be used anywhere, SETVARFUNC takes 1 parameter (VARNAME val)
