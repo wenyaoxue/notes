@@ -72,6 +72,7 @@ export default COMPONENTNAME
 * https://mui.com/material-ui/getting-started/
 * install inside of project folder
 * components - copy paste code, + make sure to expand for imports
+* button has a disabled prop that can take true/false val
 # Component lifecycle functions - only for class-based components
 * `componentDidMount() {}`
 * `componentDidUpdate() {}` - when the state changes
@@ -90,3 +91,4 @@ export default COMPONENTNAME
   * eg input onChange set val, form onsubmit use val
 * VARNAME can be used anywhere, SETVARFUNC takes 1 parameter (VARNAME val)
 * `import React, {useState} from 'react';`
+* 
