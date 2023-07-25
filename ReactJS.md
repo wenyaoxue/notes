@@ -41,8 +41,8 @@ export default class NEWCOMPONENTNAME extends Component {
   * display html - `{this.state.VAR}` - can also use this to send as prop to child, that will auto re-render
 * update
   * `this.setState(`
-    * `(prvState)=>{`
-      * `return {VAR: prvState.VAR + 1}`
+    * `(prvState)=>{` //prvState not required
+      * `return {VAR: prvState.VAR + 1}` //if you have an object var already, return {OBJVAR}
     * `}`
   * `)`
 * rerender
@@ -57,5 +57,6 @@ export default class NEWCOMPONENTNAME extends Component {
 * https://mui.com/material-ui/getting-started/
 * install inside of project folder
 * components - copy paste code, + make sure to expand for imports
-
-* 
+# Component lifecycle functions
+* `componentDidMount() {}`
+* `componentDidUpdate() {}` - when the state changes
