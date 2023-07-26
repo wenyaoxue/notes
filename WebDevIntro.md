@@ -43,14 +43,20 @@
 * center
 * enclosing eg body tag properties: link=color, vlink (visited link)=color, alink (active link)=color
 * a tag can include a name, href can include #othertagname eg other.html#position
-* ol (ordered list) types: A, a, I, i, 1; ul (unordered list) types: circle, square, disc, li (list item)
+* ol (ordered list) types: A, a, I, i, 1; ul (unordered list) types: circle, square, disc, li (list item, does not have a closing tag)
 * img properties: src, alt, width/height
 * table properties: border (0 no lines), width, bgColor, background, cellspacing, cellpadding
  * tr (table row) properties: bgColor
   * th (table header) or td (table data) - colspan, rowspan (number of cells), width, valign, 
-## HTML form <form action=“file.php” method=“POST” onsubmit="jsstmt"> defaults: same page (api, php, node.js), get (url->output, small), named elements, onsubmit validates before redirecting (doesn't refresh)
+## HTML form <form action=“file.php” method=“POST” onsubmit="jsstmt"> defaults: same page (api, php, node.js), get (url->output, small), named elements, onsubmit validates before redirecting (doesn't refresh if fails)
 * Eg api.php?command=smt + post data (api eg manips database + headers back?var=x or just prints if fetch)
-* Button or <input type=”submit”>, sends values of elements with name attributes
+* Button or <input type=”submit”>, sends values of elements with name attributes, type=reset is a button that clears values, type=button does not submit
+* `input`
+  * `type` `text`, `password`, `number`, `submit` (button submits), `reset` (button clears values), `button` (no default behavior)`, `radio` (all radio buttons should have the same name, can checked), `hidden` ?, `file`, `image` ?, `checkbox` (can checked)
+    * document.formname.radioname.value, individual button element.checked
+  * `maxlength, value=defaultval, name (gets submitted), onclick="jsstmt"`, `minlength="num"` idk, `maxlength="num"`, `required`
+* `select option value= selected` `selectele.options[index]`, option does not have a closing tag
+* `textarea` - rows and cols for height/width
 # fetch, eg onclick fetch(), eg data not needed / not form (cookie/get) / if results -> edit page eg new div (network req/resp)
 * asynchronous server contact (sync. = refresh/change browser eg form/link) – main page (JS) intact + dynamic pieces
 ```
@@ -131,11 +137,6 @@ app.listen(port, function() {})
 * `let x = new Date() .getHours() .getMinutes() .getSeconds()`
 * `window`, members: `alert()`, `innerHeight()`, `innerWidth()`, `getComputedStyle(ele)` (incl inherited), `open("newurl", "notsure", "stylesiea=b;c=d")` (retVal has a `close()` function), `status` (don't know)
 * regex: `let pattern = \REGEXEXP\`, `pattern.test(STRING)` returns true/false
-# form
-  * `input`
-    * `type text, password, number, submit (submits), button (does not submit)`, `radio` (all radio buttons should have the same name, selected result can be found document.formname.radioname.value, individual button see selected element.checked)
-    * `maxlength, value=defaultval, name (gets submitted), onclick="jsstmt"`, `minlength="num"` idk, `maxlength="num"`, `required`
-  * `select option value= selected` `selectele.options[index]`
 # `<style type=”text/css”>`
   * Type/id/class {border, box-sizing, position, display, ..} margin border padding, edit inline styles
 # By default, block div p pre, inline img span a
