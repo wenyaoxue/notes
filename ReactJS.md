@@ -105,5 +105,5 @@ export default COMPONENTNAME
 ### links -> paths
 * add import from react-router-dom: NavLink
 * `const Header = () => (<header>  <NavLink to="path" exact={true}>LINKTEXT</NavLink>,...  </header>)`
-* add to routes div: `<Header/>` - i guess it's a component just declared like that ???
+* add to routes div: `<Header/>` - i guess you can just declare a component like that ??? you can also follow the regular steps to make Header as a functional component instead of above function
 ### in main function return, including `{routes}` = localhost:PORTNO/PATH -> render COMPONENTNAME
