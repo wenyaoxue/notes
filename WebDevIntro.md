@@ -43,7 +43,11 @@
 * center
 * enclosing eg body tag properties: link=color, vlink (visited link)=color, alink (active link)=color
 * a tag can include a name, href can include #othertagname eg other.html#position
-* ol (ordered list) types: A, a, I, i, 1; ul (unordered list) types: circle, square, disc
+* ol (ordered list) types: A, a, I, i, 1; ul (unordered list) types: circle, square, disc, li (list item)
+* img properties: src, alt, width/height
+* table properties: border (0 no lines), width, bgColor, background, cellspacing, cellpadding
+ * tr (table row) properties: bgColor
+  * th (table header) or td (table data) - colspan, rowspan (number of cells), width, valign, 
 ## HTML form <form action=“file.php” method=“POST” onsubmit="jsstmt"> defaults: same page (api, php, node.js), get (url->output, small), named elements, onsubmit validates before redirecting (doesn't refresh)
 * Eg api.php?command=smt + post data (api eg manips database + headers back?var=x or just prints if fetch)
 * Button or <input type=”submit”>, sends values of elements with name attributes
