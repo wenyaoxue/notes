@@ -93,3 +93,17 @@ export default COMPONENTNAME
   * eg input onChange set val, form onsubmit use val
 * VARNAME can be used anywhere, SETVARFUNC takes 1 parameter (VARNAME val)
 * `useEffect(FUNC)` - calls FUNC on load and on every state variable update, `useEffect(FUNC, [var, var, var])` - calls FUNC on load and on every update of state variable in the list
+# router
+## setup terminal `npm i react-router-dom@4.1.2 --force`
+## setup landingpage.js component:
+### paths -> component
+* `import { BrowserRouter, Route }` from 'react-router-dom`, + import components
+* `const routes = (<BrowserRouter><div>  <Route path='/PATH' component={COMPONENTNAME},...  </div></BrowserRouter>)`
+  * div because only one child of BrowserRouter allowed
+  * wrap routes in `<Switch>` to only match one route (ie blank -> page not found), import from react-router-dom
+  * route has property `exact={true}` which will make sure full path matches (ie '/' -> default page)
+### links -> paths
+* add import from react-router-dom: NavLink
+* `const Header = () => (<header>  <NavLink to="path" exact={true}>LINKTEXT</NavLink>,...  </header>)`
+* add to routes div: `<Header/>` - i guess it's a component just declared like that ???
+### in main function return, including `{routes}` = localhost:PORTNO/PATH -> render COMPONENTNAME
