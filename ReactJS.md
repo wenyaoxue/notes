@@ -47,7 +47,7 @@ export default COMPONENTNAME
 * can be sent to child - ie `<CHILDCMPT childvar="childval" />`, and the child can then use variable `this.props.childvar` (the same way this can use cmptvar)
 * can be used to substitute values in the html - `{var}` - either directly, or when sending variables (`childvar={cmptvar}`)
   * if var is an array, you can use the entire array `{var}` or you can use each element `{var.map((ele)=>ONEHTMLTAG)}` - where ONEHTMLTAG can include `<CHILDCMPT childvar={ele}/>` and should have property `key` to avoid warnings
-* 
+* special prop: doesn't need to be sent, can be used to redirect the user (eg if something) - `props.history.push(NEWURL)`
 ## state - only for class-based components (but you can pass state variables as props to functional components)
 * read write
 * object
