@@ -84,7 +84,10 @@ export default COMPONENTNAME
   * `import axios from "axios"`
   * `const URL = apiurl` eg `"https://jsonplaceholder.com/typicode.com/users"`, `"http://localhost:SPRINGBOOTPORTNO/SPRINGBOOTPATH"` (also have to make sure spring boot controller class is annotated `@CrossOrigin(origins="http://localhost:REACTPORTNO"` and running)
   * function that gets api response:
-    * `axios.get(URL).then(response=>response.data).then((data)=>{DO SOMETHING HERE WITH data})`
+    * `axios`
+      * `get(URL)`, `post(URL, JSONOBJ)`, ... //eg if you preventDefault and call this on form, you can use your variables instead of form "name"
+        * `then((res)=>{})
+          * res has properties like `data` (output), `status` (eg 200), ... lots
 # hooks
 * `import React, {useState} from 'react';`
 * state/lifecycle imitator that can be used in functional components - ie do the below in function COMPONENTNAME(props) before return
