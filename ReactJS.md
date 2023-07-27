@@ -114,7 +114,15 @@ export default COMPONENTNAME
 # other things
 ```
 npm i bootstrap
-npm i react-botstrap
-npm i @fortawesome/react-fortawesome @fortawesome/free-solid-svg-icons react-player @mui/material @emotion styled
-npm
+npm i react-bootstrap
+npm i @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons react-player @mui/material @emotion/styled
+npm i react-material-ui-carousel
+index.js: import 'bootstrap/dist/css/bootstrap.min.css'
+```
+create src/api/axiosConfig.js:
+```
+import axios from 'axios'
+export default axios.create ({
+ baseUrl:'http://localhost:SOMEPORTNO/'
+})
 ```
