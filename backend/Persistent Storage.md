@@ -131,3 +131,5 @@ db.COLLECTIONNAME.update(JSONOBJTOMATCH, {$set:JSONOBJTOCHANGE}) //eg both objs 
 in collection, can Add Data to import from CSV/JSON
 ## using in express app (node.js)
 see nodejs.md
+## using in spring web app
+* annotate class that models the object: @Document
