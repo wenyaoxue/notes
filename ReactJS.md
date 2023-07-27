@@ -101,10 +101,12 @@ export default COMPONENTNAME
 ## setup landingpage.js component:
 ### paths -> component
 * `import { BrowserRouter, Route }` from 'react-router-dom`, + import components
-* `const routes = (<BrowserRouter><div>  <Route path='/PATH' component={COMPONENTNAME},...  </div></BrowserRouter>)`
+* `const routes = (<BrowserRouter><div>  <Route path='/PATH' component={COMPONENTNAME}/>,...  </div></BrowserRouter>)`
   * div because only one child of BrowserRouter allowed
   * wrap routes in `<Switch>` to only match one route (ie blank -> page not found), import from react-router-dom
   * route has property `exact={true}` which will make sure full path matches (ie '/' -> default page)
+  * for a route to render multiple components:
+    * <Route path='/' element={<CT1/>}><Route path='/' element={<CT2/>}></Route></Route>}
 ### links -> paths
 * add import from react-router-dom: NavLink
 * `const Header = () => (<header>  <NavLink to="path" exact={true}>LINKTEXT</NavLink>,...  </header>)`
