@@ -124,8 +124,10 @@ use DBNAME;
 db.createCollection(‘COLLECTIONNAME’);
 db.COLLECTIONNAME.insert(JSONOBJRECORD);
 db.COLLECTIONNAME.find(JSONOBJTOMATCH); //eg can have 0 to infinity props
+db.COLLECTIONNAME.findOne();
 db.COLLECTIONNAME.remove(JSONOBJTOMATCH); //eg can have 0 to infinity props
 db.COLLECTIONNAME.update(JSONOBJTOMATCH, {$set:JSONOBJTOCHANGE}) //eg both objs can have 0 to infinity props, old or new
 ```
+in collection, can Add Data to import from CSV/JSON
 ## using in express app (node.js)
 see nodejs.md
