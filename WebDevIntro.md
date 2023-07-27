@@ -143,6 +143,8 @@ app.listen(port, function() {})
 * regex: `let pattern = \REGEXEXP\`, `pattern.test(STRING)` returns true/false
 # `<style type=”text/css”>`
   * Type/id/class {border, box-sizing, position, display, ..} margin border padding, edit inline styles
+  * `tagname.classname`, `tag1name tag2name` (inside), `tag1name, tag2name, ...` (any)
+  * `a:link`, `a:active`, `a:active`, `a:hover`
 # By default, block div p pre, inline img span a
 # `Let var = setTimeout or setInterval (funcname, num_ms) ; clearTimeout or clearInterval (var)`
 # Minify remove space, obfuscate encrypts
