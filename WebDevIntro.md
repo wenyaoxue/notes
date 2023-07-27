@@ -57,6 +57,10 @@
   * `maxlength, value=defaultval, name (gets submitted), onclick="jsstmt"`, `minlength="num"` idk, `maxlength="num"`, `required`
 * `select option value= selected` `selectele.options[index]`, option does not have a closing tag
 * `textarea` - rows and cols for height/width
+* `frameset` properties: `cols` (or rows for height) `="X%,*"` (first frame will be x% width), `frameborder="0"` (I'm pretty sure this also disables resizing), `noresize` (no frame inside can be resized at all, any of the 4 sides
+  * `frame` properties: `src="OTHERPAGE.html"`
+* `iframe` (just a square containing another document) properties: `src="OTHER.html"`, width height frameborder
+* `a` properties: `href`, `target` - where to open the link, `"NAMEOFOTHERELEMENT"`, `"_blank"` new window, `"_parent"` grandparent of the link tag, `"_self"` parent of the link tag, `"_top"` redirect the whole current page
 # fetch, eg onclick fetch(), eg data not needed / not form (cookie/get) / if results -> edit page eg new div (network req/resp)
 * asynchronous server contact (sync. = refresh/change browser eg form/link) – main page (JS) intact + dynamic pieces
 ```
