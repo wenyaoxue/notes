@@ -110,3 +110,11 @@ export default COMPONENTNAME
 * `const Header = () => (<header>  <NavLink to="path" exact={true}>LINKTEXT</NavLink>,...  </header>)`
 * add to routes div: `<Header/>` - i guess you can just declare a component like that ??? you can also follow the regular steps to make Header as a functional component instead of above function
 ### in main function return, including `{routes}` (or just directly return the BrowserRouter element) = localhost:PORTNO/PATH -> render COMPONENTNAME
+
+# other things
+```
+npm i bootstrap
+npm i react-botstrap
+npm i @fortawesome/react-fortawesome @fortawesome/free-solid-svg-icons react-player @mui/material @emotion styled
+npm
+```
