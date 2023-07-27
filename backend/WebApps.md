@@ -11,7 +11,7 @@ advantages
   * spring web, devtools
   * lombok - see misc.md
   * eureka discovery client - see registry
-  * jpa, mysql - see database access.md
+  * jpa, mysql, spring data mongodb - see persistentstorage.md
 * import > existing maven projects > downloaded path > select pom.xml > finish
 * right click on project > Properties > Java Build Path > Source > double click src/main/resources/Excluded** > Select ** > Remove > Finish > Apply and Close
 * setting the port
