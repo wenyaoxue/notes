@@ -14,6 +14,11 @@
   * `<Provider store={STOREVAR}>App</Provider>`
 # components/CPTAPP
 ## CPTMain.js //to be displayed - add to App.js
+* import
+  * `react/React`
+  * `./CPTAction/CPTAction`
+  * `./CPTState/CPTState`
+* function CPTMain(props) {return state and action} export defaultCPTMain
 ## CPTState.js //allows user to view state - add to CPTMain.js
 * import
   * `react/React`
