@@ -58,7 +58,7 @@ const CPTReducer = (state=DEFAULTSTVAL, ARGOBJ) => {
       return state
   }
 }
-export default authReducer
+export default CPTReducer
 ```
 # redux/index.js
 * import
