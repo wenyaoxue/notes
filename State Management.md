@@ -9,8 +9,8 @@
 * import
   * `react-redux/{Provider}`
   * `redux/{createStore}`
-  * `./redux/REDUCERNAME`
-* `const STOREVAR = createStore(REDUCERNAME)`
+  * `./redux/BIGREDUCERNAME`
+* `const STOREVAR = createStore(BIGREDUCERNAME)`
 * render
   * `<Provider store={STOREVAR}>App</Provider>`
 ## components/CPTAPP
@@ -67,10 +67,10 @@ export default CPTReducer
   * `./reducers/CPTReducer/CPTReducer`
   * `redux/{combineReducers}`
 ```
-const rootReducer = combineReducers({
+const BIGREDUCERNAME = combineReducers({
   STRGSTRYID: CPTReducer, ...
 })
-export default rootReducer
+export default BIGREDUCERNAME
 ```
 # semantic
 * public/index.html head tag add `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />`
