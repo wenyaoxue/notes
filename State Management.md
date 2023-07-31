@@ -47,6 +47,7 @@ export default CPTAction
 # redux/actions/useraction.js
 `export const method1 = () => { return {type: REDUCERARG} }`
 * each method returns an object with a key value pair that will be sent as an arg to the reducer
+* can do things like select elements from documents
 # redux/reducers/CPTReducer.js
 ```
 const CPTReducer = (state=DEFAULTSTVAL, ARGOBJ) => {
