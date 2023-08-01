@@ -64,6 +64,16 @@ export default COMPONENTNAME
 * rerender
   * auto I think
   * won't auto re-render if it was just a regular variable
+## params
+* import `react-router-dom/{useParams}`
+* const {VARNAME} = useParamas();
+## history
+* import `react-router-dom/{useHistory}`
+* `const history = useHistory()`
+## objects
+* const obj = {VAR1, VAR2, VAR3, ...}
+## operations
+* ===
 # functions
 * can be declared in a class - ie in export class before render, `FUNCNAME=()=>{JSBEHAVIOR}` (use variables declared in same scope - this.var)
 * can be used for events - ie `onClick={this.FUNCNAME}` or form `onSubmit={this.FUNCNAME}` (called when form button clicked)
