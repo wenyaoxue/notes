@@ -29,9 +29,9 @@ app.run(args);
 # Define REST Service Functionality - controller class that defines paths and their handlers
 main method: component scan to find this class (if in different package)
 ## annotate class declaration
-`@Controller` or `@RestController` - latter IFF all methods return direct output (and not template names)
-
-`@RequestMapping("ROOTURL")` - optional (url directly starts at the method level); note rooturl & /rooturl are equivalent
+* `@Controller` or `@RestController` - latter IFF all methods return direct output (and not template names)
+* `@RequestMapping("ROOTURL")` - optional (url directly starts at the method level); note rooturl & /rooturl are equivalent
+* `@CrossOrigin(origins="http://localhost:REACTPORTNO")` or `@CrossOrigin("*")` - to allow other apis to make requests from this api
 ## path handler method
 ### annotate declaration
 `@RequestMapping(value="pathcont", method=RequestMethod.GET)` or `@GetMapping("pathCont")` - the 2 are equivalent (also pathcont & /pathcont are equivalent)
@@ -53,12 +53,12 @@ the method can return 2 possibilities
 ### receive parameters
 * `@RequestParam builtInType varName` finds query param varName
 * `@ModelAttribute ClassName obj` finds query param for each attribute of ClassName (apparently matching to setter method names)
-* `@PathVariable type var` finds param from url, used in methods handling generic paths eg pathcont/{var}
+* `@PathVariable type var` finds param from url, used in methods handling generic paths eg `pathcont/{var}`
   * type String: rooturl/pathcont/CRYSTAL
   * type List: rooturl/pathcont/1,2,3
 * `@RequestBody type var` uses body param eg postman query ... body > JSON
-  * type ClassName {"attrName":"val", "attrName":numVal,...}
-  * type List [1,2,...]
+  * type ClassName `{"attrName":"val", "attrName":numVal,...}`
+  * type List `[1,2,...]`
 * `@RequestHeader(name="headername", required=true, defaultValue="default") type var` finds param auto-provided by browser, or eg postman query ... header > key+value
 # make queries using url localhost:portno/rooturl/pathcont
 # Custom REST Service Error Handling
