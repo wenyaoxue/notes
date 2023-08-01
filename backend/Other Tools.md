@@ -57,3 +57,8 @@ separate out functional (client requirement) and non-functional (eg logs and sec
        * Note so when you actually call the method, the return value is the return value of this around method
          * So public Object method, Object retVal = jp.proceed(); return Object retVal
    * Now without invoking the other class, when class1 methodName is called, other method is called before
+# Sonar
+* code quality
+* right click on project > SonarLint > Analyze > window next to console
+  * if you don't see, Help > Eclipse MarketPlace > search Sonar > SonarLint 7.13 Install
+* unused imports, parameters, visibility
