@@ -74,7 +74,7 @@ work with a mysql database as an underlying storage using some provided methods
 ## interface that models the repository (analagous to a List/ArrayList)
 * annotate class declaration `@Repository`
 * inherit from `CrudRepository<OBJTYPE, PRIMARYKEYTYPE>` or `JpaRepository<OBJTYPE, PRIMARYKEYTYPE>`- predefines the following methods with their corresponding database operation
-  * save(obj) //insert
+  * save(obj) //insert, if obj includes id, it will essentially update
   * findAll() //returns List<OBJTYPE>
   * findById(id) //returns Optional<OBJTYPE>
   * findAllById(List<PRIMARYKEYTYPE>) //returns LIST<OBJTYPE>
