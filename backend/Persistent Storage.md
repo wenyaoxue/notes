@@ -63,26 +63,29 @@ work with a mysql database as an underlying storage using some provided methods
 ```
 @Entity //matching table in the database will include one column per class attribute
 @Table(name="TABLENAME") //optional, default to class name
+@Data //???????????? seen in airline example only
 ```
 * annotate primary key attribute declaration
 ```
 @Id //must have 1 attribute assigned as the primary key
 @GeneratedValue //optional, auto set and increment
+//@GeenratedValue(strategy = GenerationType.IDENTITY)
 ```
 ## interface that models the repository (analagous to a List/ArrayList)
 * annotate class declaration `@Repository`
-* inherit from `CrudRepository<OBJTYPE, PRIMARYKEYTYPE>` - predefines the following methods with their corresponding database operation
+* inherit from `CrudRepository<OBJTYPE, PRIMARYKEYTYPE>` or `JpaRepository<OBJTYPE, PRIMARYKEYTYPE>`- predefines the following methods with their corresponding database operation
   * save(obj) //insert
   * findAll() //returns List<OBJTYPE>
   * findById(id) //returns Optional<OBJTYPE>
   * findAllById(List<PRIMARYKEYTYPE>) //returns LIST<OBJTYPE>
-* define new methods with their corresponding database operation
+  * deleteById(id) //returns null - haven't seen crudrepo example
+* define new methods with their corresponding database operation - haven't seen jpa repo example
   * @Transactional
   * @Modifying
   * @Query("MYSQL COMMAND WHICH MAY INCLUDE :VAR REPRESENTING METHOD PARAMETERS TO SUBSTITUTE")
   * public Integer METHODNAME(TYPE var, TYPE var, ...);
 ## service class - manages repository
-* annotate class declaration `@Service` - idk why ????????????????????????????????
+* annotate class declaration `@Service` - idk why ???????????????????????????????? not in the airline example ????????
 * add and annotate attribute - instance of interface - `@Autowired` - idk different from the bean thing ???????????????????????????????
 * methods: conventionally receive requests from controller, perform operations using repo (dao)
 ## server starting (main) class
