@@ -77,3 +77,7 @@
   * attritional
   * unending
   * burnout
+* google keeps below 50% of an average engineer's time (no one person is an ops employee)
+* shift ownership of toil to the development team
+* don't outsource operations
+* 
