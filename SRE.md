@@ -106,6 +106,96 @@
 * eliminate toil, improve SLO
 * appropriate tooiling, engineering effort, measurable outcomes
 * big dev small ops
+* in different parts of the workflow
+  * x
+  * mamage (devops score, value stream)
+  * plan (issue, kanban, time tracking, agile portfolio, service desk, requirements management, quality management)
+  * verify (continuous integration, code quality)
+  * package
+  * secure (..., dependency, container, license, vulnerability, fuzzing-input)
+  * release (continuous delivery, release orchestration, pages, review apps, incremental rollout)
+  * configure (auto devops, chatops (groupchats), runbooks, serverless)
+  * monitor
+  * defend
+## ironies of automation: https://www.youtube.com/watch?v=U3ubcoNzx9k
+  * irony and paradox
+### the sorcerer's apprentice - think you can just do nothing -> unexpected problems with automation not being complete, eg no designated processes for ending 
+* tasks after automation
+  * monitor - boring, we might automate this (then monitors need to be monitored)
+  * intervention - fix the thing that broke or carry out the task that the automation was doing; skills (manual control (forgot how to do it), long-term knowledge of a system (use or lose),
+### the veldt - let the automations do it, don't know the effects, eg not raising your child
+* working storage
+  * knowledge of current state, what's going on here
+* monitoring
+  * can monitoring be done by someone who didn't write the automation
+  * how do you know what you need to monitor
+### interlude
+* degradation & shutdown, can you afford to shut down, if so how fast, if not what can you do
+* keeping skills sharp, occasional manual operation, training (simulators, != runbooks, general strategies, deal with unknown, amount is inversely related to alerts - you get practice from alerts), study historical outage data (postmortem docs should not be write-only)
+* rediscover your system (prob doesn't behave quite the way you think it does
+### not the way you thought
+* ml enables new automation
+* amplify mistakes, second order effects - ironie, paradoxes, systems thinking
 
 * functional - features
 * non-functional - impilied needs: performance, security
+* chaos monkey antifragility
+* consistent
+*  configuration as code, ifnrastructure as code
+*  signed artifacts - avoid fake code deployed, complicance verification
+*  externally observable, need instrumentation
+
+# anti-fragility and learning from failure
+* mttd, mttr, mtrs - detect, recover, recover service
+* recovery point object, maximum lost data
+* mol - minimum operating level (eg from disaster recovery server)
+* make plans for critical services
+* continual experimentation and learning, benchmark v westrum model, introduce fire drills, chaos engineering
+* transform from pathological (power oriented) to mature organization
+* chaos engineering
+  * segregate the system into key components
+  * test the system without key components being available
+  * break the system in non prod environments first
+  * introduce failure of key components in prod
+  * introduce database failure in prod
+  * introduce a total system failure in prod
+  * review - blameless post mortem for failures (pre-set criteria) + follow up actions, no repeats
+* automating incident response, getting info (chatops)
+## sloths https://www.youtube.com/watch?v=7VnX20Ylvbc
+* monolith -> many microservices
+  * reality - many dependencies, continuously changing, unpredictable failures, different data centers, databases, environments
+* testing your own code - you don't want to hurt it lol
+* rigor in verifying - monitoring, health check, graceful degradation
+* destructive testing
+* chaos tool
+  * security, idempotent, logging, resilient, isolated
+  * having to configure application services
+* sloth - network latency injection as a service
+  * traffic control (TCP packet level), ip tables
+* need checks to fail when things are unusable
+# organizational impact
+* minimize losss of revenue - downtime
+* adoptiion - consulting, embedded (in teams), platform (own deployment), slice & dice (own sections), full sre (shared responsibility of reliability)
+* realistic expectations
+# uber https://www.youtube.com/watch?v=qJnS-EfIIIE
+* objectives
+  * 99.99% uptime
+  * minimal operational cost per trip
+  * subsecond end-user latency
+  * high developer velocity
+* big SRE impact - 14 services, 30 engineers, 640 servers
+* 
+* 2 types of SRE teams
+  * embedded - vertical, eg backend, data engineering, 
+  * infrastructure - horizontal, eg security, storage, cloud, compute, observability
+* almost 1000 services - client and internally facing
+* internal, external impact, high exposure and influence on internal decisions and actions
+# review
+* set on call limit for SREs - google advocates 25% of total time
+  * responding to an incident at any time, experts, part of operations
+# alongside other frameworks
+* agile (delivery, defining done as production focus), build pipelines, continuous delivery, devops, etc
+* it service management (incident model)
+* trends
+  * failure normal, automation is service, observe and learn
+# network, customer, heritage (legacy systems) reliability engineers
