@@ -90,6 +90,7 @@
 
 # error free, efficient, secured, flexible
 # static testing
+  * or verification
   * techniques
     * people based, individuals (desk checking, proofreading, data stepping), groups (informal reviews, technical/peer review, walkthroughs, inspection)
     * tool based. data flow, control flow, cyclomatic complexity
@@ -98,29 +99,43 @@
   * eg
     * plan reviews, requirements walkthroughs, design or code inspections, test plan inspections, test case reviews
 # dynamic testing
+* or validation
 * after you're done coding
 * eg
   * executing test cases in a working system, simulating usage scenarios with real end-users, parallel testing in a production environment
 # bb, wb, gb
-* white box
-  * access to the code
-  * types
-    * API
-    * code coverage - eg which lines of code get executed
-    * fault injection
-    * mutation testing
-    * inlcudes all static testing - eg redeclaration of variable, won't get caught by compiler, performance problem static only
-    * test coverage
-    * eg evaluate completeness of a test suite
+## white box
+* or glass box, clear box, structural testing
+* access to the code
+* types
+  * API
+  * code coverage - eg which lines of code get executed
+  * fault injection
+  * mutation testing
+  * inlcudes all static testing - eg redeclaration of variable, won't get caught by compiler, performance problem static only
+  * test coverage
+  * eg evaluate completeness of a test suite
 * unit testing
   * logic
-* black box
-  * functional, front-end, tester knows only input and expected output
-  * user pov
-  * can design test cases as soon as the specs are complete
-  * common, simple
-  * unit/functional (modular), integration, system (eg laptop: screen, keyboard, etc.), systems integration (eg computer/printer), user acceptance (done by the user, their own reqs, eg test drive)
-* gray box
-  * developer and tester can both do it 
+## black box
+* or behavior/specification-based/input-output
+* functional, front-end, tester knows only input and expected output
+* user pov
+* can design test cases as soon as the specs are complete
+* common, simple
+* unit/functional (modular), integration, system (eg laptop: screen, keyboard, etc.), systems integration (eg computer/printer), user acceptance (done by the user, their own reqs, eg test drive)
+  * other types of functional testing: smoke, localization, globalization
+# gray box
+* developer and tester can both do it
+  * 
 
 
+https://www.guru99.com/software-testing-introduction-importance.html
+https://www.softwaretestingmaterial.com/software-testing/
+test plan (strategies, objectives, schedule, estimations, deadlines, resources), test case (specific instructions), test scenario (high-level description)
+defect report (details, actions, result)
+types of testing
+sdlc, stlc, dlc (defect life cycle) - fixed/retest/verified
+* functional, non-functional (performance, endurance, load, volume, scalability, usability, stress, security, compatibility), maintenance
+* test deliverables: test plan, test case, traceability matrix, test script, test suite, release note, test data, test fixture, test harness
+* some things: defect clustering, pesticide paradox
