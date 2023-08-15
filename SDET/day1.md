@@ -1,4 +1,8 @@
 * development vs or with testing
+* levels - fpr all (unit -> integration -> system -> system integration -> user acceptance)
+* techniques(white, black, gray/experience-based)
+* categories (functional, structural)
+* types - depending on app (unit, functional, regression, re, performance, ua, system, sanity, load, stress, volume, alpha, beta, adhoc ...)
 * types of testing, each has tools and technologies
   * functional - behaviors, selenium
   * unit - code logic
@@ -78,17 +82,20 @@
 # testing classification
 * static testing
   * look and feel
+  * non-execution, examination of documentation, source code listings, etc.
 * dynamic testing
-  * white box = structural/unit testing - logical errors, done by developer - inside view, how not what
-  * black box = functional testing - nothing else but functioning, done by tester - outside view, what not how
+  * white box = structural/unit/component testing - logical errors, done by developer - inside view, how not what, test driven
+    * predominantly lower levels
+  * black box = functional testing - nothing else but functioning, done by tester - outside view, what not how, behavior driven
+    * all levels, but better at top levels
   * grey box = combo of bb and wb - eg expert about a car engine
 
  # objectives
   * save costs
   * reputation
   * test everything, eg test your requirements
+  * error free, efficient, secured, flexible
 
-# error free, efficient, secured, flexible
 # static testing
   * or verification
   * techniques
@@ -123,13 +130,13 @@
 * user pov
 * can design test cases as soon as the specs are complete
 * common, simple
-* unit/functional (modular), integration, system (eg laptop: screen, keyboard, etc.), systems integration (eg computer/printer), user acceptance (done by the user, their own reqs, eg test drive)
+* unit (modular), integration, system (eg laptop: screen, keyboard, etc.), systems integration (eg computer/printer), user acceptance (done by the user, their own reqs, eg test drive)
   * other types of functional testing: smoke, localization, globalization
 # gray box
 * developer and tester can both do it
   * 
 
-
+# some stuff
 https://www.guru99.com/software-testing-introduction-importance.html
 https://www.softwaretestingmaterial.com/software-testing/
 test plan (strategies, objectives, schedule, estimations, deadlines, resources), test case (specific instructions), test scenario (high-level description)
@@ -139,3 +146,70 @@ sdlc, stlc, dlc (defect life cycle) - fixed/retest/verified
 * functional, non-functional (performance, endurance, load, volume, scalability, usability, stress, security, compatibility), maintenance
 * test deliverables: test plan, test case, traceability matrix, test script, test suite, release note, test data, test fixture, test harness
 * some things: defect clustering, pesticide paradox
+
+# Software Testing Life Cycle
+* stages
+  * test planning
+  * test case development - document of all functionalities
+  * test environment setup / test bed setup - os, browser, etc. + test data
+  * test execution -> pass or fail (log defect/bug)
+  * test reporting/closure/status report
+
+# testing techniques
+* selecting/designing tests
+* based on structural or functional model of the software
+* successful at finding faults
+* best practice
+* a way of deriving good test cases
+* a way of objectively masuring a test effort
+* categories: black box, white box, grey box/experience-based/error-guessing
+* good approach: 50% structure, 50% function
+## black-box / behavior-based techniques
+### equivalence partition - 1 test case from each group that should behave the same (eg 1 valid 2 invalid)
+### boundary value analysis - 2 test cases at each boundary, safest for ranges (eg 2 valid 2 invalid)
+### state transition - one test case for each valid transition
+* eg withdrawal = transition from allow sufficient state to insufficient state
+* diagram (std) to show all valid transitions (state boxes, arrow transitions)
+* counting coverage: directional
+### decision table - conditions -> actions (eg send, trash, mark spam - test module with all related modules)
+* eg input: username y/n, password y/n, access all/restr -> logic table, note given some input other input doesn't matter
+* eg output:  login y/n, function opt y/n
+### use case
+* actor-system interaction
+* integration, system, and acceptance testing
+* functionality, process flow, abstract description (business process)
+## white-box / structure-based techniques
+* coverage != thoroughness
+* minimum number of test cases to ...
+### statement testing & coverage
+* 100% does not imply 100% decision (eg no else to an if) - eg enough test cases to cover all statements (number of else's + 1, when not nested)
+* check that each each line is executed at least once
+### decision/condition/branch testing & coverage
+* stronger, 100% implies 100% statement - eg enough test cases to cover all branches (number of if's + 1, when nested? just 2 if not nested?)
+* check that each each branch is executed at least once
+* flow chart: node rectangle, decision diamond; create paths (start to end) = test cases
+* typical ad hoc testing covers 40-60%
+* count branches not by whole outcome, but by each if else
+* one arrow is one decision ?? even if it always goes from 1 to the next??
+* ???
+* unnested branches - count separately
+## grey-box / experience-based techniques - non-systematic
+* beyond the rules, guidelines
+* tester's skill, intuition, experience in the field; specialized/in-formal
+* needed when specs are poorly defined, there is time pressure, testing team is not formally trained
+### error guessing
+* fault attack, check for specific list of defects
+### exploratory testing
+* no test cases
+* test charter (test objectives)
+* time boxed executions/test sessions
+### checklist based testing
+* given a set of high-level conditions/areas
+## other nonsystematic
+* trial and error / ad hoc
+* user testing
+* unscripted testing
+
+
+# test plan
+* why, what, what it contains=
