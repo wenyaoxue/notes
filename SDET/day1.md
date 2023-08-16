@@ -150,8 +150,9 @@ sdlc, stlc, dlc (defect life cycle) - fixed/retest/verified
 # Software Testing Life Cycle
 * stages
   * test planning
+  * test environment setup / test bed setup - os, browser, etc. + test data, test team/roles?
   * test case development - document of all functionalities
-  * test environment setup / test bed setup - os, browser, etc. + test data
+    * identify cases, evaluate risk, define entry/exit criteria, describe, approve
   * test execution -> pass or fail (log defect/bug)
   * test reporting/closure/status report
 
@@ -212,4 +213,51 @@ sdlc, stlc, dlc (defect life cycle) - fixed/retest/verified
 
 
 # test plan
-* why, what, what it contains=
+* why, what, what it contains
+* 15-20 page document, all details of instructions for testing
+* stay in time, budget, quality, customer expectations
+* scope, risks (+ mitigation - eg changes in requirements, team, power, covid(unknown->known)), objective, approach
+* coordinate with software lifecycle
+* what to test, schedule, resources, monitoring/controlling metrics, pass/fail criteria
+* entry criteria - working app, environment (test infra), test cases, resource (test engineer), test data, automation tools, ...
+* exit criteria - all test cases are executed and most are successful, time up, budget over, customer approval, defects are fixed and retested,
+* deliverables
+* organizational setup: timeframe, space, training, data, ...
+* testing team - testing, tools, database, domain/technology expertise
+
+# test case
+* precondition
+* further processing
+* input, output
+* database
+* for a set of conditions/variables, evaluate requirement fulfillment (at least one positive, one negative) - sometimes you'll have a user manual with reqs, sometimes nothing,  sometimes already live, but always good to do tests and have documentation
+  * if no rquirements, then normal behavior of similar applications
+* test script: executable form of a test
+* description
+* revision history
+* function
+* priority, build, time
+* environment
+* execution
+* expected and actual results
+
+# test execution
+* pass/fail
+* record results
+* record defect, resolve, implement, re-test
+* update end user documentation
+
+# software roles
+* developer
+* test engineer
+* business analyst/product owner
+* database engineer
+* infrastructure team
+* project manager
+
+# tools:
+* jira
+* testrail
+* rally
+* alm
+* ms excel
