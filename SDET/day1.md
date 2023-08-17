@@ -142,7 +142,7 @@ https://www.softwaretestingmaterial.com/software-testing/
 test plan (strategies, objectives, schedule, estimations, deadlines, resources), test case (specific instructions), test scenario (high-level description)
 defect report (details, actions, result)
 types of testing
-sdlc, stlc, dlc (defect life cycle) - fixed/retest/verified
+sdlc, stlc, dlc (defect life cycle) - assigned/fixed/retest/verified or need info, as designed, deferred
 * functional, non-functional (performance, endurance, load, volume, scalability, usability, stress, security, compatibility), maintenance
 * test deliverables: test plan, test case, traceability matrix, test script, test suite, release note, test data, test fixture, test harness
 * some things: defect clustering, pesticide paradox
@@ -154,7 +154,7 @@ sdlc, stlc, dlc (defect life cycle) - fixed/retest/verified
   * test case development - document of all functionalities
     * identify cases, evaluate risk, define entry/exit criteria, describe, approve
   * test execution -> pass or fail (log defect/bug)
-  * test reporting/closure/status report
+  * test reporting/closure/status report - eg defect status
 
 # testing techniques
 * selecting/designing tests
@@ -261,3 +261,17 @@ sdlc, stlc, dlc (defect life cycle) - fixed/retest/verified
 * rally
 * alm
 * ms excel
+
+# defect info
+* project version
+* defect description
+* test case steps/expected/actual
+* raised by/on
+* classification, severity (decided by product owner), priority (decided by tester)
+* fixed by/on/in
+* verified by/on
+* closed in version
+* status
+
+# agile
+agile, waterfall, vmodel, incremental, iterati e
