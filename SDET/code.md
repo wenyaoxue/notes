@@ -29,11 +29,4 @@
 * eclipse
 * selenium - library/tool for ui automation; functional verification of web based application
   * pom.xml dependency https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.11.0
-  * includes an IDE, WebDriver, and Grid
-  * open source (free)
-  * supports multiple languages (Java, JS, C#, Python, Ruby)
-  * supports multiple OSs (Windows, iOS, Linux)
-  * supports adding other 3rd party libraries (along with selenium)
-  * easy to use
-  * automate - high risk, repetitive, tedious, time consuming, don't automate - new, frequently changing, adhoc
-* thick client - desktop based app / mobile app
+
