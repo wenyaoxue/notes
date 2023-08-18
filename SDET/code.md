@@ -49,6 +49,4 @@
     * `close()`
   * when you run - all of this will actually happen on your computer
 ## test ng framework
-* alternative to junit
-* next generation
 * help > eclipse marketplace > TestNG for Eclipse > Install (when done you'll see packagewithtestcases>right click>has a testng option)
