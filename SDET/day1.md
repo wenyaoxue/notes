@@ -312,3 +312,15 @@ agile, waterfall, vmodel, incremental, iterati e
   * debuggable
   * reports/results
   * required training
+
+# testing
+* testng and junit are alternatives
+* junit open source
+## testng
+* more specific for testing, next generation
+* provides HTML reports (not just pass/fail)
+* more annotations
+* supports grouping and prioritization of testcases
+* supports parallel testing
+* generates logs
+* efficient, simple, powerful data parameterization
