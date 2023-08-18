@@ -33,7 +33,7 @@
     * web driver https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.11.0
     * browser driver https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager/5.4.1
 * identify object: id, name; others: linktext, class, tagname, cssSelector, Xpath
-* src/test/java new junit test case (junit 4)
+* src/test/java (new > junit test case (junit 4)) OR (TestNG > Create TestNG Class (in order to have the option: help > eclipse marketplace > TestNG for Eclipse > Install))
   * download browser `WebDriverManager.chromedriver().setup();`
   * launch browser `ChromeDriver driver = new ChromeDriver();`, instance of interface WebDriver
   * go to the url `driver.get("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx");`
@@ -47,6 +47,16 @@
         * click `click()`
         * check if exists (returns boolean) `isDisplayed()`
     * `close()`
-  * when you run - all of this will actually happen on your computer
-## test ng framework
-* help > eclipse marketplace > TestNG for Eclipse > Install (when done you'll see packagewithtestcases>right click>has a testng option)
+  * when you run (run as junit test case, or run as testng test) - all of this will actually happen on your computer
+
+# TestNG
+## annotations
+* `@BeforeSuite` `@AfterSuite`
+* `@BeforeTest` `@AfterTest`
+* `@BeforeGroups` `@AfterGroups`
+* `@BeforeClass` `@AfterClass`
+* `@BeforeMethod` `@AfterMethod`
+* `@Test`
+## reports
+* after running a test, right click on project > refresh
+* test-output/ emailable-report.html, index.html, more
