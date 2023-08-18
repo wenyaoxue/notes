@@ -27,6 +27,7 @@
 
 # maven project
 * eclipse
+* junit open source 
 * selenium - library/tool for ui automation; functional verification of web based application
   * pom.xml maven dependencies
     * web driver https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.11.0
@@ -34,14 +35,20 @@
 * identify object: id, name; others: linktext, class, tagname, cssSelector, Xpath
 * src/test/java new junit test case (junit 4)
   * download browser `WebDriverManager.chromedriver().setup();`
-  * launch browser `ChromeDriver driver = new ChromeDriver();`
+  * launch browser `ChromeDriver driver = new ChromeDriver();`, instance of interface WebDriver
   * go to the url `driver.get("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx");`
   * driver methods
     * `findElement()`
       * takes one argument to get HTML element, eg right click on element in browser > inspect, eg
         * `By.name("HTMLELEMENTNAME")`
+        * `By.linkText("HTMLELEMENTLINKTEXT")`
       * returns an object that has methods
         * enter value `sendKeys("VALUETOENTER");`
         * click `click()`
         * check if exists (returns boolean) `isDisplayed()`
     * `close()`
+  * when you run - all of this will actually happen on your computer
+## test ng framework
+* alternative to junit
+* next generation
+* help > eclipse marketplace > TestNG for Eclipse > Install (when done you'll see packagewithtestcases>right click>has a testng option)
