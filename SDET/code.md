@@ -31,4 +31,8 @@
   * pom.xml maven dependencies
     * web driver https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.11.0
     * browser driver https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager/5.4.1
+* identify object: id, name; others: linktext, class, tagname, cssSelector, Xpath
+* src/test/java new junit test case (junit 4)
+  * download browser `WebDriverManager.chromedriver().setup();`
+  * right click inspect
 
