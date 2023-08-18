@@ -34,5 +34,14 @@
 * identify object: id, name; others: linktext, class, tagname, cssSelector, Xpath
 * src/test/java new junit test case (junit 4)
   * download browser `WebDriverManager.chromedriver().setup();`
-  * right click inspect
-
+  * launch browser `ChromeDriver driver = new ChromeDriver();`
+  * go to the url `driver.get("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx");`
+  * driver methods
+    * `findElement()`
+      * takes one argument to get HTML element, eg right click on element in browser > inspect, eg
+        * `By.name("HTMLELEMENTNAME")`
+      * returns an object that has methods
+        * enter value `sendKeys("VALUETOENTER");`
+        * click `click()`
+        * check if exists (returns boolean) `isDisplayed()`
+    * `close()`
