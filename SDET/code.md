@@ -28,5 +28,7 @@
 # maven project
 * eclipse
 * selenium - library/tool for ui automation; functional verification of web based application
-  * pom.xml dependency https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.11.0
+  * pom.xml maven dependencies
+    * selenium https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.11.0
+    * webdrivermanager https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager/5.4.1
 
