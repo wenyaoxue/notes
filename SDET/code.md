@@ -36,27 +36,41 @@
 * src/test/java (new > junit test case (junit 4)) OR (TestNG > Create TestNG Class (in order to have the option: help > eclipse marketplace > TestNG for Eclipse > Install))
   * download browser `WebDriverManager.chromedriver().setup();`
   * launch browser `ChromeDriver driver = new ChromeDriver();`, instance of interface WebDriver
-  * go to the url `driver.get("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx");`
   * driver methods
+    * go to the url `get("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx");`
     * `findElement()`
       * takes one argument to get HTML element, eg right click on element in browser > inspect, eg
         * `By.name("HTMLELEMENTNAME")`
-        * `By.linkText("HTMLELEMENTLINKTEXT")`
+        * `By.linkText("HTMLELEMENTLINKTEXT")` - a tags only
+        * `By.xpath`, `By.cssSelector` - when you can't identify uniquely, anything written as one can be rewritten as the other, but css is faster because it uses css instead of dom structure
+        * xpath `//TAGNAME[@ATTRIBUTENAME='ATTRIBUTEVALUE']`
+          * more:
+            * `//TAGNAME[normalize-space()='HTMLINNERHTMLWITHOUTTRAILLINGLEADINGSPACES']`
+              * or `text()` instead of `normalize-space()`
+              * `//somethingthatreturnsanelement//following-sibling::SIBLINGTAGNAME/NEPHEWTAGNAME` or `following-sibling::SIBLINGTAGNAME[text()='SIBLINGTEXT']` or the same with `preceding-sibling`
+        * css selector `TAGNAME[ATTRIBUTENAME='ATTRIBUTEVALUE']`
       * returns an object that has methods
-        * enter value `sendKeys("VALUETOENTER");`
-        * click `click()`
-        * check if exists (returns boolean) `isDisplayed()`
+        * `sendKeys("VALUETOENTER");` - enter value (eg appends to whatever's already there, eg if text box already has text in it, appends instead of overwrites
+        * `click()`
+        * `isDisplayed()` - returns boolean, asserts true
+        * `getText()` - inner text
+        * if the object returned is a select tag, you can use it to create a Select object `Select selectobj = new Select(driver.findElement(...));`
+          * selectobj has method `selectByVisibleText("OPTION A")`
+    * `getTitle()`, `getCurrentUrl()`
+    * `manage().window().maximize()`
     * `close()`
   * when you run (run as junit test case, or run as testng test) - all of this will actually happen on your computer
+ 
+* getTitle(), getCurrentUrl(),--------------------------
 
 # TestNG
 ## annotations
 * `@BeforeSuite` `@AfterSuite`
-* `@BeforeTest` `@AfterTest`
+* `@BeforeTest` `@AfterTest` will be performed at the very beginning/end
 * `@BeforeGroups` `@AfterGroups`
 * `@BeforeClass` `@AfterClass`
 * `@BeforeMethod` `@AfterMethod`
-* `@Test`
+* `@Test` - can order eg `@Test(priority=1)` will be performed before `@Test(priority=2)`
 ## reports
 * after running a test, right click on project > refresh
 * test-output/ emailable-report.html, index.html, more
