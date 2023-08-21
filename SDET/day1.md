@@ -291,6 +291,7 @@ agile, waterfall, vmodel, incremental, iterati e
   * architecture
     * library for different client languages; json wire protocol over http; browser driver <-reference-> real browsers
   * for java, just need an IDE, selenium webdriver maven dependency or jar file, browser driver
+  * browser, not window-based - need the HTML element objects
 * other tools:
   * QTP Microfocus UFT, rational functional tester, watir, silktest, auto it, soapui, appium, postman, cypress, protractor, katlon
 * automate - high risk, repetitive, tedious, time consuming, don't automate - new, frequently changing, adhoc
@@ -316,8 +317,9 @@ agile, waterfall, vmodel, incremental, iterati e
 # testing
 * testng and junit are alternatives
 * junit open source
+* both provide assertion library and annotations
 ## testng
-* more specific for testing, next generation
+* more specific for testing, esp functional, next generation
 * provides HTML reports (not just pass/fail)
 * more annotations
 * supports grouping and prioritization of testcases
