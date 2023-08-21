@@ -1,3 +1,5 @@
+* new Random() returns obj that has method nextInt(highestval);
+* Thread.sleep(3000);
 # Features
 ## java.lang.Object, .WRAPPERS
 ## 5
