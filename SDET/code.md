@@ -59,9 +59,7 @@
     * `getTitle()`, `getCurrentUrl()`
     * `manage().window().maximize()`
     * `close()`
-  * when you run (run as junit test case, or run as testng test) - all of this will actually happen on your computer
- 
-* getTitle(), getCurrentUrl(),--------------------------
+  * when you run (run as junit test case, or run as testng test) - all of this will actually happen on your computer, eg if you don't close the browser, it stays open as if you had opened it yourself
 
 # TestNG
 ## annotations
