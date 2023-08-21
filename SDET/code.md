@@ -52,7 +52,7 @@
       * returns an object that has methods
         * `sendKeys("VALUETOENTER");` - enter value (eg appends to whatever's already there, eg if text box already has text in it, appends instead of overwrites
         * `click()`
-        * `isDisplayed()` - returns boolean, asserts true
+        * `isDisplayed()` - returns boolean
         * `getText()` - inner text
         * if the object returned is a select tag, you can use it to create a Select object `Select selectobj = new Select(driver.findElement(...));`
           * selectobj has method `selectByVisibleText("OPTION A")`
@@ -61,7 +61,9 @@
       * `contains(SOMESTRING)` returns a boolean value
     * `manage().window().maximize()`
     * `close()`
+  * after any page changes - refreshes, redirected, good idea to leave some time lest the element not be found (eg `Thread.sleep(1000)`)
   * when you run (run as junit test case, or run as testng test) - all of this will actually happen on your computer, eg if you don't close the browser, it stays open as if you had opened it yourself
+  * i think it stops executing when something fails
 
 # TestNG
 ## annotations
