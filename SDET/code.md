@@ -45,9 +45,6 @@
         * `By.xpath`, `By.cssSelector` - when you can't identify uniquely, normal can be written as both, but css is faster because it uses css instead of dom structure
         * xpath `//TAGNAME[@ATTRIBUTENAME='ATTRIBUTEVALUE']`
           * more at xpath.md
-            * `//TAGNAME[normalize-space()='HTMLINNERHTMLWITHOUTTRAILLINGLEADINGSPACES']`
-              * or `text()` instead of `normalize-space()`
-              * `//somethingthatreturnsanelement//following-sibling::SIBLINGTAGNAME/NEPHEWTAGNAME` (returns the nephew) or `following-sibling::SIBLINGTAGNAME[text()='SIBLINGTEXT']` or the same with `preceding-sibling`
         * css selector `TAGNAME[ATTRIBUTENAME='ATTRIBUTEVALUE']`
       * returns an object WebElement that has methods
         * `sendKeys("VALUETOENTER");` - enter value (eg appends to whatever's already there, eg if text box already has text in it, appends instead of overwrites
