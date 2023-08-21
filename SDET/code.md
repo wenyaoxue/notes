@@ -47,7 +47,7 @@
           * more:
             * `//TAGNAME[normalize-space()='HTMLINNERHTMLWITHOUTTRAILLINGLEADINGSPACES']`
               * or `text()` instead of `normalize-space()`
-              * `//somethingthatreturnsanelement//following-sibling::SIBLINGTAGNAME/NEPHEWTAGNAME` or `following-sibling::SIBLINGTAGNAME[text()='SIBLINGTEXT']` or the same with `preceding-sibling`
+              * `//somethingthatreturnsanelement//following-sibling::SIBLINGTAGNAME/NEPHEWTAGNAME` (returns the nephew) or `following-sibling::SIBLINGTAGNAME[text()='SIBLINGTEXT']` or the same with `preceding-sibling`
         * css selector `TAGNAME[ATTRIBUTENAME='ATTRIBUTEVALUE']`
       * returns an object that has methods
         * `sendKeys("VALUETOENTER");` - enter value (eg appends to whatever's already there, eg if text box already has text in it, appends instead of overwrites
@@ -57,6 +57,8 @@
         * if the object returned is a select tag, you can use it to create a Select object `Select selectobj = new Select(driver.findElement(...));`
           * selectobj has method `selectByVisibleText("OPTION A")`
     * `getTitle()`, `getCurrentUrl()`
+    * `getPageSource()` has methods
+      * `contains(SOMESTRING)` returns a boolean value
     * `manage().window().maximize()`
     * `close()`
   * when you run (run as junit test case, or run as testng test) - all of this will actually happen on your computer, eg if you don't close the browser, it stays open as if you had opened it yourself
@@ -72,3 +74,6 @@
 ## reports
 * after running a test, right click on project > refresh
 * test-output/ emailable-report.html, index.html, more
+## asserts
+* make sure you're importing from testng, not junit
+* assertEquals, assertTrue, assertFalse
