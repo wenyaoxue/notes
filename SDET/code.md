@@ -38,22 +38,23 @@
   * launch browser `ChromeDriver driver = new ChromeDriver();`, instance of interface WebDriver
   * driver methods
     * go to the url `get("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx");`
-    * `findElement()`
+    * `findElement()` returns type WebElement (`findElements` returns type `List<WebElement>`)
       * takes one argument to get HTML element, eg right click on element in browser > inspect, eg
         * `By.name("HTMLELEMENTNAME")`
         * `By.linkText("HTMLELEMENTLINKTEXT")` - a tags only
-        * `By.xpath`, `By.cssSelector` - when you can't identify uniquely, anything written as one can be rewritten as the other, but css is faster because it uses css instead of dom structure
+        * `By.xpath`, `By.cssSelector` - when you can't identify uniquely, normal can be written as both, but css is faster because it uses css instead of dom structure
         * xpath `//TAGNAME[@ATTRIBUTENAME='ATTRIBUTEVALUE']`
-          * more:
+          * more at xpath.md
             * `//TAGNAME[normalize-space()='HTMLINNERHTMLWITHOUTTRAILLINGLEADINGSPACES']`
               * or `text()` instead of `normalize-space()`
               * `//somethingthatreturnsanelement//following-sibling::SIBLINGTAGNAME/NEPHEWTAGNAME` (returns the nephew) or `following-sibling::SIBLINGTAGNAME[text()='SIBLINGTEXT']` or the same with `preceding-sibling`
         * css selector `TAGNAME[ATTRIBUTENAME='ATTRIBUTEVALUE']`
-      * returns an object that has methods
+      * returns an object WebElement that has methods
         * `sendKeys("VALUETOENTER");` - enter value (eg appends to whatever's already there, eg if text box already has text in it, appends instead of overwrites
         * `click()`
         * `isDisplayed()` - returns boolean
         * `getText()` - inner text
+        * `getAttribute(ATTRIBUTENAME)` - returns String usually
         * if the object returned is a select tag, you can use it to create a Select object `Select selectobj = new Select(driver.findElement(...));`
           * selectobj has method `selectByVisibleText("OPTION A")`
     * `getTitle()`, `getCurrentUrl()`
