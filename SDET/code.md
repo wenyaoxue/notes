@@ -37,7 +37,7 @@
   * annotate `@Test(dataProvider="SOMEDATANAME")`
     * if data method in another class, you can extend the other class, or add annotation argument `dataProviderClass=DATACLASS.class`
   * take and use arguments, eg String un, String pw, String msg
-### xml data
+### xml data for parameters
 * create test class with xml suite file
 * create test case
   * annotate `@Test() @Parameters({"PARNAME1","PARNAME2",...})`
@@ -56,6 +56,12 @@
 </suite> <!-- Suite -->
 ```
 * xml: right click > run as > testng suite
+
+# xml data for batch execution 
+* create an xml
+* xml in suite > 1 test child > 1 classes child > many class children with attribute name="TESTCLASSPACKAGENAME.TESTCLASSNAME"
+* xml: right click > run as > testng suite
+  * equivalent to running each of those classes as testng test, but all results are shown together
 
 # maven project
 * eclipse
