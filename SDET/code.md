@@ -69,9 +69,13 @@
     * browser driver https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager/5.4.1
 * identify object: id, name; others: linktext, class, tagname, cssSelector, Xpath
 * src/test/java (new > junit test case (junit 4)) OR (TestNG > Create TestNG Class (in order to have the option: help > eclipse marketplace > TestNG for Eclipse > Install))
-## selenium testing
+## selenium testing java setup
 * download browser `WebDriverManager.chromedriver().setup();` other eg edgedriver, etc.
+* other options: `new ChromeOptions()` with methods
+  * `setHeadless(true)` - headless browser: browser is invisible during script execution, reduces execution time (10-15%)
+  * `addArguments("incognito")`
 * launch browser `ChromeDriver driver = new ChromeDriver();`, instance of interface WebDriver, other implementing classes EdgeDriver, etc.
+  * can take argument type ChromeOptions (overloaded constructor)
 ### WebDriver methods
 * go to the url `get("http://website.com/...");`
 * `findElement()` returns type WebElement (`findElements` returns type `List<WebElement>`)
@@ -122,4 +126,3 @@ after any page changes - refreshes, redirected, good idea to leave some time les
 ## asserts
 * make sure you're importing from testng, not junit
 * assertEquals, assertTrue, assertFalse
-
