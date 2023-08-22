@@ -46,17 +46,17 @@
 ```
 <?xml version="1.0" encoding="UTF-8"?> <!--auto generated-->
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TESTSUITENAME" thread-count="1">
+<suite name="TESTSUITENAME" thread-count="1"> <!-- eg thread-count="3" parallel="classes" - parallel can also take tests, eg if you have 3 test children which each has ... how many tests are running at once... something -->
 	<test name="TESTCASENAME">
 		<parameter name="PARNAME" value="PARVAL" /> <!-- *i, or 0, one for each param -->
 		<classes>
 			<class name="TESTCLASSPACKAGENAME.TESTCLASSNAME"/> <!-- can have multiple - batch execution -->
 		</classes>
-	</test> <!-- Test, *n, or 1, one for each test case (that has different parameters) -->
+	</test> <!-- Test, *n, or 1, one for each new set of parameters -->
 </suite> <!-- Suite -->
 ```
 * xml: right click > run as > testng suite
-  * equivalent to running each of the classes as testng test, but all results are shown together
+  * equivalent to running each of the classes as testng test (with the relevant parameters), but all results are shown together
 
 # maven project
 * eclipse
