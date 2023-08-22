@@ -1,3 +1,4 @@
+# setup
 * maven is a build management tool - auto-download dependencies at runtime
 * file new other maven maven project
   * org.apache.maven.archetypes maven-archetype-quickstart
@@ -47,34 +48,32 @@
     * browser driver https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager/5.4.1
 * identify object: id, name; others: linktext, class, tagname, cssSelector, Xpath
 * src/test/java (new > junit test case (junit 4)) OR (TestNG > Create TestNG Class (in order to have the option: help > eclipse marketplace > TestNG for Eclipse > Install))
-  * download browser `WebDriverManager.chromedriver().setup();` other eg edgedriver, etc.
-  * launch browser `ChromeDriver driver = new ChromeDriver();`, instance of interface WebDriver, other implementing classes EdgeDriver, etc.
-  * driver methods
-    * go to the url `get("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx");`
-    * `findElement()` returns type WebElement (`findElements` returns type `List<WebElement>`)
-      * takes one argument to get HTML element, eg right click on element in browser > inspect, eg
-        * `By.name("HTMLELEMENTNAME")`, id
-        * `By.linkText("HTMLELEMENTLINKTEXT")` - a tags only
-        * `By.xpath`, `By.cssSelector` - when you can't identify uniquely, normal can be written as both, but css is faster because it uses css instead of dom structure
-        * xpath `//TAGNAME[@ATTRIBUTENAME='ATTRIBUTEVALUE']`
-          * more at xpath.md
-        * css selector `TAGNAME[ATTRIBUTENAME='ATTRIBUTEVALUE']`
-      * returns an object WebElement that has methods
-        * `clear()` - removes any existing text in the input field
-        * `sendKeys("VALUETOENTER");` - enter value (eg appends to whatever's already there, eg if text box already has text in it, appends instead of overwrites
-        * `click()`
-        * `isDisplayed()` - returns boolean
-        * `getText()` - inner text
-        * `getAttribute("ATTRIBUTENAME")` - returns String usually
-        * if the object returned is a select tag, you can use it to create a Select object `Select selectobj = new Select(driver.findElement(...));`
-          * selectobj has method `selectByVisibleText("OPTION A")`
-    * `getTitle()`, `getCurrentUrl()`
-    * `getPageSource()` has methods
-      * `contains(SOMESTRING)` returns a boolean value
-    * `manage().window().maximize()`
-    * `close()`
-  * when you run (run as junit test case, or run as testng test) - all of this will actually happen on your computer, eg if you don't close the browser, it stays open as if you had opened it yourself
-  * i think it stops executing when something fails - skips remaining
+## selenium testing
+* download browser `WebDriverManager.chromedriver().setup();` other eg edgedriver, etc.
+* launch browser `ChromeDriver driver = new ChromeDriver();`, instance of interface WebDriver, other implementing classes EdgeDriver, etc.
+### WebDriver methods
+* go to the url `get("http://website.com/...");`
+* `findElement()` returns type WebElement (`findElements` returns type `List<WebElement>`)
+  * takes one argument `By.SEARCHHTMLTYPE("SEARCHHTMLVAL")` to get HTML element(s), eg right click on element in browser > inspect, eg SEARCHHTMLTYPE:
+    * name, id, linkText (a tag inner text)
+    * xpath, cssSelector - when you can't identify uniquely, normal can be written as both, but css is faster because it uses css instead of dom structure
+      * xpath `//TAGNAME[@ATTRIBUTENAME='ATTRIBUTEVALUE']` - more at xpath.md
+      * css selector `TAGNAME[ATTRIBUTENAME='ATTRIBUTEVALUE']`
+* `getTitle()`, `getCurrentUrl()`, `getPageSource()` all return String
+* `manage().window().maximize()`
+* `close()`
+### WebElement methods
+* `clear()` - removes any existing text in the input field
+* `sendKeys("VALUETOENTER");` - enter value (eg appends to whatever's already there, eg if text box already has text in it, appends instead of overwrites
+* `click()`
+* `isDisplayed()` - returns boolean
+* `getText()` - inner text
+* `getAttribute("ATTRIBUTENAME")` - returns String usually
+* if the object returned is a select tag, you can use it to create a Select object `Select selectobj = new Select(driver.findElement(...));`
+  * selectobj has method `selectByVisibleText("OPTION A")`
+### notes
+* when you run (run as junit test case, or run as testng test) - all of this will actually happen on your computer, eg if you don't close the browser, it stays open as if you had opened it yourself
+* i think it stops executing when something fails - skips remaining
 
 # waits
 after any page changes - refreshes, redirected, good idea to leave some time lest the element not be found
