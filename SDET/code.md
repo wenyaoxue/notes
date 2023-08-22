@@ -40,7 +40,7 @@
 ### xml data for parameters
 * create test class with xml suite file
 * create test case
-  * annotate `@Test() @Parameters({"PARNAME1","PARNAME2",...})`
+  * annotate `@Test() @Parameters({"PARNAME1","PARNAME2",...})` - if there are parameters; eg parameters should be above relevant method (eg can be beforetest, for the browser)
   * take and use arguments, same number as annotated parameters, any variable name
 * populate the xml file (that returns the test data)
 ```
@@ -48,20 +48,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TESTSUITENAME" thread-count="1">
 	<test name="TESTCASENAME">
-		<parameter name="PARNAME" value="PARVAL" /> <!-- *i, one for each param -->
+		<parameter name="PARNAME" value="PARVAL" /> <!-- *i, or 0, one for each param -->
 		<classes>
-			<class name="TESTCLASSPACKAGENAME.TESTCLASSNAME"/>
+			<class name="TESTCLASSPACKAGENAME.TESTCLASSNAME"/> <!-- can have multiple - batch execution -->
 		</classes>
-	</test> <!-- Test, *n, one for each test case -->
+	</test> <!-- Test, *n, or 1, one for each test case (that has different parameters) -->
 </suite> <!-- Suite -->
 ```
 * xml: right click > run as > testng suite
-
-# xml data for batch execution 
-* create an xml
-* xml in suite > 1 test child > 1 classes child > many class children with attribute name="TESTCLASSPACKAGENAME.TESTCLASSNAME"
-* xml: right click > run as > testng suite
-  * equivalent to running each of those classes as testng test, but all results are shown together
+  * equivalent to running each of the classes as testng test, but all results are shown together
 
 # maven project
 * eclipse
