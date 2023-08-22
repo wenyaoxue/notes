@@ -37,7 +37,7 @@
   * annotate `@Test(dataProvider="SOMEDATANAME")`
     * if data method in another class, you can extend the other class, or add annotation argument `dataProviderClass=DATACLASS.class`
   * take and use arguments, eg String un, String pw, String msg
-### xml data for parameters
+### xml data - not so suited for test data, but for batch execution
 * create test class with xml suite file
 * create test case
   * annotate `@Test() @Parameters({"PARNAME1","PARNAME2",...})` - if there are parameters; eg parameters should be above relevant method (eg can be beforetest, for the browser)
@@ -57,6 +57,8 @@
 ```
 * xml: right click > run as > testng suite
   * equivalent to running each of the classes as testng test (with the relevant parameters), but all results are shown together
+### other data
+* excel, database, json
 
 # maven project
 * eclipse
