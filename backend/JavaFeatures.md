@@ -2,6 +2,7 @@
 * Thread.sleep(3000);
 * String.substring(FIRSTINDEX); or String.substring(FIRSTINDEX, LASTINDEX+1);
 * String.replace("OLDTEXT", "NEWTEXT"); returns a string
+* String.contains("otherstring") returns a boolean
 # Features
 ## java.lang.Object, .WRAPPERS
 ## 5
