@@ -6,7 +6,6 @@
 * or file new java project
   * right click properties java build path libraries add jar
 * right click on project > New > Junit Test Case > New JUnit 4 test
-
 * literally write test cases then write code then rewrite test/code
 
 
@@ -33,10 +32,11 @@
   * annotate `@DataProvider(name="SOMEDATANAME")` -
   * return eg
     * type `Object[][]`
-    * value `new Object[][] { {un1, pw1}, {un2, pw2}, ... }`
+    * value `new Object[][] { {un1, pw1, msg1}, {un2, pw2, msg2}, ... }`
 * create test case
   * annotate `@Test(dataProvider="SOMEDATANAME")`
-  * take and use arguments, eg String un, String pw
+    * if data method in another class, you can extend the other class, or add annotation argument `dataProviderClass=DATACLASS.class`
+  * take and use arguments, eg String un, String pw, String msg
 
 
 # maven project
