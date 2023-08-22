@@ -27,7 +27,26 @@
   * annotate `@Test`
   * use class attributes
 ## testng
-* `@Parameters` - for batch execution or to pass any common info
+### xml data
+* create test class with xml suite file
+* create test case
+  * annotate `@Test() @Parameters({"PARNAME1","PARNAME2",...})`
+  * take and use arguments, same number as annotated parameters, any variable name
+* populate the xml file (that returns the test data)
+```
+<?xml version="1.0" encoding="UTF-8"?> <!--auto generated-->
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TESTSUITENAME" thread-count="1">
+	<test name="TESTCASENAME">
+		<parameter name="PARNAME" value="PARVAL" /> <!-- *i, one for each param -->
+		<classes>
+			<class name="TESTCLASSPACKAGENAME.TESTCLASSNAME"/>
+		</classes>
+	</test> <!-- Test, *n, one for each test case -->
+</suite> <!-- Suite -->
+```
+* xml: right click > run as > testng suite
+### java data
 * create function that returns the test data
   * annotate `@DataProvider(name="SOMEDATANAME")` -
   * return eg
