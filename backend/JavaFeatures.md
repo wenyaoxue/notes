@@ -1,5 +1,7 @@
 * new Random() returns obj that has method nextInt(highestval);
 * Thread.sleep(3000);
+* String.substring(FIRSTINDEX); or String.substring(FIRSTINDEX, LASTINDEX+1);
+* String.replace("OLDTEXT", "NEWTEXT"); returns a string
 # Features
 ## java.lang.Object, .WRAPPERS
 ## 5
