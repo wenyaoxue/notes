@@ -27,6 +27,16 @@
   * annotate `@Test`
   * use class attributes
 ## testng
+### java data
+* create function that returns the test data
+  * annotate `@DataProvider(name="SOMEDATANAME")`
+  * return eg
+    * type `Object[][]`
+    * value `new Object[][] { {un1, pw1, msg1}, {un2, pw2, msg2}, ... }`
+* create test case
+  * annotate `@Test(dataProvider="SOMEDATANAME")`
+    * if data method in another class, you can extend the other class, or add annotation argument `dataProviderClass=DATACLASS.class`
+  * take and use arguments, eg String un, String pw, String msg
 ### xml data
 * create test class with xml suite file
 * create test case
@@ -46,17 +56,6 @@
 </suite> <!-- Suite -->
 ```
 * xml: right click > run as > testng suite
-### java data
-* create function that returns the test data
-  * annotate `@DataProvider(name="SOMEDATANAME")` -
-  * return eg
-    * type `Object[][]`
-    * value `new Object[][] { {un1, pw1, msg1}, {un2, pw2, msg2}, ... }`
-* create test case
-  * annotate `@Test(dataProvider="SOMEDATANAME")`
-    * if data method in another class, you can extend the other class, or add annotation argument `dataProviderClass=DATACLASS.class`
-  * take and use arguments, eg String un, String pw, String msg
-
 
 # maven project
 * eclipse
