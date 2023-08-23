@@ -88,7 +88,7 @@
       * css selector `TAGNAME[ATTRIBUTENAME='ATTRIBUTEVALUE']`
 * `getTitle()`, `getCurrentUrl()`, `getPageSource()` all return String
 * `manage().window().maximize()`
-* `close()`
+* `close()`, `quit()`
 ### WebElement methods
 * `clear()` - removes any existing text in the input field
 * `sendKeys("VALUETOENTER");` - enter value (eg appends to whatever's already there, eg if text box already has text in it, appends instead of overwrites
@@ -98,6 +98,19 @@
 * `getAttribute("ATTRIBUTENAME")` - returns String usually
 * if the object returned is a select tag, you can use it to create a Select object `Select selectobj = new Select(driver.findElement(...));`
   * selectobj has method `selectByVisibleText("OPTION A")`
+### JavascriptExecutor methods
+* can define by casting a WebDriver object `= (JavascriptExecutor) driver`
+* `executeScript`
+  * takes at least 1 argument, first is the javascript to execute, if the javascript references a element on the page, you can send the WebElement object as a second parameter
+    * eg `("arguments[0].scrollIntoView();", ele)` - eg element can be found but not clicked, perhaps because not in view
+    * eg `"window.scrollTo(0, document.body.scrollHeight)"` - scroll to bottom
+      * or -document.body.... to scroll to top
+### Actions methods
+* constructor takes argument WebDriver
+* `moveToElement` - mouse over
+  * takes argument WebElement
+  * returns object that has method
+    * `build().perform()`
 ### notes
 * when you run (run as junit test case, or run as testng test) - all of this will actually happen on your computer, eg if you don't close the browser, it stays open as if you had opened it yourself
 * i think it stops executing when something fails - skips remaining
