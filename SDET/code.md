@@ -73,31 +73,36 @@
 * src/test/java (new > junit test case (junit 4)) OR (TestNG > Create TestNG Class (in order to have the option: help > eclipse marketplace > TestNG for Eclipse > Install))
 ## selenium testing java setup
 * download browser `WebDriverManager.chromedriver().setup();` other eg edgedriver, etc.
-* other options: `new ChromeOptions()` with methods
-  * `setHeadless(true)` - headless browser: browser is invisible during script execution, reduces execution time (10-15%)
-  * `addArguments("incognito")`
+* other options:
+  * `new ChromeOptions()` with methods
+    * `setHeadless(true)` - headless browser: browser is invisible during script execution, reduces execution time (10-15%)
+    * `addArguments("incognito")`
 * launch browser `ChromeDriver driver = new ChromeDriver();`, instance of interface WebDriver, other implementing classes EdgeDriver, etc.
   * can take argument type ChromeOptions (overloaded constructor)
 ### WebDriver methods
 * go to the url `get("http://website.com/...");`
-* `findElement()` returns type WebElement (`findElements` returns type `List<WebElement>`)
+* `findElement` / `findElements`
+  * returns type `WebElement` / `List<WebElement>`
   * takes one argument `By.SEARCHHTMLTYPE("SEARCHHTMLVAL")` to get HTML element(s), eg right click on element in browser > inspect, eg SEARCHHTMLTYPE:
     * name, id, linkText (a tag inner text)
     * xpath, cssSelector - when you can't identify uniquely, normal can be written as both, but css is faster because it uses css instead of dom structure
       * xpath `//TAGNAME[@ATTRIBUTENAME='ATTRIBUTEVALUE']` - more at xpath.md
       * css selector `TAGNAME[ATTRIBUTENAME='ATTRIBUTEVALUE']`
-* `getTitle()`, `getCurrentUrl()`, `getPageSource()` all return String
-* `manage().window().maximize()`
-* `close()`, `quit()`
+* `getTitle`, `getCurrentUrl`, `getPageSource` all return String
+* `manage().window()`
+  * `maximize`
+  * `setSize` - takes argument Dimension, constructor takes 2 arguments int width, height
+* `close`, `quit`
 ### WebElement methods
-* `clear()` - removes any existing text in the input field
+* `clear` - removes any existing text in the input field
 * `sendKeys("VALUETOENTER");` - enter value (eg appends to whatever's already there, eg if text box already has text in it, appends instead of overwrites
-* `click()`
-* `isDisplayed()` - returns boolean
-* `getText()` - inner text
-* `getAttribute("ATTRIBUTENAME")` - returns String usually
+* `click`
+* `isDisplayed` - returns boolean
+* `getText` - returns String inner text
+* `getAttribute` - takes argument String ATTRIBUTENAME, returns String usually
 * if the object returned is a select tag, you can use it to create a Select object `Select selectobj = new Select(driver.findElement(...));`
   * selectobj has method `selectByVisibleText("OPTION A")`
+  * `getLocation` returns type `Point` which has methods `getX` and `getY` which both return int
 ### JavascriptExecutor methods
 * can define by casting a WebDriver object `= (JavascriptExecutor) driver`
 * `executeScript`
@@ -111,6 +116,12 @@
   * takes argument WebElement
   * returns object that has method
     * `build().perform()`
+* `clickAndHold` - + drag
+  * takes argument WebElement
+  * returns object that has method
+    * `moveByOffset(intxoffset, intyoffset).release().perform();`
+* `dragAndDrop`
+  * takes 2 arguments: WebElement to drag, WebElement where to drop
 ### notes
 * when you run (run as junit test case, or run as testng test) - all of this will actually happen on your computer, eg if you don't close the browser, it stays open as if you had opened it yourself
 * i think it stops executing when something fails - skips remaining
