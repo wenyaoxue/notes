@@ -75,15 +75,15 @@
 * download browser `WebDriverManager.chromedriver().setup();` other eg edgedriver, etc.
 * other options:
   * `new ChromeOptions()` with methods
-    * `setHeadless(true)` - headless browser: browser is invisible during script execution, reduces execution time (10-15%)
-    * `addArguments("incognito")`
+    * `setHeadless` - takes argument boolean; headless browser: browser is invisible during script execution, reduces execution time (10-15%)
+    * `addArguments` - takes argument String, eg "incognito"
 * launch browser `ChromeDriver driver = new ChromeDriver();`, instance of interface WebDriver, other implementing classes EdgeDriver, etc.
   * can take argument type ChromeOptions (overloaded constructor)
 ### WebDriver methods
 * go to the url `get("http://website.com/...");`
 * `findElement` / `findElements`
   * returns type `WebElement` / `List<WebElement>`
-  * takes one argument `By.SEARCHHTMLTYPE("SEARCHHTMLVAL")` to get HTML element(s), eg right click on element in browser > inspect, eg SEARCHHTMLTYPE:
+  * takes argument `By.SEARCHHTMLTYPE("SEARCHHTMLVAL")` to get HTML element(s), eg right click on element in browser > inspect, eg SEARCHHTMLTYPE:
     * name, id, linkText (a tag inner text)
     * xpath, cssSelector - when you can't identify uniquely, normal can be written as both, but css is faster because it uses css instead of dom structure
       * xpath `//TAGNAME[@ATTRIBUTENAME='ATTRIBUTEVALUE']` - more at xpath.md
@@ -95,14 +95,13 @@
 * `close`, `quit`
 ### WebElement methods
 * `clear` - removes any existing text in the input field
-* `sendKeys("VALUETOENTER");` - enter value (eg appends to whatever's already there, eg if text box already has text in it, appends instead of overwrites
-* `click`
-* `isDisplayed` - returns boolean
-* `getText` - returns String inner text
+* `sendKeys` - takes argument String value to enter(append, not overwrite)
+* `click`, `isDisplayed`, `getText`
 * `getAttribute` - takes argument String ATTRIBUTENAME, returns String usually
-* if the object returned is a select tag, you can use it to create a Select object `Select selectobj = new Select(driver.findElement(...));`
-  * selectobj has method `selectByVisibleText("OPTION A")`
-  * `getLocation` returns type `Point` which has methods `getX` and `getY` which both return int
+* `getLocation` returns type `Point` which has methods `getX` and `getY` which both return int
+### Select methods
+  * constructor takes argument WebElement (represents a select tag)
+  * `selectByVisibleText` - takes argument String optiontext
 ### JavascriptExecutor methods
 * can define by casting a WebDriver object `= (JavascriptExecutor) driver`
 * `executeScript`
