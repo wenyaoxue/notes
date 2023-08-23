@@ -20,3 +20,4 @@
   * `normalize-space()='HTMLINNERHTMLWITHOUTTRAILLINGLEADINGSPACES']`
     * or `text()` instead of `normalize-space()`
   * `contains(text(), 'SOMETEXT')`
+  * `INDEX` - starts at 1, which of the returned elements
