@@ -58,7 +58,11 @@
 * xml: right click > run as > testng suite
   * equivalent to running each of the classes as testng test (with the relevant parameters), but all results are shown together
 ### other data
-* excel, database, json
+* different kind of test case, not written to test functionality, but written to validate this data
+* xls/xlsx, database, json, csv, xml
+* + pom.xml maven dependency
+  * for ms office files: https://mvnrepository.com/artifact/org.apache.poi/ poi, poi-scratchpad, poi-ooxml
+  * see datafiles.md
 
 # maven project
 * eclipse
