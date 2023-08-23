@@ -60,9 +60,7 @@
 ### other data
 * different kind of test case, not written to test functionality, but written to validate this data
 * xls/xlsx, database, json, csv, xml
-* + pom.xml maven dependency
-  * for ms office files: https://mvnrepository.com/artifact/org.apache.poi/ poi, poi-scratchpad, poi-ooxml
-  * see datafiles.md
+* see datafiles.md
 
 # maven project
 * eclipse
