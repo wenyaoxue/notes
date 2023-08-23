@@ -106,7 +106,7 @@
 * can define by casting a WebDriver object `= (JavascriptExecutor) driver`
 * `executeScript`
   * takes at least 1 argument, first is the javascript to execute, if the javascript references a element on the page, you can send the WebElement object as a second parameter
-    * eg `("arguments[0].scrollIntoView();", ele)` - eg element can be found but not clicked, perhaps because not in view
+    * eg `("arguments[0].scrollIntoView(true);", ele)` - if not in view, findElement can work, but things like click, getText(), ... might be wrong
     * eg `"window.scrollTo(0, document.body.scrollHeight)"` - scroll to bottom
       * or -document.body.... to scroll to top
 ### Actions methods
