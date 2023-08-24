@@ -132,11 +132,21 @@
 * `getScreenshotAs`
   * takes argument eg OutputType.FILE
   * in above case, returns type File (see JavaFeatures.md to see what to do with file)
+ 
+### ATUTestRecorder methods
+* pom.xml maven dependency
+  * https://mvnrepository.com/artifact/com.automation-remarks/video-recorder-core/2.0
+* constructor takes three arguments
+  * String folderpath
+  * String filename (no extension)
+  * false
+* `start`, `stop` - records the whole screen
 ### teardown
 * annotate method `@AfterMethod`, can take an argument of type `ITestResult`
 * type `ITestResult`
   * static attribute FAILURE, SUCCESS
-  * method getStatus() returns a value equal to one of the above
+  * method `getStatus` returns a value equal to one of the above
+  * method `getName`
 ### notes
 * when you run (run as junit test case, or run as testng test) - all of this will actually happen on your computer, eg if you don't close the browser, it stays open as if you had opened it yourself
 * i think it stops executing when something fails - skips remaining
@@ -164,6 +174,26 @@ after any page changes - refreshes, redirected, good idea to leave some time les
 ## reports
 * after running a test, right click on project > refresh
 * test-output/ emailable-report.html, index.html, more
+* more reports
+  * pom.xml maven dependency: https://mvnrepository.com/artifact/com.aventstack/extentreports
+  * type `ExtentSparkReporter`
+    * constructor takes argument String reportfilenamewithpath
+    * `config` returns onject that has methods
+      * `setDocumentTitle`, `setReportName`, each take one argument String
+      * `setTheme` takes argument eg Theme.DARK
+      * `setTimeStampFormat` takes argument String eg ""
+  * type `ExtentReports`
+    * constructor takes no arguments
+    * `attachReporter` takes argument type ExtentSparkReporter
+    * `setSystemInfo` takes 2 arguments eg
+      * "OS", System.getProperty("os.name")
+      * "Browser", "Chrome Latest"
+  * type `ExtentTest`
+    * `log` takes arguments eg
+      * Status.FAIL, MarkupHelper.createLabel("STRINGLABEL"), Extent.RED
+    * `fail`
+    * `addScreenCaptureFromPath` takes argument screenshotpath
+    * 
 ## asserts
 * make sure you're importing from testng, not junit
 * assertEquals, assertTrue, assertFalse, assertNotNull
