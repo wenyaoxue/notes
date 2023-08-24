@@ -70,7 +70,7 @@
     * web driver https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.11.0
     * browser driver https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager/5.4.1
 * identify object: id, name; others: linktext, class, tagname, cssSelector, Xpath
-* src/test/java (new > junit test case (junit 4)) OR (TestNG > Create TestNG Class (in order to have the option: help > eclipse marketplace > TestNG for Eclipse > Install))
+* src/test/java (new > junit test case (junit 4)) OR (right click on some pkg > TestNG > Create TestNG Class (in order to have the option: help > eclipse marketplace > TestNG for Eclipse > Install))
 ## selenium testing java setup
 * download browser `WebDriverManager.chromedriver().setup();` other eg edgedriver, etc.
 * other options:
@@ -80,7 +80,7 @@
 * launch browser `ChromeDriver driver = new ChromeDriver();`, instance of interface WebDriver, other implementing classes EdgeDriver, etc.
   * can take argument type ChromeOptions (overloaded constructor)
 ### WebDriver methods
-* go to the url `get("http://website.com/...");`
+* go to the url `get("http://website.com/...");` or `navigate().to("http...")`
 * `findElement` / `findElements`
   * returns type `WebElement` / `List<WebElement>`
   * takes argument `By.SEARCHHTMLTYPE("SEARCHHTMLVAL")` to get HTML element(s), eg right click on element in browser > inspect, eg SEARCHHTMLTYPE:
@@ -92,12 +92,18 @@
 * `manage().window()`
   * `maximize`
   * `setSize` - takes argument Dimension, constructor takes 2 arguments int width, height
+* `switchTo`
+  * `frame`
+    * takes argument String frame name (HTML frame - objects wrapped inside cannot be able to be found otherwise)
+  * `defaultContent`
+  * `alert`
+    *  returns type Alert that has methods `getText`, `sendKeys` which takes arg String, `dismiss`, `accept` - special methods for window/javascript alerts (because there aren't HTML elements that can be found/clicked/etc.)
 * `close`, `quit`
 ### WebElement methods
 * `clear` - removes any existing text in the input field
 * `sendKeys` - takes argument String value to enter(append, not overwrite)
 * `click`, `isDisplayed`, `getText`
-* `getAttribute` - takes argument String ATTRIBUTENAME, returns String usually
+* `getAttribute` - takes argument String ATTRIBUTENAME, returns String
 * `getLocation` returns type `Point` which has methods `getX` and `getY` which both return int
 ### Select methods
   * constructor takes argument WebElement (represents a select tag)
@@ -121,6 +127,16 @@
     * `moveByOffset(intxoffset, intyoffset).release().perform();`
 * `dragAndDrop`
   * takes 2 arguments: WebElement to drag, WebElement where to drop
+### TakesScreenShot methods
+* can define by casting a WebDriver object `= (TakesScreenShot) driver`
+* `getScreenshotAs`
+  * takes argument eg OutputType.FILE
+  * in above case, returns type File (see JavaFeatures.md to see what to do with file)
+### teardown
+* annotate method `@AfterMethod`, can take an argument of type `ITestResult`
+* type `ITestResult`
+  * static attribute FAILURE, SUCCESS
+  * method getStatus() returns a value equal to one of the above
 ### notes
 * when you run (run as junit test case, or run as testng test) - all of this will actually happen on your computer, eg if you don't close the browser, it stays open as if you had opened it yourself
 * i think it stops executing when something fails - skips remaining
@@ -150,4 +166,4 @@ after any page changes - refreshes, redirected, good idea to leave some time les
 * test-output/ emailable-report.html, index.html, more
 ## asserts
 * make sure you're importing from testng, not junit
-* assertEquals, assertTrue, assertFalse
+* assertEquals, assertTrue, assertFalse, assertNotNull
