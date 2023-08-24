@@ -3,6 +3,9 @@
 * String.substring(FIRSTINDEX); or String.substring(FIRSTINDEX, LASTINDEX+1);
 * String.replace("OLDTEXT", "NEWTEXT"); returns a string
 * String.contains("otherstring") returns a boolean
+
+* `System.getProperty("user.dir")` returns a string filepath to the project
+* `FileUtils.copyFile(FileObj, new File("filenamewithpath"));`
 # Features
 ## java.lang.Object, .WRAPPERS
 ## 5
