@@ -188,12 +188,18 @@ after any page changes - refreshes, redirected, good idea to leave some time les
     * `setSystemInfo` takes 2 arguments eg
       * "OS", System.getProperty("os.name")
       * "Browser", "Chrome Latest"
+    * `flush`
   * type `ExtentTest`
-    * `log` takes arguments eg
-      * Status.FAIL, MarkupHelper.createLabel("STRINGLABEL"), Extent.RED
-    * `fail`
-    * `addScreenCaptureFromPath` takes argument screenshotpath
-    * 
+    * `createTest`
+      * takes arguments eg "Test Case 2", "Login"
+      * returns object with methods
+        * `log` takes arguments eg
+          * Status.FAIL, MarkupHelper.createLabel("STRINGLABEL"), ExtentColor.RED
+            * Status.FAIL, Status.PASS, Status.SKIP; ExtentColor.RED, ExtentColor.GREEN, .ORANGE
+        * `fail`, `skip`
+          * each takes one argument type Throwable (eg ITestResult object .getThrowable())
+        * `addScreenCaptureFromPath` takes argument String screenshotpath
+        * 
 ## asserts
 * make sure you're importing from testng, not junit
 * assertEquals, assertTrue, assertFalse, assertNotNull
