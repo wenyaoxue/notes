@@ -80,7 +80,9 @@
 * launch browser `ChromeDriver driver = new ChromeDriver();`, instance of interface WebDriver, other implementing classes EdgeDriver, etc.
   * can take argument type ChromeOptions (overloaded constructor)
 ### WebDriver methods
-* go to the url `get("http://website.com/...");` or `navigate().to("http...")`
+* go to the url `get("http://website.com/...");`
+* go to the url `navigate().to("http...")`
+* `navigate().back()`
 * `findElement` / `findElements`
   * returns type `WebElement` / `List<WebElement>`
   * takes argument `By.SEARCHHTMLTYPE("SEARCHHTMLVAL")` to get HTML element(s), eg right click on element in browser > inspect, eg SEARCHHTMLTYPE:
