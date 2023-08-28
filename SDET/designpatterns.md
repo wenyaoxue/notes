@@ -4,4 +4,7 @@
 * script maintenance, locatability, reusability, efficiency, cost reduction
 
 * Selenium
-* annotate WebElement variable declaration `@FindBy(xpath="//somexpath")` or id, name, ...
+* pom class
+  * annotate WebElement or `List<WebElement>` variable declaration `@FindBy(xpath="//somexpath")` or id, name, ...
+  * create methods that return boolean
+  * create constructor that takes argument WebDriver, does this.driver=driver, does `PageFactory.initElements(driver, this);`
