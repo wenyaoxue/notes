@@ -95,5 +95,5 @@
     * `jsonPath` returns type JsonPath
   * `getStatusCode` returns type int
 * JsonPath methods
-  * `get` takes argument String key, or key.key.key..., returns type String or idk that has method `toString`
+  * `get` takes argument String key, or key.key.key..., returns type String, Map, List, ... and you can cast elements to ...
   * `getJsonObject` takes argument String key, or key.key.key... (if value is an object), returns type Map
