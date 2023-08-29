@@ -76,6 +76,8 @@
       * JSONParser methods
         * constructor takes no arguments
         * `parse` takes argument FileReader (constructor takes arguent filename eg ".\\folder\\file.json"), returns Object
+    * for `DataProvider`
+      * ...
     * ---
   * get, post, ... (each returns type Response)
   * OR:
