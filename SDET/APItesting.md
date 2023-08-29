@@ -63,11 +63,24 @@
 * RestAssured.baseURI = protocol+hostname
 * RequestSpecification httpRequest = RestAssured.given()
 * RequestSpecification methods
+  * header takes 2 arguments varname, varval eg
+    * Content-Type, application/JSON
+  * body takes argument String
+  * get, post, ... (each returns type Response)
+  * OR:
   * request
     * takes 2 arguments
       * `Method.GET`, ...
       * String endpoint
     * returns type Response
 * Response methods
-  * `getBody().asString()`
-  * `getStatusCode()` returns type int
+  * `getBody` type idk but has methods:
+    * `asString`, `prettyPrint` (prints), each returns type String
+    * `jsonPath` returns type JsonPath
+  * `getStatusCode` returns type int
+* JSONObject methods
+  * constructor takes no arguments
+  * `put` takes arguments String key, String value
+  * `toJSONString`
+* JsonPath methods
+  * `get` takes argument String key, returns type idk that has method `toString`
