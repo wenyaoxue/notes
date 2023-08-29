@@ -9,6 +9,8 @@
   * 300
   * 400 client error (400 bad request, 404 not found)
   * 500 server error
+ 
+
 # postman
 * create account
 * create workspace eg per app
@@ -16,7 +18,8 @@
 ## create request method eg per behavior / api method
 * url
 * body raw json
-* authorization bearer token
+* authorization
+  * API key, bearer token, inherit (set at collection level instead)
 ### tests
 * automated response verification (instead of looking through the response manually)
 *  eg check status code, output
@@ -27,13 +30,19 @@
   * ATTRIBUTENAME.ATTRIBUTENAME.ATTRIBUTENAME...
 * can use this to set a global variable varname, then in a subsequent request (from the workspace) use that variable value using `{{varname}}`, eg in token or in the url
 * test results included in output window
-### pre-request script
-* `pm.sendRequest(REQUESTOBJ, RESPFUNC);`
-  * request obj - url, method, header (Content-Type), body (`mode:'raw'`,`raw: JSON.stringify({"key":"val", "key":"val"})`)
 ## batch execution
 * arrange request methods within a collection in order
 * click on the 3 dots
 * run collectionname
 * see all test cases and results
 ## export > share collection > via api > email
-## sharing a request across collections
+## pre-request script
+* to satisfy dependencies - for a particular request, or for the whole collection
+* `pm.sendRequest(REQUESTOBJ, RESPFUNC);` - eg instead of having the request in the collection
+  * request obj - url, method, header (Content-Type), body (`mode:'raw'`,`raw: JSON.stringify({"key":"val", "key":"val"})`)
+  * resp func eg set global variable
+## data-driven
+### csv
+* for each iteration/row, the values can be accessed using the column title as the variable name `{{COLTITLE}}`, `pm.variables.get("COLTITLE")`
+* run collection > data > select file
+  * auto matches data type to extension, one iteration per row
