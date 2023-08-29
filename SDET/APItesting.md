@@ -57,7 +57,17 @@
   * io.rest-assured/rest-assured
   * io.rest-assured/json-path
   * io.rest-assured/xml-path
-  * org.codehaus.groovy/groovy-all
+  * groupId org.slf4j; artifactId slf4j-log4j12; version 1.7.26 
   * com.googlecode.json-simple/json-simple
   * com.fasterxml.jackson.core/jackson-databind
-* 
+* RestAssured.baseURI = protocol+hostname
+* RequestSpecification httpRequest = RestAssured.given()
+* RequestSpecification methods
+  * request
+    * takes 2 arguments
+      * `Method.GET`, ...
+      * String endpoint
+    * returns type Response
+* Response methods
+  * `getBody().asString()`
+  * `getStatusCode()` returns type int
