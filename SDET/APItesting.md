@@ -66,6 +66,17 @@
   * header takes 2 arguments varname, varval eg
     * Content-Type, application/JSON
   * body takes argument String
+    * ---body data:
+    * JSONObject methods
+      * constructor takes no arguments
+      * `put` takes arguments String key, String value
+      * `toJSONString`
+      * OR can be created by casting an Object:
+    * for json files eg `{"key":{"key":val", "key":"val"}}`
+      * JSONParser methods
+        * constructor takes no arguments
+        * `parse` takes argument FileReader (constructor takes arguent filename eg ".\\folder\\file.json"), returns Object
+    * ---
   * get, post, ... (each returns type Response)
   * OR:
   * request
@@ -73,14 +84,12 @@
       * `Method.GET`, ...
       * String endpoint
     * returns type Response
+  * OR to chain with other stuff:
+  * `.auth().oauth2(outh_token).contentType(ContentType.JSON).body(prodjsonobj).post("https://demo.spreecommerce.org/api/v2/storefront/account/addresses").then().extract().response();` returns type Response
 * Response methods
   * `getBody` type idk but has methods:
     * `asString`, `prettyPrint` (prints), each returns type String
     * `jsonPath` returns type JsonPath
   * `getStatusCode` returns type int
-* JSONObject methods
-  * constructor takes no arguments
-  * `put` takes arguments String key, String value
-  * `toJSONString`
 * JsonPath methods
-  * `get` takes argument String key, returns type idk that has method `toString`
+  * `get` takes argument String key, or key.key.key..., returns type idk that has method `toString`
