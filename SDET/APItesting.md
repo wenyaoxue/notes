@@ -93,3 +93,4 @@
   * `getStatusCode` returns type int
 * JsonPath methods
   * `get` takes argument String key, or key.key.key..., returns type idk that has method `toString`
+  * `getJsonObject` takes argument String key, or key.key.key... (if value is an object), returns type Map
