@@ -60,8 +60,8 @@
   * groupId org.slf4j; artifactId slf4j-log4j12; version 1.7.26 
   * com.googlecode.json-simple/json-simple
   * com.fasterxml.jackson.core/jackson-databind
-* RestAssured.baseURI = protocol+hostname
-* RequestSpecification httpRequest = RestAssured.given()
+* `RestAssured.baseURI = protocol+hostname`
+* `RequestSpecification httpRequest = RestAssured.given()`
 * RequestSpecification methods
   * header takes 2 arguments varname, varval eg
     * Content-Type, application/JSON
@@ -77,9 +77,10 @@
         * constructor takes no arguments
         * `parse` takes argument FileReader (constructor takes arguent filename eg ".\\folder\\file.json"), returns Object
     * for `DataProvider`
-      * ...
+      * add to Test annotation dataProvider="dataname"
+      * add to test method argument list: String varname, String varname, ...
     * ---
-  * get, post, ... (each returns type Response)
+  * `get`, `post`, ... (each takes argument String endpoint, returns type Response)
   * OR:
   * request
     * takes 2 arguments
@@ -89,10 +90,10 @@
   * OR to chain with other stuff:
   * `.auth().oauth2(outh_token).contentType(ContentType.JSON).body(prodjsonobj).post("https://demo.spreecommerce.org/api/v2/storefront/account/addresses").then().extract().response();` returns type Response
 * Response methods
-  * `getBody` type idk but has methods:
+  * `getBody` returns type ? which has methods:
     * `asString`, `prettyPrint` (prints), each returns type String
     * `jsonPath` returns type JsonPath
   * `getStatusCode` returns type int
 * JsonPath methods
-  * `get` takes argument String key, or key.key.key..., returns type idk that has method `toString`
+  * `get` takes argument String key, or key.key.key..., returns type String or idk that has method `toString`
   * `getJsonObject` takes argument String key, or key.key.key... (if value is an object), returns type Map
