@@ -9,7 +9,11 @@
   * 300
   * 400 client error (400 bad request, 404 not found)
   * 500 server error
- 
+
+# api documentation
+* protocol https://
+* domain/host name demo.spreecommerce.org
+* end point / microservices /api/v2/storefront/countries/default
 
 # postman
 * create account
@@ -46,3 +50,14 @@
 * for each iteration/row, the values can be accessed using the column title as the variable name `{{COLTITLE}}`, `pm.variables.get("COLTITLE")`
 * run collection > data > select file
   * auto matches data type to extension, one iteration per row
+
+# restassured java-based library
+* maven project
+* pom.xml dependencies (https://mvnrepository.com/artifact/)
+  * io.rest-assured/rest-assured
+  * io.rest-assured/json-path
+  * io.rest-assured/xml-path
+  * org.codehaus.groovy/groovy-all
+  * com.googlecode.json-simple/json-simple
+  * com.fasterxml.jackson.core/jackson-databind
+* 
