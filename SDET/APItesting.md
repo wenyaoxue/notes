@@ -13,22 +13,27 @@
 * create account
 * create workspace eg per app
 * create collection eg per module
-* create request method eg per behavior / api method
-  * url
-  * body raw json
-  * authorization bearer token
-  * tests
-    * automated response verification (instead of looking through the response manually)
-    *  eg check status code, output
-    * snippets - existing tests
-    * type javascript test
-    * `pm.test("TESTNAME", TESTFUNCTION);`
-    * `pm.response.json()`
-      * data.attributes.ATTRIBUTENAME
-    * can use this to set a global variable varname, then in a subsequent request use that variable value using `{{varname}}`, eg in token or in the url
-    * test results included in output window
-* batch execution
-  * arrange request methods within a collection in order
-  * click on the 3 dots
-  * run collectionname
-  * see all test cases and results
+## create request method eg per behavior / api method
+* url
+* body raw json
+* authorization bearer token
+### tests
+* automated response verification (instead of looking through the response manually)
+*  eg check status code, output
+* snippets - existing tests
+* type javascript test
+* `pm.test("TESTNAME", TESTFUNCTION);`
+* `pm.response.json()`
+  * ATTRIBUTENAME.ATTRIBUTENAME.ATTRIBUTENAME...
+* can use this to set a global variable varname, then in a subsequent request (from the workspace) use that variable value using `{{varname}}`, eg in token or in the url
+* test results included in output window
+### pre-request script
+* `pm.sendRequest(REQUESTOBJ, RESPFUNC);`
+  * request obj - url, method, header (Content-Type), body (`mode:'raw'`,`raw: JSON.stringify({"key":"val", "key":"val"})`)
+## batch execution
+* arrange request methods within a collection in order
+* click on the 3 dots
+* run collectionname
+* see all test cases and results
+## export > share collection > via api > email
+## sharing a request across collections
