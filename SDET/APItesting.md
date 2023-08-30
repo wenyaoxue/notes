@@ -87,8 +87,8 @@
       * `Method.GET`, ...
       * String endpoint
     * returns type Response
-  * OR to chain with other stuff:
-  * `.auth().oauth2(outh_token).contentType(ContentType.JSON).body(prodjsonobj).post("https://demo.spreecommerce.org/api/v2/storefront/account/addresses").then().extract().response();` returns type Response
+  * OR to chain with auth, idk how else to do it:
+  * `.auth().oauth2(outh_token).contentType(ContentType.JSON).body(JSONObject).post("COMPLETEURL").then().extract().response();` returns type Response
 * Response methods
   * `getBody` returns type ? which has methods:
     * `asString`, `prettyPrint` (prints), each returns type String
