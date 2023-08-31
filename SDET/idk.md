@@ -2,32 +2,3 @@ performance testing jmeter
 agile overview
 bdd cucumber
 mocha.js, chai.js - like junit/testng but for js instead of java
-# playwright - javascript/typescript/more - opensource - backed by microsoft
-* all levels of testing (can be used by many roles) - unit, api, ui, acceptance
-* simple installation - not many libraries/dependencies
-* supports any browser, platform, language, mobile
-* auto-wait
-* web-first assertions
-* tracing
-* full isolation
-* codegen - generate tests by recording your actions
-* inspector - to find elements and generate selectors
-* trace viewer
-* a lot faster than selenium
-## using
-* create: `npm init playwright@latest`
-* run tests: `npx playwright test`, 
-  * can add (each is optional, in this order):
-    * `FULLTESTPATH` eg tests/UI_tests/WebOrderLogin.spec.js
-      * or `filename` eg WebOrderLogin.spec.js if you include `@type {import('@playwright/test').PlaywrightTestConfig}` in playwright.config.js
-    * by default headless, add `--headed` if not
-  * on finish, a report is created, which can be viewed through a server - auto started if fail, otherwise a command for how to start the server is shown
-* tests should be `.spec.js`
-* https://playwright.dev/docs/api/class-test
-### playwright.config.js
-* projects includes all the browsers that it'll test on i think
-* `@type {import('@playwright/test').PlaywrightTestConfig}` to allow testing by just filename
-### codegen
-* npx playwright codegen COMPLETEURL
-* opens a browser, that you can interact with, and an inspector that records your interactions
-* also as you hover, suggested selectors will tooltip
