@@ -24,10 +24,6 @@
 * `@type {import('@playwright/test').PlaywrightTestConfig}` to allow testing by just filename
 # code for tests
 * file type `.spec.js`
-## generate with codegen
-* npx playwright codegen COMPLETEURL
-* opens a browser, that you can interact with, and an inspector that records your interactions
-* also as you hover, suggested selectors will tooltip
 ## test syntax
 * https://playwright.dev/docs/api/class-test
 * a FUNCTION can include parameters like `({browser}) => {}`
@@ -37,6 +33,11 @@
 * `test(STRINGTESTNAME, async FUNCTION);`
 * `test.afterAll( async FUNCTION );`
 ## internal syntax
+### generate with codegen
+* npx playwright codegen COMPLETEURL
+* opens a browser, that you can interact with, and an inspector that records your interactions
+* also as you hover, suggested selectors will tooltip
+### write code too
 * should await everything
 * `browser.newPage();` returns variable that has methods
   * `goto('URL');`
