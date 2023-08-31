@@ -28,5 +28,26 @@
 * npx playwright codegen COMPLETEURL
 * opens a browser, that you can interact with, and an inspector that records your interactions
 * also as you hover, suggested selectors will tooltip
-## other syntax
+## test syntax
 * https://playwright.dev/docs/api/class-test
+* a FUNCTION can include parameters like `({browser}) => {}`
+* `test.describe( STRINGTESTUMBRELLANAME, FUNCTION );`
+  * FUNCTION can include any of the below as well as variables
+* `test.beforeAll( async FUNCTION );`
+* `test(STRINGTESTNAME, async FUNCTION);`
+* `test.afterAll( async FUNCTION );`
+## internal syntax
+* should await everything
+* `browser.newPage();` returns variable that has methods
+  * `goto('URL');`
+  * `getByLabel('LABEL')` or  `getByRole('TAG', {ATTRIBUTE: 'VALUE'})` or `locator("XPATH")` or one of the previous`.nth(INTEGER)`
+    * `.fill('VALUE')`, `selectOption('VALUE')`
+    * `.check()`, `click()`, `.clear()`
+  * `url()`
+    * `includes('SOMESTRING')`
+  * `waitForTimeout(3000)`
+* `expect(page)` page or page.locator("XPATH") or one of the previous `.not`
+  * `toHaveURL('COMPLETEURL')`
+  * `toContainText('SOMESTRING')`
+  * `toHaveText('SOMESTRING')`
+* recall Math.random()
