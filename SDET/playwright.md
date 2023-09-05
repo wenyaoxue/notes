@@ -32,12 +32,23 @@
 * `test.beforeAll( async FUNCTION );`
 * `test(STRINGTESTNAME, async FUNCTION);`
 * `test.afterAll( async FUNCTION );`
-## internal syntax
-### generate with codegen
+## internal syntax (in FUNCTION)
+### recall
+* Math.random()
+* JSON.parse(STRINGVAR) - then can access values with key paths
+### assertions
+* `expect(SOMEVAR)` + optional `.not`
+  * `toHaveURL('COMPLETEURL')`
+  * `toContainText('SOMESTRING')`
+  * `toHaveText('SOMESTRING')`
+  * `toBe(SOMEVAL)`
+  * `.toBeTruthy()` - check not false, 0, null, etc.
+### get page values with codegen
 * npx playwright codegen COMPLETEURL
 * opens a browser, that you can interact with, and an inspector that records your interactions
 * also as you hover, suggested selectors will tooltip
-### write code too
+* generally grabs by text which is not stable, + not good for icons
+### get page values without codegen
 * should await everything
 * `browser.newPage();` returns variable that has methods
   * `goto('URL');`
@@ -47,8 +58,11 @@
   * `url()`
     * `includes('SOMESTRING')`
   * `waitForTimeout(3000)`
-* `expect(page)` page or page.locator("XPATH") or one of the previous `.not`
-  * `toHaveURL('COMPLETEURL')`
-  * `toContainText('SOMESTRING')`
-  * `toHaveText('SOMESTRING')`
-* recall Math.random()
+### get api values
+* function eg takes parameter `{request}`
+* make calls with eg BODYOBJECT
+  * `headers: { 'Content-Type': 'application/vnd.api+json', 'Authorization': `Bearer ${token}`, },`
+  * `data: {"address":{firstname:"Crystal"}}`
+* `await request.get(STRINGAPIURL)` or `await request.post(STRINGAPIURL, BODYOBJECT)` returns a response
+  * `status()`
+  * `text()` - await
