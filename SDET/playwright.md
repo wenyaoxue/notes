@@ -63,7 +63,7 @@
 ### get api values
 * function eg takes parameter `{request}`
 * make calls with eg BODYOBJECT
-  * `headers: { 'Content-Type': 'application/vnd.api+json', 'Authorization': `Bearer ${token}`, },`
+  * `headers: { 'Content-Type': 'application/vnd.api+json', 'Authorization': Bearer ' + token, },`
   * `data: {"address":{firstname:"Crystal"}}`
 * `await request.get(STRINGAPIURL)` or `await request.post(STRINGAPIURL, BODYOBJECT)` returns a response
   * `status()`
