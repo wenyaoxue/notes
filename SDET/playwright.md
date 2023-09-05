@@ -36,6 +36,8 @@
 ### recall
 * Math.random()
 * JSON.parse(STRINGVAR) - then can access values with key paths
+* `import { key } from '.././TestData/SpreeCreateAddresses.json';`, if value is list eg + `key.forEach((val)=>{test(...val.keypath...)})`
+* `async function foo() {}` + `export default foo` + in another `import foo from './BASEFILE'` + `foo()`
 ### assertions
 * `expect(SOMEVAR)` + optional `.not`
   * `toHaveURL('COMPLETEURL')`
