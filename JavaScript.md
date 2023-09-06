@@ -61,6 +61,7 @@ obj.atr
 * Math.random()
 * JSON.parse(STRINGVAR) - then can access values with key paths
 * `import { key } from '.././TestData/SpreeCreateAddresses.json';`, if value is list eg + `key.forEach((val)=>{test(...val.keypath...)})`
+  * i think while going up all `..` except the last one just `.`
 * `async function foo() {}` + `export default foo` + in another `import foo from './BASEFILE'` + `foo()`
   * or `export {foo, bar}` + `import {foo} from...`
   * these functions can use variables defined in the file (read/write) without being in a class/exported
