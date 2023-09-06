@@ -1,18 +1,20 @@
+selenium ui automation can be used through java, ie in a maven project
 # pom.xml maven dependencies
 * web driver https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.11.0
 * browser driver https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager/5.4.1
-## selenium testing java setup
-* download browser `WebDriverManager.chromedriver().setup();` other eg edgedriver, etc.
-* other options:
-  * `new ChromeOptions()` with methods
-    * `setHeadless` - takes argument boolean; headless browser: browser is invisible during script execution, reduces execution time (10-15%)
-    * `addArguments` - takes argument String, eg "incognito"
-* launch browser `ChromeDriver driver = new ChromeDriver();`, instance of interface WebDriver, other implementing classes EdgeDriver, etc.
-  * can take argument type ChromeOptions (overloaded constructor)
-### WebDriver methods
-* go to the url `get("http://website.com/...");`
-* go to the url `navigate().to("http...")`
-* `navigate().back()`
+# code setup
+* download browser `WebDriverManager.chromedriver().setup();` or eg edgedriver, etc.
+* ChromeOptions, EdgeOptions, etc.
+  * constructor takes no arguments
+  * `setHeadless(BOOLEAN)` - headless browser: browser is invisible during script execution, reduces execution time (10-15%)
+  * `addArguments(STRING)` - eg "incognito"
+* WebDriver interface with implementations ChromeDriver, EdgeDriver, etc.
+  * constructor can take no arguments or ChromeOptions, EdgeOptions, etc. argument
+# WebDriver methods
+* `get("COMPLETEURL")`
+* `navigate()`
+  * `to("COMPLETEURL")`
+  * `back()`
 * `findElement` / `findElements`
   * returns type `WebElement` / `List<WebElement>`
   * takes argument `By.SEARCHHTMLTYPE("SEARCHHTMLVAL")` to get HTML element(s), eg right click on element in browser > inspect, eg SEARCHHTMLTYPE:
@@ -24,30 +26,30 @@
 * `manage().window()`
   * `maximize`
   * `setSize` - takes argument Dimension, constructor takes 2 arguments int width, height
-* `switchTo`
+* `switchTo()`
   * `frame`
     * takes argument String frame name (HTML frame - objects wrapped inside cannot be able to be found otherwise)
   * `defaultContent`
   * `alert`
     *  returns type Alert that has methods `getText`, `sendKeys` which takes arg String, `dismiss`, `accept` - special methods for window/javascript alerts (because there aren't HTML elements that can be found/clicked/etc.)
 * `close`, `quit`
-### WebElement methods
+# WebElement methods
 * `clear` - removes any existing text in the input field
 * `sendKeys` - takes argument String value to enter(append, not overwrite)
 * `click`, `isDisplayed`, `getText`
 * `getAttribute` - takes argument String ATTRIBUTENAME, returns String
 * `getLocation` returns type `Point` which has methods `getX` and `getY` which both return int
-### Select methods
+# Select methods
   * constructor takes argument WebElement (represents a select tag)
   * `selectByVisibleText` - takes argument String optiontext
-### JavascriptExecutor methods
+# JavascriptExecutor methods
 * can define by casting a WebDriver object `= (JavascriptExecutor) driver`
 * `executeScript`
   * takes at least 1 argument, first is the javascript to execute, if the javascript references a element on the page, you can send the WebElement object as a second parameter
     * eg `("arguments[0].scrollIntoView(true);", ele)` - if not in view, findElement can work, but things like click, getText(), ... might be wrong
     * eg `"window.scrollTo(0, document.body.scrollHeight)"` - scroll to bottom
       * or -document.body.... to scroll to top
-### Actions methods
+# Actions methods
 * constructor takes argument WebDriver
 * `moveToElement` - mouse over
   * takes argument WebElement
@@ -59,17 +61,17 @@
     * `moveByOffset(intxoffset, intyoffset).release().perform();`
 * `dragAndDrop`
   * takes 2 arguments: WebElement to drag, WebElement where to drop
-### TakesScreenShot methods
+# TakesScreenShot methods
 * can define by casting a WebDriver object `= (TakesScreenShot) driver`
 * `getScreenshotAs`
   * takes argument eg OutputType.FILE
   * in above case, returns type File (see JavaFeatures.md to see what to do with file)
 
-## [selenium waits](https://www.selenium.dev/documentation/webdriver/waits/)
-### implicit wait
+# [selenium waits](https://www.selenium.dev/documentation/webdriver/waits/)
+## implicit wait
 * at the beginning, by convention right after you go to the url - gives up to NUMS seconds for each findElement to succeed before throwing an error
 * `driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(NUMS));`
-### explicit wait 
+## explicit wait 
 * assign element when some condition met, up to NUMS seconds
 * `WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(NUMS)); WebElement ele = wait.until(ExpectedConditions.visibilityOfElementLocated(By....));`
   * visibilityOfElementLocated, elementToBeClickable, etc.
