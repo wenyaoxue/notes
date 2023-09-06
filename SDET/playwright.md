@@ -24,7 +24,7 @@
 * `@type {import('@playwright/test').PlaywrightTestConfig}` to allow testing by just filename
 # code for tests
 * file type `.spec.js`
-* `const { test, expect } = require('@playwright/test')`
+* `const { test, expect, Locator, Page } = require('@playwright/test')`
 ## test syntax
 * https://playwright.dev/docs/api/class-test
 * a FUNCTION can include parameters like `({browser}) => {}`
@@ -35,15 +35,7 @@
 * `test.afterAll( async FUNCTION );`
 * `test.setTimeout(120000)` - test case has an automatic max time, so your test suite will fail even if all the tests pass if the time is exceeded
 ## internal syntax (in FUNCTION)
-### recall
-* Math.random()
-* JSON.parse(STRINGVAR) - then can access values with key paths
-* `import { key } from '.././TestData/SpreeCreateAddresses.json';`, if value is list eg + `key.forEach((val)=>{test(...val.keypath...)})`
-* `async function foo() {}` + `export default foo` + in another `import foo from './BASEFILE'` + `foo()`
-  * or `export {foo, bar}` + `import {foo} from...`
-  * these functions can use variables defined in the file (read/write) without being in a class/exported
-* ARRAY.forEach(FUNCTION) - awaits won't work inside thefunction
-* can declare functions `async`, then should `await` the call to not continue until it completes
+
 ### assertions
 * `expect(SOMEVAR)` + optional `.not`
   * `toHaveURL('COMPLETEURL')`
@@ -51,6 +43,8 @@
   * `toHaveText('SOMESTRING')`
   * `toBe(SOMEVAL)`
   * `toBeTruthy()` - check not false, 0, null, etc.
+  * `toMatchSnapshot('login-error.png')`
+  * `.toBeVisible()`
 ### get page values with codegen
 * npx playwright codegen COMPLETEURL
 * opens a browser, that you can interact with, and an inspector that records your interactions
@@ -61,8 +55,9 @@
 * `browser.newPage();` returns variable that has methods
   * `goto('URL');`
   * `getByLabel('LABEL')` or  `getByRole('TAG', {ATTRIBUTE: 'VALUE'})` or `locator("XPATH")` or one of the previous`.nth(INTEGER)`
-    * `.fill('VALUE')`, `selectOption('VALUE')`
+    * `.fill('VALUE')`, `.type('VALUE')`, `selectOption('VALUE')`
     * `.check()`, `click()`, `.clear()`
+    * `.screenshot()`
   * `url()`
     * `includes('SOMESTRING')`
   * `waitForTimeout(3000)`
