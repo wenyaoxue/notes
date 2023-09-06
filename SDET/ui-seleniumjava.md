@@ -61,3 +61,12 @@
 * `getScreenshotAs`
   * takes argument eg OutputType.FILE
   * in above case, returns type File (see JavaFeatures.md to see what to do with file)
+
+## [selenium waits](https://www.selenium.dev/documentation/webdriver/waits/)
+### implicit wait
+* at the beginning, by convention right after you go to the url - gives up to NUMS seconds for each findElement to succeed before throwing an error
+* `driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(NUMS));`
+### explicit wait 
+* assign element when some condition met, up to NUMS seconds
+* `WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(NUMS)); WebElement ele = wait.until(ExpectedConditions.visibilityOfElementLocated(By....));`
+  * visibilityOfElementLocated, elementToBeClickable, etc.
