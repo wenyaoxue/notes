@@ -24,6 +24,7 @@
 * `@type {import('@playwright/test').PlaywrightTestConfig}` to allow testing by just filename
 # code for tests
 * file type `.spec.js`
+* `const { test, expect } = require('@playwright/test')`
 ## test syntax
 * https://playwright.dev/docs/api/class-test
 * a FUNCTION can include parameters like `({browser}) => {}`
@@ -32,6 +33,7 @@
 * `test.beforeAll( async FUNCTION );`
 * `test(STRINGTESTNAME, async FUNCTION);`
 * `test.afterAll( async FUNCTION );`
+* `test.setTimeout(120000)` - test case has an automatic max time, so your test suite will fail even if all the tests pass if the time is exceeded
 ## internal syntax (in FUNCTION)
 ### recall
 * Math.random()
@@ -39,13 +41,16 @@
 * `import { key } from '.././TestData/SpreeCreateAddresses.json';`, if value is list eg + `key.forEach((val)=>{test(...val.keypath...)})`
 * `async function foo() {}` + `export default foo` + in another `import foo from './BASEFILE'` + `foo()`
   * or `export {foo, bar}` + `import {foo} from...`
+  * these functions can use variables defined in the file (read/write) without being in a class/exported
+* ARRAY.forEach(FUNCTION) - awaits won't work inside thefunction
+* can declare functions `async`, then should `await` the call to not continue until it completes
 ### assertions
 * `expect(SOMEVAR)` + optional `.not`
   * `toHaveURL('COMPLETEURL')`
   * `toContainText('SOMESTRING')`
   * `toHaveText('SOMESTRING')`
   * `toBe(SOMEVAL)`
-  * `.toBeTruthy()` - check not false, 0, null, etc.
+  * `toBeTruthy()` - check not false, 0, null, etc.
 ### get page values with codegen
 * npx playwright codegen COMPLETEURL
 * opens a browser, that you can interact with, and an inspector that records your interactions
@@ -64,7 +69,7 @@
 ### get api values
 * function eg takes parameter `{request}`
 * make calls with eg BODYOBJECT
-  * `headers: { 'Content-Type': 'application/vnd.api+json', 'Authorization': Bearer ' + token, },`
+  * `headers: { 'Content-Type': 'application/vnd.api+json', 'Authorization': 'Bearer ' + token, },`
   * `data: {"address":{firstname:"Crystal"}}`
 * `await request.get(STRINGAPIURL)` or `await request.post(STRINGAPIURL, BODYOBJECT)` returns a response
   * `status()`
