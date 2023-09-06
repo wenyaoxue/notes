@@ -57,3 +57,17 @@ class ClassName {
 let obj = new CLASSNAME(PARAMS)
 obj.atr
 ```
+### more
+* Math.random()
+* JSON.parse(STRINGVAR) - then can access values with key paths
+* `import { key } from '.././TestData/SpreeCreateAddresses.json';`, if value is list eg + `key.forEach((val)=>{test(...val.keypath...)})`
+* `async function foo() {}` + `export default foo` + in another `import foo from './BASEFILE'` + `foo()`
+  * or `export {foo, bar}` + `import {foo} from...`
+  * these functions can use variables defined in the file (read/write) without being in a class/exported
+* ARRAY.forEach(FUNCTION) - awaits won't work inside thefunction
+* can declare functions `async`, then should `await` the call to not continue until it completes
+* class
+  * extends, super()
+  * `constructor() {}`
+  * this
+* variable/parameter declaration `varname = vartype`
