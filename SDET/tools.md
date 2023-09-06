@@ -4,7 +4,7 @@
 * rally
 * alm
 * ms excel
-* agile: agile, waterfall, vmodel, incremental, iterati e
+* agile: agile, waterfall, vmodel, incremental, iterative
 
 # automation
 * selenium - library/tool for ui automation; functional verification of web based application
