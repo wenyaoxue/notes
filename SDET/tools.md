@@ -4,8 +4,7 @@
 * rally
 * alm
 * ms excel
-# agile
-agile, waterfall, vmodel, incremental, iterati e
+* agile: agile, waterfall, vmodel, incremental, iterati e
 
 # automation
 * selenium - library/tool for ui automation; functional verification of web based application
@@ -44,7 +43,7 @@ agile, waterfall, vmodel, incremental, iterati e
   * debuggable
   * reports/results
   * required training
-
+# maven is a build management tool - auto-download dependencies at runtime
 # testing
 * testng and junit are alternatives
 * junit open source
