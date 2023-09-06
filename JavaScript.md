@@ -69,6 +69,6 @@ obj.atr
 * can declare functions `async`, then should `await` the call to not continue until it completes
 * class
   * extends, super()
-  * `constructor() {}`
+  * `constructor() {}` - using, `let OBJNAME = new CLASSNAME(params)`
   * this
 * variable/parameter declaration `varname = vartype`
