@@ -51,6 +51,7 @@
 * also as you hover, suggested selectors will tooltip
 * generally grabs by text which is not stable, + not good for icons
 ### get page values without codegen
+* function eg takes parameter `{page}`
 * should await everything
 * `browser.newPage();` returns variable that has methods
   * `goto('URL');`
