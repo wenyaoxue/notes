@@ -3,7 +3,7 @@
 * code separated by page - java file (page object) that represents a page (finds elements, methods to verify elements, send keys, click, etc.), java file that checks (test, handles reports, calls page methods)
 * script maintenance, locatability, reusability, efficiency, cost reduction
 
-* Selenium
+# Selenium
 * pom class
   * annotate WebElement or `List<WebElement>` variable declaration `@FindBy(xpath="//somexpath")` or id, name, ...
   * create methods that return boolean
