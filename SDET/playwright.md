@@ -57,7 +57,7 @@
   * `getByLabel('LABEL')` or  `getByRole('TAG', {ATTRIBUTE: 'VALUE'})` or `locator("XPATH")` or `locator().all()` (but first wait for something else, or you'll get an empty array) or one of the previous`.nth(INTEGER)`
     * `.fill('VALUE')`, `.type('VALUE')`, `selectOption('VALUE')`
     * `.check()`, `click()`, `.clear()`
-    * `innerText()` (await), `getAttribute(ATTR)` (await) eg ATTR = 'class', `title()` (await)
+    * `innerText()` (await), `innerHTML()` (await), `inputValue()` (await), `getAttribute(ATTR)` (await) eg ATTR = 'class', `title()` (await)
     * `.screenshot()`
   * `url()`
     * `includes('SOMESTRING')`
