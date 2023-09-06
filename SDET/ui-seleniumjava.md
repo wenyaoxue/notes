@@ -1,3 +1,6 @@
+# pom.xml maven dependencies
+* web driver https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.11.0
+* browser driver https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager/5.4.1
 ## selenium testing java setup
 * download browser `WebDriverManager.chromedriver().setup();` other eg edgedriver, etc.
 * other options:
