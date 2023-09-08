@@ -27,7 +27,7 @@ help > eclipse marketplace > cucumber eclipse plugin > install
   * `@CucumberOptions(OPTIONSSEPARATEDBYCOMMAS)`
     * `features = {"NAMEOFFEATUREFOLDER/NAMEOFFEATUREFILE.feature"}`
     * `glue = "NAMEOFSTEPDEFINITIONPACKAGE"`
-    * `dryRun=false`
+    * `dryRun=false` - pass/fail based on - false: performing scenarios, true: checking scenarios are implemented (if fail, Failure Trace window will include snippets for unimplemented methods)
     * `monochrome=true`
     * `plugin  = {"pretty","html:CucumberReport/Report.html"}` - after execution, refresh, this report file will be created
 * run as junit test
