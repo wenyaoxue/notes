@@ -13,8 +13,8 @@ help > eclipse marketplace > cucumber eclipse plugin > install
 * Feature:
 * Scenario: Given When Then And
 * right click > Run As > Cucumber Feature
+  * scenarios will be performed (-> pass/fail)
 	* if step definitions (APPLICATIONPageStepDefinition class) are not implemented, console output will include method stub snippets
-  * otherwise, will perform the scenarios and show pass/fail
 * can be batch executed - see src/test/java/com.TestRunner
 # src/test/java/com.StepDefinition
 * AbstractPageStepDefinition.java - hold, initialize, and return WebDriver variable
