@@ -5,7 +5,8 @@
 * alm
 * ms excel
 * agile: agile, waterfall, vmodel, incremental, iterative
-* tdd : junit/testng :: bdd : cucumber/specflow
+* junit/testng
+* cucumber/specflow - can use junit or testng
 # automation
 * selenium - library/tool for ui automation; functional verification of web based application
   * includes an IDE, WebDriver (browsers, use programming language, conditions), and Grid
