@@ -31,3 +31,6 @@ help > eclipse marketplace > cucumber eclipse plugin > install
     * `monochrome=true`
     * `plugin  = {"pretty","html:CucumberReport/Report.html"}` - after execution, refresh, this report file will be created
 * run as junit test
+# it appears:
+* each scenario creates an instance of the stepdefinition implementation that the methods are found in (ie variable declaration and assignment in APPLICATION... whatever is reexecuted, abstract...def is not)
+* scenarios are performed in order, ie if using the abstract page's driver = using the same browser
