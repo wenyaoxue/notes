@@ -12,11 +12,11 @@ help > eclipse marketplace > cucumber eclipse plugin > install
 * `#` comments
 ## `Feature:` - app/component name
 ## `Scenario:` - test name; or `Background:` - same structure, everything included will be performed before each scenario or `Scenario Outline:` to use multiple datasets, see parameters > DataTable > multi data
-## `Given` `When` `Then` 
-* Background uses one phrase to represent many steps
-* and any phrase, which will be used to annotate the implementations
+## `Given` scenario precondition `When` user performs an action `Then` check expected result
+* ie follow each keyword with a high level phrase, which will be used to annotate the implementations
+* join phrases in a clause with `And`, `But` - same functionality
 ### parameters
-* eg for input data, expected vals, etc.
+* eg for input data (when), expected vals (then), etc.
 #### literal injection
 * feature phrase includes `"LITERALSTRINGVALUE"` <-> implementation annotation phrase includes `{string}`
 * implementation method takes and uses parameter type `String`
@@ -32,7 +32,6 @@ help > eclipse marketplace > cucumber eclipse plugin > install
   * relevant feature phrase includes `"<DATACOLTITLE>"` <-> implementation annotation phrase includes `{string}`
   * implementation method takes and uses parameter type `String`
   * will generate one scenario for each example (num rows - 1 for column titles)
-## `And` `But` - same functionality
 ## run
 * right click > Run As > Cucumber Feature
   * scenarios will be performed (-> pass/fail)
