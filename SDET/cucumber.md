@@ -20,11 +20,11 @@ help > eclipse marketplace > cucumber eclipse plugin > install
 #### literal injection
 * feature phrase includes `"LITERALSTRINGVALUE"` <-> implementation annotation phrase includes `{string}`
 * implementation method takes and uses parameter type `String`
-#### DataTable
+#### using a table in feature
 * feature data format - each new line/row: `| VALUE | VALUE |` (i think it must be a regular table, same number of cols per row)
-* implementation method takes and uses parameter type `DataTable`
-  * DataTable has method `asLists` - no arguments, returns type `List<List<String>>` - eg use to get(rowi).get(coli)
 * single data: underneath phrase (must be on a new line), include feature data
+  * implementation method takes and uses parameter type `DataTable`
+  * DataTable has method `asLists` - no arguments, returns type `List<List<String>>` - eg use to get(rowi).get(coli)
 * multi data:
   * add clause to the end of the Scenario Outline: `Examples: with multiple data` + new line + feature data
   	* in the first row, each column VALUE should be DATACOLTITLE
