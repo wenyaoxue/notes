@@ -26,7 +26,7 @@ help > eclipse marketplace > cucumber eclipse plugin > install
   * DataTable has method `asLists` - no arguments, returns type `List<List<String>>` - eg use to get(rowi).get(coli)
 * single data: underneath phrase (must be on a new line), include feature data
 * multi data:
-  * add clause to the end of the Scenario Outline: `Examples: with multiple data` + new line + feature data (any number of rows)
+  * add clause to the end of the Scenario Outline: `Examples: with multiple data` + new line + feature data
   	* in the first row, each column VALUE should be DATACOLTITLE
   * instead of `Scenario:`, use `Scenario Outline:`
   * relevant feature phrase includes `"<DATACOLTITLE>"` <-> implementation annotation phrase includes `{string}`
