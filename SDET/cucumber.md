@@ -11,7 +11,7 @@ help > eclipse marketplace > cucumber eclipse plugin > install
 * create in a folder `Feature` in project
 * `#` comments
 ## `Feature:` - app/component name
-## `Scenario:` - test name; or `Background:` - same structure, everything included will be performed before each scenario
+## `Scenario:` - test name; or `Background:` - same structure, everything included will be performed before each scenario or `Scenario Outline:` to use multiple datasets, see parameters > DataTable > multi data
 ## `Given` `When` `Then` 
 * Background uses one phrase to represent many steps
 * and any phrase, which will be used to annotate the implementations
@@ -20,9 +20,15 @@ help > eclipse marketplace > cucumber eclipse plugin > install
 * feature phrase includes `"LITERALSTRINGVALUE"` <-> implementation annotation phrase includes `{string}`
 * implementation method takes and uses parameter type `String`
 #### DataTable
-* underneath phrase (must be on a new line), include data `| VALUE | VALUE |` - can break line and have more data in the same format, eg new row
+* feature data format - each new line/row: `| VALUE | VALUE |`
 * implementation method takes and uses parameter type `DataTable`
   * DataTable has method `asLists` - no arguments, returns type `List<List<String>>` - eg use to get(rowi).get(coli)
+* single data: underneath phrase (must be on a new line), include feature data (one row)
+* multi data:
+  * instead of `Scenario:`, use `Scenario Outline:`
+  * relevant feature phrase includes `"<DATACOLTITLE>"` <-> implementation annotation phrase includes `{string}`
+  * implementation method takes and uses parameter type `String`
+  * add clause to the Scenario Outline: `Examples: with multiple data` + new line + feature data (any number of rows)
 ## `And` `But` - same functionality
 ## run
 * right click > Run As > Cucumber Feature
