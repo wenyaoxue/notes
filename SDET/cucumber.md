@@ -10,15 +10,21 @@ help > eclipse marketplace > cucumber eclipse plugin > install
 # `.feature` files
 * create in a folder `Feature` in project
 * `#` comments
-* `Feature:` - app/component name
-* `Scenario:` - test name; or `Background:` - same structure, everything included will be performed before each scenario
-* `Given` `When` `Then` 
-  * Background uses one phrase to represent many steps
-  * and any phrase, which will be used to annotate the implementations
-  * parameters
-    * feature phrase includes `"LITERALSTRINGVALUE"` <-> implementation annotation phrase includes `{string}`
-    * implementation method takes and uses parameter `String VARIABLENAME` 
-* `And` `But` - same functionality
+## `Feature:` - app/component name
+## `Scenario:` - test name; or `Background:` - same structure, everything included will be performed before each scenario
+## `Given` `When` `Then` 
+* Background uses one phrase to represent many steps
+* and any phrase, which will be used to annotate the implementations
+### parameters
+#### literal injection
+* feature phrase includes `"LITERALSTRINGVALUE"` <-> implementation annotation phrase includes `{string}`
+* implementation method takes and uses parameter type `String`
+#### DataTable
+* underneath phrase (must be on a new line), include data `| VALUE | VALUE |` - can break line and have more data in the same format, eg new row
+* implementation method takes and uses parameter type `DataTable`
+  * DataTable has method `asLists` - no arguments, returns type `List<List<String>>` - eg use to get(rowi).get(coli)
+## `And` `But` - same functionality
+## run
 * right click > Run As > Cucumber Feature
   * scenarios will be performed (-> pass/fail)
 	* if step definitions (APPLICATIONPageStepDefinition class) are not implemented, console output will include method stub snippets
