@@ -16,19 +16,22 @@ help > eclipse marketplace > cucumber eclipse plugin > install
 * Background uses one phrase to represent many steps
 * and any phrase, which will be used to annotate the implementations
 ### parameters
+* eg for input data, expected vals, etc.
 #### literal injection
 * feature phrase includes `"LITERALSTRINGVALUE"` <-> implementation annotation phrase includes `{string}`
 * implementation method takes and uses parameter type `String`
 #### DataTable
-* feature data format - each new line/row: `| VALUE | VALUE |`
+* feature data format - each new line/row: `| VALUE | VALUE |` (i think it must be a regular table, same number of cols per row)
 * implementation method takes and uses parameter type `DataTable`
   * DataTable has method `asLists` - no arguments, returns type `List<List<String>>` - eg use to get(rowi).get(coli)
-* single data: underneath phrase (must be on a new line), include feature data (one row)
+* single data: underneath phrase (must be on a new line), include feature data
 * multi data:
+  * add clause to the end of the Scenario Outline: `Examples: with multiple data` + new line + feature data (any number of rows)
+  	* in the first row, each column VALUE should be DATACOLTITLE
   * instead of `Scenario:`, use `Scenario Outline:`
   * relevant feature phrase includes `"<DATACOLTITLE>"` <-> implementation annotation phrase includes `{string}`
   * implementation method takes and uses parameter type `String`
-  * add clause to the Scenario Outline: `Examples: with multiple data` + new line + feature data (any number of rows)
+  * will generate one scenario for each example (num rows - 1 for column titles)
 ## `And` `But` - same functionality
 ## run
 * right click > Run As > Cucumber Feature
