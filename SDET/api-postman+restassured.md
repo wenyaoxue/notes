@@ -63,19 +63,11 @@
 * `RestAssured.baseURI = protocol+hostname`
 * `RequestSpecification httpRequest = RestAssured.given()`
 * RequestSpecification methods
-  * header takes 2 arguments varname, varval eg
+  * `header` takes 2 arguments varname, varval eg
     * Content-Type, application/JSON
-  * body takes argument String
-    * ---body data:
-    * JSONObject methods
-      * constructor takes no arguments
-      * `put` takes arguments String key, String value
-      * `toJSONString`
-      * OR can be created by casting an Object:
-    * for json files eg `{"key":{"key":val", "key":"val"}}`
-      * JSONParser methods
-        * constructor takes no arguments
-        * `parse` takes argument FileReader (constructor takes arguent filename eg ".\\folder\\file.json"), returns Object
+  * `body`
+    * takes: String (json string format, can be created from JSONObject) OR JSONObject
+      * can create JSONObject directly, or from a json file, see [datafiles.md#json]([url](https://github.com/wenyaoxue/notes/blob/main/SDET/datafiles.md#json))
     * for `DataProvider`
       * add to Test annotation dataProvider="dataname"
       * add to test method argument list: String varname, String varname, ...
