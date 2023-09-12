@@ -16,7 +16,7 @@ help > eclipse marketplace > cucumber eclipse plugin > install
 * ie follow each keyword with a high level phrase, which will be used to annotate the implementations
 * join phrases in a clause with `And`, `But` - same functionality
 ### parameters
-* eg for input data (when), expected vals (then), etc.
+* eg for input data (when) (could be file paths and positions (eg sheet, row, key)), expected vals (then), etc.
 #### literal injection
 * feature phrase includes `"LITERALSTRINGVALUE"` <-> implementation annotation phrase includes `{string}`
 * implementation method takes and uses parameter type `String`
@@ -31,9 +31,6 @@ help > eclipse marketplace > cucumber eclipse plugin > install
   * instead of `Scenario:`, use `Scenario Outline:`
   * see literal injection - LITERALSTRINGVALUE can include `<DATACOLTITLE>` to substitute in a value from the table
   * will generate one scenario for each example (num rows - 1 for column titles)
-#### other files
-* excel: https://www.numpyninja.com/post/how-to-read-data-from-excel-sheet-in-bdd-cucumber-framework
-* json: ???
 ## run
 * right click > Run As > Cucumber Feature
   * scenarios will be performed (-> pass/fail)
