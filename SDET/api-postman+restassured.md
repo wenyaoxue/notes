@@ -62,16 +62,19 @@
   * com.fasterxml.jackson.core/jackson-databind
 * `RestAssured.baseURI = protocol+hostname`
 * `RequestSpecification httpRequest = RestAssured.given()`
+* using a class to provide data
+  * create class DATACLASSNAME
+    * create a method
+    * annotated `@DataProvider(name="DATANAME")`
+    * returns data eg `new Object[][] {{},{},{}}`
+  * add to Test annotation `dataProvider="DATANAME", dataProviderClass=DATACLASSNAME.class`
+  * add to test method argument list: String varname, String varname, ...
 * RequestSpecification methods
   * `header` takes 2 arguments varname, varval eg
     * Content-Type, application/JSON
   * `body`
     * takes: String (json string format, can be created from JSONObject) OR JSONObject
       * can create JSONObject directly, or from a json file, see [datafiles.md#json](https://github.com/wenyaoxue/notes/blob/main/SDET/datafiles.md#json)
-    * for `DataProvider`
-      * add to Test annotation dataProvider="dataname"
-      * add to test method argument list: String varname, String varname, ...
-    * ---
   * `get`, `post`, ... (each takes argument String endpoint, returns type Response)
   * OR:
   * request
