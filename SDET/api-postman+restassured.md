@@ -67,7 +67,7 @@
     * Content-Type, application/JSON
   * `body`
     * takes: String (json string format, can be created from JSONObject) OR JSONObject
-      * can create JSONObject directly, or from a json file, see [datafiles.md#json]([url](https://github.com/wenyaoxue/notes/blob/main/SDET/datafiles.md#json))
+      * can create JSONObject directly, or from a json file, see [datafiles.md#json](https://github.com/wenyaoxue/notes/blob/main/SDET/datafiles.md#json)
     * for `DataProvider`
       * add to Test annotation dataProvider="dataname"
       * add to test method argument list: String varname, String varname, ...
