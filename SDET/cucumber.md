@@ -29,9 +29,11 @@ help > eclipse marketplace > cucumber eclipse plugin > install
   * add clause to the end of the Scenario Outline: `Examples: with multiple data` + new line + feature data
   	* in the first row, each column VALUE should be DATACOLTITLE
   * instead of `Scenario:`, use `Scenario Outline:`
-  * relevant feature phrase includes `"<DATACOLTITLE>"` <-> implementation annotation phrase includes `{string}`
-  * implementation method takes and uses parameter type `String`
+  * see literal injection - LITERALSTRINGVALUE can include `<DATACOLTITLE>` to substitute in a value from the table
   * will generate one scenario for each example (num rows - 1 for column titles)
+#### other files
+* excel: https://www.numpyninja.com/post/how-to-read-data-from-excel-sheet-in-bdd-cucumber-framework
+* json: ???
 ## run
 * right click > Run As > Cucumber Feature
   * scenarios will be performed (-> pass/fail)
