@@ -31,6 +31,8 @@
 * constructor: takes: `String` filename eg ".\\folder\\file.json"
 
 # JSON
+## json file
+`{"key":{"key":val", "key":"val"}}` or `["key":{"key":val", "key":"val"}]`
 ## pom.xml maven dependencies
 * com.googlecode.json-simple/json-simple
 ## syntax
