@@ -1,7 +1,8 @@
-# pom.xml maven dependencies:
+# excel workbook
+## pom.xml maven dependencies
 * for ms office files:
   * https://mvnrepository.com/artifact/org.apache.poi/ poi, poi-scratchpad, poi-ooxml
-# excel workbook
+## syntax
 * type `FileInputStream` - from java.io
   * constructor takes argument String filename
 * type `WorkbookFactory` - from org.apache.poi.ss.usermodel
@@ -25,3 +26,32 @@
     * returns type ??
 * type ??
   * method `getStringCellValue`
+
+# FileReader
+* constructor: takes: `String` filename eg ".\\folder\\file.json"
+
+# JSON
+## pom.xml maven dependencies
+* com.googlecode.json-simple/json-simple
+## syntax
+### JSONParser methods
+* constructor: takes: none
+* `parse`
+  * takes: `FileReader`
+  * returns: `Object`, can be casted to `JSONArray` or `JSONObject` based on file structure
+### JSONArray methods
+* `get`
+  * takes: `int` index
+  * returns: `Object`, can be casted to `JSONArray` or `JSONObject` based on file structure
+### JSONObject methods
+* constructor: takes: none
+* `put`: takes: `String` key, `String` value
+* `toJSONString`
+* `get`
+  * takes: `String` key
+  * returns: `Object`, can be casted to `String` or ... based on file structure
+
+
+
+
+
