@@ -11,7 +11,7 @@ help > eclipse marketplace > cucumber eclipse plugin > install
 * create in a folder `Feature` in project
 * `#` comments
 ## `Feature:` - app/component name
-## `Scenario:` - action description \n + given when then structure; or `Background:` perform before each scenario or `Scenario Outline:` perform one scenario for each dataset (see parameters > DataTable > multi data) or `???` perform after all scenarios (ie once)
+## `Scenario:` - action description \n + given when then structure; or `Background:` perform before each scenario or `Scenario Outline:` perform one scenario for each dataset (see parameters > DataTable > multi data)
 ## `Given` scenario precondition \n `When` user performs an action \n `Then` check expected result
 * ie follow each keyword with a high level phrase, which will be used to annotate the implementations
 * join phrases in a clause with `And`, `But` - same functionality
@@ -45,6 +45,9 @@ help > eclipse marketplace > cucumber eclipse plugin > install
 * other methods
   * annotated `@After`
     * will be executed after every scenario (where the class is used I think)
+  * annotated `@AfterAll`
+    *  will be executed after all scenarios are completed
+    *  must be a static method
 # src/test/java/com.TestRunner
 * annotate class TestRunner_Main.java
   * `@RunWith(Cucumber.class)`
