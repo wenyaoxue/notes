@@ -65,8 +65,8 @@
 * using a class to provide data
   * create class DATACLASSNAME
     * create a method
-    * annotated `@DataProvider(name="DATANAME")`
-    * returns data eg `new Object[][] {{},{},{}}`
+      * annotated `@DataProvider(name="DATANAME")`
+      * returns data eg `new Object[][] {{},{},{}}`
   * add to Test annotation `dataProvider="DATANAME", dataProviderClass=DATACLASSNAME.class`
   * add to test method argument list: String varname, String varname, ...
 * RequestSpecification methods
