@@ -54,6 +54,8 @@
 * should await everything
 * function eg takes parameter `{page}` OR function eg takes parameter `{browser}` and `browser.newPage();` returns variable that has methods
   * `goto('URL');`
+  * `click('text=SOME STRING')`
+  * `waitForSelector('text=SOME STRING')`
   * `getByLabel('LABEL')` or  `getByRole('TAG', {ATTRIBUTE: 'VALUE'})` or `locator("XPATH")` or `locator().all()` (but first wait for something else, or you'll get an empty array) or one of the previous`.nth(INTEGER)`
     * `.fill('VALUE')`, `.type('VALUE')`, `selectOption('VALUE')`
     * `.check()`, `click()`, `.clear()`
