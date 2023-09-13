@@ -61,6 +61,7 @@
     * `.check()`, `click()`, `.clear()`
     * `innerText()` (await), `innerHTML()` (await), `inputValue()` (await), `getAttribute(ATTR)` (await) eg ATTR = 'class', `title()` (await)
     * `.screenshot()`
+    * `.waitFor({state: "visible"})`
   * `url()`
     * `includes('SOMESTRING')`
   * `waitForTimeout(3000)`
