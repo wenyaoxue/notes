@@ -95,7 +95,7 @@ setWorldConstructor(CustomWorld);
   * string phrase to match feature
   * optional: options object, eg `{ timeout: 60 * 1000 }`
   * function, eg `async function () {}` where functions inside are playwright using cucumber world variables, eg
-    * `await this.openUrl('http://manabie.com/');`
+    * `await this.openUrl('http://manabie.com/');` - world.js function that initializes this.page
     * `await this.page.click('text=Career');`
     * `await this.page.click('text=View Openings');`
     * `await this.page.waitForSelector('text=Our Openings');`
