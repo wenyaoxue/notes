@@ -1,0 +1,1 @@
+`import { JSONKEY } from 'PATHTOJSONFILE';`
