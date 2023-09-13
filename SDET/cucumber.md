@@ -94,7 +94,7 @@ setWorldConstructor(CustomWorld);
 * `const { Given, When, Then } = require("@cucumber/cucumber");`
 * `Given`, `When`, `Then` are functions which each take the following arguments, in order:
   * string phrase to match feature
-  * optional: options object, eg `{ timeout: 60 * 1000 }`
+  * optional: options object, eg `{ timeout: 60 * 1000 }` - by default, max is 5000 (fail otherwise) (configure globally: var {setDefaultTimeout} = require('cucumber'); setDefaultTimeout(60 * 1000);)
   * function, eg `async function () {}` where functions inside are playwright using cucumber world variables, eg
     * `await this.openUrl('URLSTRING');` - world.js function that initializes this.page
     * use `this.page` the same way you would use the page variable provided by playwright tests (see [playwright.md#getpagevalues](https://github.com/wenyaoxue/notes/blob/main/SDET/playwright.md#get-page-values-without-codegen))
