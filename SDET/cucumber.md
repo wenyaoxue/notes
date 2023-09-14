@@ -73,7 +73,7 @@ cucumber acceptance automation can be used through java, ie in a maven project o
     *  will be executed after all scenarios are completed
     *  must be a static method
 ## javascript, by default should also be in the features folder (any level)
-### world.js - special file name
+### world.js (any name)
 * set page and browser of this instance of the cucumber world
 ```
 const { setWorldConstructor } = require("@cucumber/cucumber");
