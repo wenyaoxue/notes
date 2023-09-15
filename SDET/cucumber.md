@@ -58,7 +58,7 @@ cucumber acceptance automation can be used through java, ie in a maven project o
     * ?? missed the slide
 * run as junit test
 ### javascript
-* in terminal `./node_modules/.bin/cucumber-js --exit` - appears to run all .feature files in a `features` folder (any level)
+* in terminal `./node_modules/.bin/cucumber-js --exit` - appears to run all .feature files in a `features` folder (any level) - it's searching for a js file, you could in package .json create a command, test: cucuysdflsfdg.fdg.
 # feature phrase implementations
 ## java src/test/java/com.StepDefinition
 ### AbstractPageStepDefinition.java - hold, initialize, and return WebDriver variable
