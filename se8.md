@@ -39,6 +39,7 @@ Java SE8 certification
   * reference on stack, object on heap, not immutable by default
   * note heap can refer to something else on the heap
   * String is special - immutable, same object for same value WHEN defines as literal `="val"` (new object for each constructor invocation, or for .toLowerCase()...? because created at runtime
+    * method `charAt(index)`
 * scope
   * block, unless class-level
   * cannot redefine variable name if they're in scope at any point at the same time - eg loop
@@ -129,6 +130,7 @@ unchecked: crashes, application does not continue
 * `for (type ele: collection) { do something with ele }`
   * no collection = compilation error
   * wrong type = compilation error
+  * ele is a copy
 ## advanced flow control
 * add a label to a statement (think assembly language)
   * LABELNAME: statement
@@ -153,8 +155,28 @@ unchecked: crashes, application does not continue
 * `arr.length` - read only
 * objects
   * automatically generated classes
-  * equals and hashCode methods are not overridden, so by default ==
-  * to get expected values: `Arrays.equals(arr1, arr2)` and `Arrays.hashcode(arr)`
+  * equals and hashCode and toString, methods are not overridden, so by default ==
+  * to get expected values see `Arrays` class things
+* `Arrays` class static methods
+  * `equals(arr1, arr2)` <- only goes one level - `deepEquals(arr)`
+  * `hashcode(arr)` <- only goes one level - `deepHashcode(arr)`
+  * `copyOf(arr1, newLength)`
+  *  `toString(arr)` <- only goes one level -  `deepToString(arr)`
+  *  `copyOfRange(arr, indIncl, indExcl)`
+  *  `arraycopy(arr1, srcPos, arr2, destPos, length)` ?
+  *  `sort(arr)`
+  *  `binarySearch(arr, key)`
+## multidimensional arrays
+* note element arrays may have different lengths
+* `new TYPE[firstlevellength][secondlevellength]`, `new TYPE[firstlevellength][]`
+  * can do `type[] var[]` - 2 levels
+* `={{1,2}, {}, {3}, null}`
+* note ArrayIndexOutOfBoundsException vs NullPointerException
+## copy
+* array has method `clone()` - shallow copy
+  * elements take values, ie if object, both arrays' elements will reference the same object
+## more
+* 
 # method arguments
 * stack values passed to the new variable, og stack value does not change
 * for objects - reference is passed
