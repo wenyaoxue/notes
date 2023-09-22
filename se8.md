@@ -38,7 +38,7 @@ Java SE8 certification
 * reference types
   * reference on stack, object on heap, not immutable by default
   * note heap can refer to something else on the heap
-  * String is special - immutable, same object for same value
+  * String is special - immutable, same object for same value WHEN defines as literal `="val"` (new object for each constructor invocation, or for .toLowerCase()...? because created at runtime
 * scope
   * block, unless class-level
   * cannot redefine variable name if they're in scope at any point at the same time
@@ -54,3 +54,57 @@ Java SE8 certification
 * declare and assign
   * can do both at once
   * can declare many together, or declare and assign many together
+* suffix - upper or lower case - instead of assuming greater or less precision
+  * no decimals, auto int, L for long
+  * decimal, auto double, F for float, D for double
+* upcasting (widening) - (char) - automatically
+* downcasting - manually - `(smallType) bigVar` - without, compile error UNLESS as part of a compound assignment eg smallType += bigType
+## working with Object and primitive variables
+* primitives as fields in a class
+* will be given default values during class instantiation - 0s and falses
+* wrappers Byte, Short, Integer, Long, Float, Double, Character, Boolean
+  * object
+  * autoboxing and unboxing
+    * expecting wrapper, give primitive, or vice versa
+  * direct super class number for numbers
+    * constructor takes primitive variable
+    * `MIN_VALUE`, `MAX_VALUE`, `intValue()`, `equals(VAR)`, `compareTo(VAR)`
+* stack is faster, + no need for garbage collection
+* heap memory - new, old, permanent areas, + requires garbage collection, slow, fragmentation
+## working with fields
+* getter, setter, constructor, package, access mods, scope
+* object lifeccycle
+  * heap object
+  * stack reference
+  * no reference -> garbage collection
+  * finalize() method called by GC
+* note reassignment kinda like dereference
+# exceptions
+`throw new ...("msg");`
+checked: must be dealt with in code, try catch, throws
+unchecked: crashes, application does not continue
+# operators, decisions, loops
+## operators
+* ! - boolean only
+* arithmetic precedence: highest to lowest:
+  * ++ -- (and other unary operators, eg + -)
+  * * / %
+  * + - (binary)
+  * nested first ()
+* arithmetic operations between different types
+  * promoted to at least int
+  * promoted to larger type
+  * int -> double
+* relational operators
+  * < <= > >=
+  * `&` `|` `^` - no short circuiting; `&&` `||` - short circuiting
+  * `==` `!=`
+    * promotes numeric value types
+    * each side evaluated separately
+* = assignment returns value
+* every object has `equals()`
+## conditional logic
+* 
+## looping
+* 
+## advanced flow control
