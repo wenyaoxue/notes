@@ -41,7 +41,7 @@ Java SE8 certification
   * String is special - immutable, same object for same value WHEN defines as literal `="val"` (new object for each constructor invocation, or for .toLowerCase()...? because created at runtime
 * scope
   * block, unless class-level
-  * cannot redefine variable name if they're in scope at any point at the same time
+  * cannot redefine variable name if they're in scope at any point at the same time - eg loop
   * static methods can only use static variables
 * access modifiers
   * public - whole application
@@ -104,7 +104,60 @@ unchecked: crashes, application does not continue
 * = assignment returns value
 * every object has `equals()`
 ## conditional logic
-* 
-## looping
-* 
+* if (boolean) {} else if () {} else {}
+  * cannot if number - compilation error
+  * {}
+* boolean ? valorstatementiftrue : valorstatementiffalse - can only use to return a value?
+* switch(var) { case val: code }
+  * var cannot be boolean, long, or Object
+  * `break;` exits switch block
+  * `default: code` - order does not matter - only runs if no cases match
+  * match: executes code block and all of the following statements (until break if exists) - ie executes code inside following cases that don't match (and even default)
+    * eg case does not need code, can just let it fall through
+  * val must be constant (`final`) at compile time (eg not argument), same data type, cannot be null
+    * compilation error
+## loop
+* `while () {}`
+* `do {} while ();`
+* `for (initialization; booleanexpression; statement)`
+  * mult var example
+    * `for (long x = 1, y = 13; x < 2 || y > 10; x++, y--)`
+    * separate init/statement with commas
+    * must be same type
+  * `for(;;)` = infinite loop
+    * each of the 3 is optional
+* `for (type ele: collection) { do something with ele }`
+  * no collection = compilation error
+  * wrong type = compilation error
 ## advanced flow control
+* add a label to a statement (think assembly language)
+  * LABELNAME: statement
+* break
+  * exit the enclosing statement - eg of the current loop
+  * break LABELNAME - eg if LABELNAME's statement is a loop, break out of that loop, eg larger loop
+* continue
+  * exit the current iteration of the loop (then go and update and re-evaluate)
+  * continue LABELNAME - ...
+* return
+  * exit the method
+# arrays
+* fixed length
+* all elements have the same type
+* `TYPE[] arr;` or `TYPE arr[];`
+* `TYPE[] arr = new TYPE[LENGTH];` - given default values (eg null for objects)
+* `TYPE[] arr = new TYPE[]{val, val, val};` or `TYPE[] arr = {val, val, val};`
+  * can use `new TYPE[]{val, val, val}` to pass to methods
+* can have 0 elements
+* too many elements may get OutOfMemoryError, technically max is the max int value
+* `arr[INDEX]` - may get ArrayIndexOutOfBoundsException (runtime)
+* `arr.length` - read only
+* objects
+  * automatically generated classes
+  * equals and hashCode methods are not overridden, so by default ==
+  * to get expected values: `Arrays.equals(arr1, arr2)` and `Arrays.hashcode(arr)`
+# method arguments
+* stack values passed to the new variable, og stack value does not change
+* for objects - reference is passed
+# scanner
+* Scanner scanner = new Scanner(System.in)
+* scanner.nextLine()
