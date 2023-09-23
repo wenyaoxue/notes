@@ -60,6 +60,7 @@ Java SE8 certification
   * decimal, auto double, F for float, D for double
 * upcasting (widening) - (char) - automatically
 * downcasting - manually - `(smallType) bigVar` - without, compile error UNLESS as part of a compound assignment eg smallType += bigType
+* other casting: checked at runtime (ClassCastException)
 ## working with Object and primitive variables
 * primitives as fields in a class
 * will be given default values during class instantiation - 0s and falses
@@ -176,7 +177,25 @@ unchecked: crashes, application does not continue
 * array has method `clone()` - shallow copy
   * elements take values, ie if object, both arrays' elements will reference the same object
 ## more
-* 
+* `varargs` - variable number of arguments (eg String.format)
+  * method signature: `type... vararr`, vararr treated as an array - atuo creates the array if not given an array
+  * only one varargs, must be the last argument
+  * example: `Arrays.asList(VARARGSARR)` returns a `List<>`
+    * note the List and the array will point to the same object - cannot add or remove elements
+* cannot cast Object[] to String[] - not a subtype
+  * but arrays are covariant: Subclass[] is a subtype of Superclass[]
+    * BUT cannot store elements of different Subclasses in the variable, runtime error - ArrayStoreException
+* cannot create an array with a generic type without a special package
+## collections
+* List class and Set class
+  * constructor can take a List object
+   * makes a shallow copy
+  * method `toArray()` returns `Object[]`
+    * method `toArray(new String[0])` returns `String[]` - array argument is just for establishing type, nothing else
+    * independent of the List object
+    * shallow copy (eg if elements are objects)
+## generics
+*  generics are compile time only
 # method arguments
 * stack values passed to the new variable, og stack value does not change
 * for objects - reference is passed
