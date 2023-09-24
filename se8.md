@@ -47,7 +47,7 @@ Java SE8 certification
 * access modifiers
   * public - whole application
   * private - class
-  * default - package (same exact package, eg no subpackage)
+  * default - package (same exact package, eg no subpackage), package-private
   * protected - package and children - ?
 # java data types
 ## primitive data types
@@ -196,9 +196,54 @@ unchecked: crashes, application does not continue
     * shallow copy (eg if elements are objects)
 ## generics
 *  generics are compile time only
-# method arguments
-* stack values passed to the new variable, og stack value does not change
-* for objects - reference is passed
+*  after compilation, erased - eg List<Integer> becomes List
 # scanner
 * Scanner scanner = new Scanner(System.in)
 * scanner.nextLine()
+# methods and encapsulation
+* access `return name(`params`)` throws exceptions `{body}`
+* parameters (declaration) , arguments (values)
+  * cannot have the same name amongst themselves
+  * can share a name with the class this method is in - field shadowing, use instance `this.var`
+  * see varargs - shorthand for array argument
+  * stack values passed to the new variable, og stack value does not change
+    * ie object variable stack value is the reference
+* signature = name + parameters
+* overloading
+  * different signature: same method name, different parameters
+    * note type erasure - generics != different parameters (ie List<Integer> is the same as List<Double>)
+* overriding
+  * same signature and return type, different body in a subclass
+    * can annotate with @Override to tell the compiler
+    * polymorphism - version of the method invoked is decided at runtime based on the object type - how it was instantiated, not how it was declared
+* final
+  * cannot override (method), inherit (class)
+    * compilation error
+* abstract
+  * 1+ abstract method = abstract class (cannot be instantiated)
+  * no body
+* encapsulation
+  * restrict/limit access
+    * private, protected, package-private classes and fields
+    * getters/setters (with validation)
+  * immutable objects
+    * final fields, class
+  * return copies instead of fields
+    * eg final is final inside class, but if returned, client can use
+  * method handles fields directly, instead of method on field
+# constructors
+* default is provided by compiler (if you don't create any constructors)
+  * new ClassName()
+* can overload
+* name = class name
+* call from in class `this()`
+* any access modifier - eg private can only be used from inside
+# static
+* class field or class methods
+  * `public static int varname;`
+  * `public static void main()`
+    * helper/utility methods, static factory `return new ClassName(...)` (more readable names, can return subclasses, already created things...)
+  * static methods can only use static fields
+  * outside: `Classname.varname` or import static ...
+* initialization block
+# inheritance
