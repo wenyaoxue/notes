@@ -2,25 +2,25 @@ Java SE8 certification
 * https://education.oracle.com/java-se-8-programmer-i/pexam_1Z0-808
 * create pearson vue account first
 * all multiple choice
-# Java Basics
-## Java Features
+# Java Features
 * Java Virtual Machine - developer friendly
 * interpret/compilation - translate to machine code
   * java combines to optimize, platform independent
   * compiled code runs using JRE (platform dependent)
 * object oriented
   * encapsulation
+  * abstraction - keep simple, just what you need
   * inheritance
   * polymorphism
 * multithreaded
   * concurrency
   * java manages threads
   * efficiency/speed
-## Executing Java Applications
+# Setup
 * everything must be in a class
 * `public static void main(String[] args)`
 * play compiles then runs = terminal: `cd src` > `javac FILENAME.java` > (creates FILENAME.class) > `java FILENAME` (or send with args: `java FILENAME arg0 arg1 arg2`)
-## Packages and Classes
+# Packages and Classes
 * classes
   * one public per file
 * packages
@@ -30,25 +30,25 @@ Java SE8 certification
 * method `public RetType MethodName`, use `obj.method()`
 * `extends SuperClassName`
 * when defining with a subclass, the type the variable is declared with defines the methods and attributes allowed
-## variables and scope
+# variables
 * can't start with a number
 * int, String, double, float, boolean
 * primitives
   * stored on stack, smaller, immutable (values get replaced - eg send to method)
 * reference types
-  * reference on stack, object on heap, not immutable by default
+  * reference on stack, object (includes reference to class (1 created)) on heap, not immutable by default
   * note heap can refer to something else on the heap
   * String is special - immutable, same object for same value WHEN defines as literal `="val"` (new object for each constructor invocation, or for .toLowerCase()...? because created at runtime
     * method `charAt(index)`
-* scope
-  * block, unless class-level
-  * cannot redefine variable name if they're in scope at any point at the same time - eg loop
-  * static methods can only use static variables
-* access modifiers
-  * public - whole application
-  * private - class
-  * default - package (same exact package, eg no subpackage), package-private
-  * protected - package and children - ?
+# scope
+* block, unless class-level
+* cannot redefine variable name if they're in scope at any point at the same time - eg loop
+* static methods can only use static variables
+## access modifiers / visibility modifiers
+* public - whole application
+* private - class
+* default - package (same exact package, eg no subpackage), package-private or package-protected
+* protected - package and children - ?
 # java data types
 ## primitive data types
 * byte, short, int, long, float, double, char, boolean (1, 2, 4, 8, 4, 8, 2 bytes, 1 bit)
@@ -82,11 +82,11 @@ Java SE8 certification
   * finalize() method called by GC
 * note reassignment kinda like dereference
 # exceptions
-`throw new ...("msg");`
-checked: must be dealt with in code, try catch, throws
-unchecked: crashes, application does not continue
-# operators, decisions, loops
-## operators
+* `throw new ...("msg");`
+* checked: must be dealt with in code, try catch, throws
+* unchecked: crashes, application does not continue
+  * illegalargumentexception
+# operators
 * ! - boolean only
 * arithmetic precedence: highest to lowest:
   * ++ -- (and other unary operators, eg + -)
@@ -105,7 +105,7 @@ unchecked: crashes, application does not continue
     * each side evaluated separately
 * = assignment returns value
 * every object has `equals()`
-## conditional logic
+# conditional logic
 * if (boolean) {} else if () {} else {}
   * cannot if number - compilation error
   * {}
@@ -118,7 +118,7 @@ unchecked: crashes, application does not continue
     * eg case does not need code, can just let it fall through
   * val must be constant (`final`) at compile time (eg not argument), same data type, cannot be null
     * compilation error
-## loop
+# loops
 * `while () {}`
 * `do {} while ();`
 * `for (initialization; booleanexpression; statement)`
@@ -132,7 +132,7 @@ unchecked: crashes, application does not continue
   * no collection = compilation error
   * wrong type = compilation error
   * ele is a copy
-## advanced flow control
+# advanced flow control
 * add a label to a statement (think assembly language)
   * LABELNAME: statement
 * break
