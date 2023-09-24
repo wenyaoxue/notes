@@ -58,13 +58,15 @@ Java SE8 certification
 * suffix - upper or lower case - instead of assuming greater or less precision
   * no decimals, auto int, L for long
   * decimal, auto double, F for float, D for double
+  * decimal literal - defaults to double, would have to explicit cast to assign literal to a float
 * upcasting (widening) - (char) - automatically
 * downcasting - manually - `(smallType) bigVar` - without, compile error UNLESS as part of a compound assignment eg smallType += bigType
 * other casting: checked at runtime (ClassCastException)
+  * can cast to a superclass / super interface 
 ## working with Object and primitive variables
 * primitives as fields in a class
 * will be given default values during class instantiation - 0s and falses
-* wrappers Byte, Short, Integer, Long, Float, Double, Character, Boolean
+* wrappers Byte, Short, Integer, Long, Float, Double, Character, Boolean (final classes)
   * object
   * autoboxing and unboxing
     * expecting wrapper, give primitive, or vice versa
@@ -238,7 +240,8 @@ Java SE8 certification
   * new ClassName()
 * can overload
 * name = class name
-* call from in class `this()`
+* call from in class `this()` - but must be the first statement in the constructor
+* subclasses must call the constructor of its superclass, `super()` - by default implicitly, or add explicitly - if calls a this(), idk if this still required?
 * any access modifier - eg private can only be used from inside
 # static
 * class field or class methods
@@ -249,9 +252,22 @@ Java SE8 certification
   * outside: `Classname.varname` or import static ...
 * initialization block
 # inheritance
-* `public class Subclass extends Superclass { ... superclassProtectedMembers ... }`
+* `public class Subclass extends Superclass implements Interface{ ... superclassProtectedMembers ... }`
 * is a / behaves like
 * no multiple inheritance - class can only have max 1 superclass
+## interface
+* `public interface Name {}`
+* can have abstract methods (abstract keyword optional)
+  * `type name();`
+* can have constants
+* starting with java se8, can have public default methods and public static methods
+  * `default type name() {}` 
+* starting with java se9 - private
+* instantiate with a concrete class or a lambda expression
+* can extend any number of interfaces, cannot extend classes / abstract classes
+* classes / abstract classes can implement any number of interfaces
+* eg Comparable - eg String extends COmparable
+## polymorphism 
 * a method that takes an argument X can take an object of type X or any subclass
   * if executing a method on the argument, polymorphism - calls the outermost method found at runtime
 * in memory, subclass object includes a superclass object
@@ -268,5 +284,6 @@ Java SE8 certification
   * equals -> same hash code
 * finalize()
 # final
-* cannot override (method), inherit (class), reassign value (field, immutable)
+* cannot override (method), inherit (class), reassign value (field, immutable - in class, must be initalized)
   * compilation error
+# methods available on a variable are the ones defined on its type, not implementation
