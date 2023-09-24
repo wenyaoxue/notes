@@ -30,7 +30,7 @@ Java SE8 certification
 * method `public RetType MethodName`, use `obj.method()`
 * `extends SuperClassName`
 * when defining with a subclass, the type the variable is declared with defines the methods and attributes allowed
-# variables
+# variables & memory
 * can't start with a number
 * int, String, double, float, boolean
 * primitives
@@ -200,7 +200,7 @@ Java SE8 certification
 # scanner
 * Scanner scanner = new Scanner(System.in)
 * scanner.nextLine()
-# methods and encapsulation
+# methods and encapsulation & argument memory
 * access `return name(`params`)` throws exceptions `{body}`
 * parameters (declaration) , arguments (values)
   * cannot have the same name amongst themselves
@@ -220,8 +220,10 @@ Java SE8 certification
   * cannot override (method), inherit (class)
     * compilation error
 * abstract
-  * 1+ abstract method = abstract class (cannot be instantiated)
+  * 0+ abstract method = abstract class (cannot be instantiated)
+  * `public abstract rettype methodname();` - method overridden, polymorphic runtime code
   * no body
+  * `public abstract class ClassName {}` - cannot be instantiated
 * encapsulation
   * restrict/limit access
     * private, protected, package-private classes and fields
@@ -247,3 +249,24 @@ Java SE8 certification
   * outside: `Classname.varname` or import static ...
 * initialization block
 # inheritance
+* `public class Subclass extends Superclass { ... superclassProtectedMembers ... }`
+* is a / behaves like
+* no multiple inheritance - class can only have max 1 superclass
+* a method that takes an argument X can take an object of type X or any subclass
+  * if executing a method on the argument, polymorphism - calls the outermost method found at runtime
+* in memory, subclass object includes a superclass object
+* method overriding - include a method in the subclass that has the same signature as declared in the superclass
+  * @Override annotation checks signature at compile time
+  * concrete class extending abstract class must override all abstract methods
+  * can change the access modifier, but cannot be more restrictive
+* by default, implied  extends Object
+* eg superclass returns a subclass
+# Object
+* toString()
+* equals() and hashCode()
+  * override equals, have to override hashcode
+  * equals -> same hash code
+* finalize()
+# final
+* cannot override (method), inherit (class), reassign value (field, immutable)
+  * compilation error
