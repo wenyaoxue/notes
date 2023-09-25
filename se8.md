@@ -322,6 +322,10 @@ Java SE8 certification
 # methods available on a variable are the ones defined on its type, not implementation
 # ArrayList
 * util
+* constructor can take initial capacity
+* only stores objects
+* method add(), index value
+* remove()
 # Lambda Predicates
 # Strings and StringBuffer
 # Dates and Times
