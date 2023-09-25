@@ -324,8 +324,96 @@ Java SE8 certification
 * util
 * constructor can take initial capacity
 * only stores objects
-* method add(), index value
-* remove()
+## methods
+* add(value) - value should match type, may be autoboxed by compiler
+  * index, value
+  * index, otherlist
+* get(index)
+* set(index, value)
+* remove(value) - first instance or index
+* removeAll(otherlist)
+* size()
+* clear()
+* isEmpty()
+* contains(value)
+* equals(otherlist)
+* listIterator()
+  * returns type ListIterator(type) which has methods hasNext() and next()
+* forEach(consumer) - one param -> void
+* sort() = sort(null) or sort(comparator) - 2 params -> int eg a.compareTo(b)
+* removeIf(Predicate) - 1 param -> boolean
+* stream() - returns `Stream<eletype>`
+  * filter(Predicate)
+  * toArray()
 # Lambda Predicates
+* functional interfaces
+  * exactly one abstract method - note has parameter and return type 
+  * any number of other methods
+  * ie to implement, must override the one abstract method
+* lambda expressions
+  * implement a functional interface
+  * eg instead of new,,,
+  * (String string) -> {}
+  * var -> statement (doesn't need to include return keyword)
+* lambda predicates
 # Strings and StringBuffer
+* immutable
+* String literal pool - create same string with literals = same object
+* new operator, or using string methods = new string reference
+* operators: +, += (but order of ops is left to right for same precedence)
+## methods
+* equals(otherstr), equalsIgnoreCase(otherstr)
+* length() - eg \t and \n are each one character
+* toUpperCase(), toLowerCase()
+* startsWith(string), endsWith(string), contains(string)
+* trim(), replace(oldChar, newChar) (or string)
+* charAt(index), indexOf(char), indexOf(string), indexOf(string, fromIndex)
+* substring(startIndex), substring(startIndex, endIndex+1)
+## StringBuilder
+* methods same object
+* construct with string or capacity
+* length()
+* capacity() - default 16
+* append(val) - val can be any primitive, string, or StringBuilder
+* indexOf(string)
+* charAt(index)
+* replace(startIndex, endIndex, string)
+* deleteCharAt(index)
+* delete(startIndex, endIndex+1)
+* insert(index, string)
+* substring(startIndex, endIndex+1) - only one that returns a new object
 # Dates and Times
+* java.time.
+* NO CONSTRUCTORS!
+* EXCEPTIONS THROWN for invalid vals
+* immutable
+* LocalDate
+  * now()
+  * of(year, month, day)
+* LocalTime
+  * now()
+  * of(hr, min, sec, nanoSecond)
+* LocalDateTime
+  * now()
+  * of(year, month, day, hr, min)
+* ZonedDateTime
+  * now()
+  * of(year, month, day, hr, min, sec, nanSec, ZoneId.of("America/Chicago"))
+* all accept int, or enum from package with Month.JANUARY, ...
+* plusDays(int) - returns a new object
+  * Months, Years, Hours, Minutes, Seconds, Nanos
+  * minus
+  * plus(period) or plus(duration)
+* equals(otherdate)
+  * isBefore(otherDate), isAfter(otherdate)
+* Period
+  * between(date, date) or ofDays(int) or of(years, months, days)
+  * getYears(), getMonths(), getDays()
+* Duration
+  * between(date, date) or ofHours(int)
+  * getSeconds()
+## format
+* DateTimeFormatter
+* ofPattern
+  * E day of week, M/L month (num/txt), d day of month, y year), h hr,m min, 'literals'
+* exceptions for symbols
