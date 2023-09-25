@@ -127,8 +127,8 @@ Java SE8 certification
   * pre `++ --` (and other unary operators, eg + -)`
   * `* / %`
   * `+ - (binary)`
-  * post `++ --`
   * `=`
+  * post `++ --`
   * nested first ()
 * arithmetic operations between different types
   * promoted to at least int
