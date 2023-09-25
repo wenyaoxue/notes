@@ -125,7 +125,7 @@ Java SE8 certification
 * ! - boolean only
 * arithmetic precedence: highest to lowest:
   * ++ -- (and other unary operators, eg + -)
-  * * / %
+  * / %
   * + - (binary)
   * nested first ()
 * arithmetic operations between different types
