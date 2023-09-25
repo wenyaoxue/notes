@@ -62,7 +62,8 @@ Java SE8 certification
 * upcasting (widening) - (char) - automatically
 * downcasting - manually - `(smallType) bigVar` - without, compile error UNLESS as part of a compound assignment eg smallType += bigType
 * other casting: checked at runtime (ClassCastException)
-  * can cast to a superclass / super interface 
+  * can cast to a superclass / super interface
+  * cannot cast object to string, eg superclass to subclass
 ## working with Object and primitive variables
 * primitives as fields in a class
 * will be given default values during class instantiation - 0s and falses
@@ -84,10 +85,42 @@ Java SE8 certification
   * finalize() method called by GC
 * note reassignment kinda like dereference
 # exceptions
-* `throw new ...("msg");`
-* checked: must be dealt with in code, try catch, throws
-* unchecked: crashes, application does not continue
-  * illegalargumentexception
+* signal errors with some information, tell someone else to deal with it
+* ex; ex.getMessage(); ex.printStackTrace();
+## `try {} catch (type1 ex) {} catch (type2 ex) {} finally {}`
+* brackets required
+* if try exists, mandatory for either catch or finally to exist
+* code in try block may throw an error (call method with a throws clause, all exceptions must be dealth with)
+* chained exceptions - if exception is thrown, exit try block, first matching catch executes, rest are skipped - more specific exceptions must be caught before more general exceptions - won't compile, unreachable statements
+* finally always executes (as long as program is still running, eg no System.exit())
+## add to method: throws any type of exceptions
+* `throw new ExceptionClass("msg");`
+* checked must be declared, runtime is not necessary
+* calling method can try catch or also include in its own method declaration
+## with inheritance
+* override a method: cannot add new checked higher-level exceptions - can add more exceptions at the same or lower level, doesn't need to throw any exceptions
+  * compilation error
+  * ???
+  * overriding and overloading method...
+## hierarchy
+* checked: must be dealt with in code, try catch, throws, or it will not compile
+* unchecked: crashes, application does not continue, extends RuntimeException
+* Object -> Throwable ->
+  * Exception ->
+    * IOException ->
+      * FileNotFoundException 
+    * RuntimeException (unchecked) ->
+      * ArithmeticException (eg divide by 0)
+      * ArrayIndexOutOfBoundsException
+      * ClassCastException 
+      * IllegalArgumentException -> NumberFormatException
+      * IllegalStateException
+      * NullPointerException
+  * Error (unchecked exceptions that you should not catch, handle, or try to recover from) ->
+    * ExceptionInInitializerError - errors in static field or block
+    * StackOverflowError - infinite loop
+    * NoClassDefFoundError - class was available at compile time but not runtime, or because you handle something else
+    * OutOfMemoryError 
 # operators
 * ! - boolean only
 * arithmetic precedence: highest to lowest:
@@ -287,3 +320,8 @@ Java SE8 certification
 * cannot override (method), inherit (class), reassign value (field, immutable - in class, must be initalized)
   * compilation error
 # methods available on a variable are the ones defined on its type, not implementation
+# ArrayList
+* util
+# Lambda Predicates
+# Strings and StringBuffer
+# Dates and Times
