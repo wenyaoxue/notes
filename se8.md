@@ -276,7 +276,8 @@ Java SE8 certification
 * can overload
 * name = class name
 * call from in class `this()` - but must be the first statement in the constructor
-* subclasses must call the constructor of its superclass, `super()` - by default implicitly, or add explicitly - if calls a this(), idk if this still required?
+* subclasses must call the constructor of its superclass, `super()` - by default implicitly, or add explicitly - must be the first statement in the constructor
+* ie only this or super can be written explicitly in one constructor
 * any access modifier - eg private can only be used from inside
 # static
 * class field or class methods
