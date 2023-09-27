@@ -449,12 +449,20 @@ class HelloWorld {
     public static void main(String[] args) {
         a fi = i -> 1;
         System.out.println(fi.method(3));
+        
+        fi = i -> {System.out.println("fi = i -> {System.out.println(); return 1;};"); return 1;};
+        System.out.println(fi.method(3));
+        
+        fi = (int i) -> {return 1;};
+        System.out.println(fi.method(3));
+        
+        b fi2 = i -> System.out.println("this returns void");
+        fi2.method(3);
     }
 }
 
-interface a {
-    int method(int a);
-}
+interface a { int method(int a); }
+interface b { void method(int a); }
 ```
 # Strings and StringBuffer
 * immutable
