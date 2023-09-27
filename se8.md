@@ -90,9 +90,22 @@ Java SE8 certification
 ## `try {} catch (type1 ex) {} catch (type2 ex) {} finally {}`
 * brackets required
 * if try exists, mandatory for either catch or finally to exist
-* code in try block may throw an error (call method with a throws clause, all exceptions must be dealth with)
+* code in try block may throw an error (call method with a throws clause, all checked exceptions must be caught or rethrown)
 * chained exceptions - if exception is thrown, exit try block, first matching catch executes, rest are skipped - more specific exceptions must be caught before more general exceptions - won't compile, unreachable statements
 * finally always executes (as long as program is still running, eg no System.exit())
+```
+    public static void main(String[] args) {
+        // method();
+        try {
+            method();
+        }
+        catch (IOException ex) {
+            
+        }
+    }
+    
+    public static void method() throws ArrayIndexOutOfBoundsException, RuntimeException, IOException {}
+```
 ## add to method: throws any type of exceptions
 * `throw new ExceptionClass("msg");`
 * checked must be declared, runtime is not necessary
@@ -130,6 +143,10 @@ Java SE8 certification
   * `=`
   * post `++ --`
   * nested first ()
+```
+double val = 8 % 3.5  ;
+        System.out.println(val);
+```
 * arithmetic operations between different types
   * promoted to at least int
   * promoted to larger type
@@ -147,6 +164,10 @@ Java SE8 certification
   * cannot if number - compilation error
   * {}
 * boolean ? valorstatementiftrue : valorstatementiffalse - can only use to return a value?
+```
+//standalone not allowed true ? System.out.println("true") : System.out.println("false");
+        System.out.println(true ? System.out.println("true") : System.out.println("false"));
+```
 * switch(var) { case val: code }
   * var cannot be boolean, long, or Object
   * `break;` exits switch block
@@ -155,6 +176,28 @@ Java SE8 certification
     * eg case does not need code, can just let it fall through
   * val must be constant (`final`) at compile time (eg not argument), same data type, cannot be null
     * compilation error
+```
+        switch(val) {
+            case 0: System.out.println("0");
+            default: System.out.println("default");
+            case 2: System.out.println("2");
+        }
+```
+```
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int val = scanner.nextInt();
+        myswitch(val);
+        System.out.println("done");
+    }
+    public static void myswitch(int val) {
+        switch(null) {
+            case 0:
+            case 1:
+            case 2:
+        }
+    }
+```
 # loops
 * `while () {}`
 * `do {} while ();`
@@ -169,6 +212,17 @@ Java SE8 certification
   * no collection = compilation error
   * wrong type = compilation error
   * ele is a copy
+```
+        for (System.out.println(1);false;System.out.println(2))
+            System.out.println("body")
+```
+```
+        int i = 1;
+        for (System.out.println(1), System.out.println(1);i<3;System.out.println(2), System.out.println(i)) {
+            System.out.println("i < 3");
+            i++;
+        }
+```
 # advanced flow control
 * add a label to a statement (think assembly language)
   * LABELNAME: statement
@@ -210,6 +264,18 @@ Java SE8 certification
   * can do `type[] var[]` - 2 levels
 * `={{1,2}, {}, {3}, null}`
 * note ArrayIndexOutOfBoundsException vs NullPointerException
+```
+        int[] arr[] = new int[3][];
+        //not allowed: int[] arr[] = new int[][3];
+        int[] arr2[] = arr.clone();
+        System.out.println(Arrays.deepToString(arr));
+        System.out.println(Arrays.deepToString(arr2));
+        Object obj = "string";
+        String str = (String) obj;
+        String[] strarr = new Object[3];
+        Object[] objarr = strarr;
+        // System.out.println(strarr instanceof objarr);
+```
 ## copy
 * array has method `clone()` - shallow copy
   * elements take values, ie if object, both arrays' elements will reference the same object
@@ -228,9 +294,15 @@ Java SE8 certification
   * constructor can take a List object
    * makes a shallow copy
   * method `toArray()` returns `Object[]`
-    * method `toArray(new String[0])` returns `String[]` - array argument is just for establishing type, nothing else
+    * method `toArray(new String[0])` returns `String[]` - array argument is just for establishing type, nothing else, must match type of ArrayList
     * independent of the List object
     * shallow copy (eg if elements are objects)
+```
+List<Integer> list = new ArrayList<Integer>(Arrays.asList(new Integer[]{1,2,3}));
+System.out.println(list);
+Integer[] arr = list.toArray(new Integer[0]);
+System.out.println(Arrays.toString(arr));
+```
 ## generics
 *  generics are compile time only
 *  after compilation, erased - eg List<Integer> becomes List
@@ -252,7 +324,7 @@ Java SE8 certification
 * overriding
   * same signature and return type, different body in a subclass
     * can annotate with @Override to tell the compiler
-    * polymorphism - version of the method invoked is decided at runtime based on the object type - how it was instantiated, not how it was declared
+    * polymorphism - version of the method invoked is decided at runtime based on the object type - how it was instantiated, not how it was declared (subclass version)
 * final
   * cannot override (method), inherit (class)
     * compilation error
@@ -279,6 +351,10 @@ Java SE8 certification
 * subclasses must call the constructor of its superclass, `super()` - by default implicitly, or add explicitly - must be the first statement in the constructor
 * ie only this or super can be written explicitly in one constructor
 * any access modifier - eg private can only be used from inside
+```
+public ClassName() {this(); super();} //not allowed
+```
+* this() is not automatically called, super() is automatically called
 # static
 * class field or class methods
   * `public static int varname;`
@@ -301,6 +377,10 @@ Java SE8 certification
 * starting with java se9 - private
 * instantiate with a concrete class or a lambda expression
 * can extend any number of interfaces, cannot extend classes / abstract classes
+```
+interface b extends a, c {
+}
+```
 * classes / abstract classes can implement any number of interfaces
 * eg Comparable - eg String extends COmparable
 ## polymorphism 
@@ -348,6 +428,11 @@ Java SE8 certification
 * stream() - returns `Stream<eletype>`
   * filter(Predicate)
   * toArray()
+```
+List<Integer> al = new ArrayList<Integer>(Arrays.asList(new Integer[]{1,2,3}));
+        Object[] arr = al.stream().toArray();
+        System.out.println(Arrays.toString(arr));
+```
 # Lambda Predicates
 * functional interfaces
   * exactly one abstract method - note has parameter and return type 
@@ -359,6 +444,18 @@ Java SE8 certification
   * (String string) -> {}
   * var -> statement (doesn't need to include return keyword)
 * lambda predicates
+```
+class HelloWorld {
+    public static void main(String[] args) {
+        a fi = i -> 1;
+        System.out.println(fi.method(3));
+    }
+}
+
+interface a {
+    int method(int a);
+}
+```
 # Strings and StringBuffer
 * immutable
 * String literal pool - create same string with literals = same object
