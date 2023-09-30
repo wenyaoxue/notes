@@ -1,5 +1,5 @@
 # methods
-* `access type name(params) throws exceptions {}` + `name(args);` (may precede with object., class. for static, nothing for local scope, new for constructor)
+* declare `access type name(params) throws exceptions {}` + call `name(args);` (may precede with object., class. for static, nothing for local scope, new for constructor)
 * main `public static void main(String[] args)`
 * constructor no type, same name as class, precede call with `new`
 # classes
