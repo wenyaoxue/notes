@@ -1,7 +1,4 @@
-Java SE8 certification
-* https://education.oracle.com/java-se-8-programmer-i/pexam_1Z0-808
-* all multiple choice
-* everything in this doc in a quizlet: https://quizlet.com/830938527/java-se-8-certification-flash-cards/
+[quizlet for se 8 certification prep](https://quizlet.com/830938527/java-se-8-certification-flash-cards/)
 # Java Features
 * Java Virtual Machine - developer friendly
 * interpret/compilation - translate to machine code
