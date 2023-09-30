@@ -1,13 +1,22 @@
-* new Random() returns obj that has method nextInt(highestval);
-* Thread.sleep(3000);
-* String.substring(FIRSTINDEX); or String.substring(FIRSTINDEX, LASTINDEX+1);
-* String.replace("OLDTEXT", "NEWTEXT"); returns a string
-* String.contains("otherstring") returns a boolean
+# utility classes
+* Random
+  * constructor takes no arguments
+  * nextInt(upperbound)
+* Thread
+  * static sleep(numms)
+* System
+  * static `getProperty("user.dir")` returns a string filepath to the project
+* FileUtils
+  * static `copyFile(FileObj, new File("filenamewithpath"));`
 
-* `System.getProperty("user.dir")` returns a string filepath to the project
-* `FileUtils.copyFile(FileObj, new File("filenamewithpath"));`
+# compare interfaces
+* Comparable
+  * Java.lang, natural sorting
+* Comparator
+  * Java.util, you can make multiple, and choose which one to sort with
+  * Comparator<Class>
+    * int compare(Class o1, Class o2)
 # Features
-## java.lang.Object, .WRAPPERS
 ## 5
 * functional interface (sam), default methods (backward comaptibility), lambda expressions (cut fatty class, alternative to anon class, used for functional interfaces), stream api (lazy iteration without storage), optional (avoid nullpointerexception)
 ## others
@@ -34,8 +43,7 @@
 * memory
 * byte, short, long, int, double, float, char, boolean
 * wrapper classes
-  * Integer.parseInt(strval)
-* private int[] arr = new int[SIZE];
+* `private int[] arr = new int[SIZE];`
 # Eclipse things
 * using main method args: right click > run as > run configurations > program arguments (separated by spaces)
 * syso ctrl+space -> System.out.println
@@ -177,64 +185,9 @@ when calling a function func that has a functional interface as a parameter: avo
 ```
 opt1.flatMap(Class1 :: Method1).flatMap(Class2 :: Method2).map(Class3 :: Method3).orElse(0);
 ```
-
-# String manipulation classes
-* StringTokenizer
-  * StringTokenizer(ORIGINALSTRING, DELIMITER)
-  * hasMoreTokens()
-  * nextToken()
-* StringBuilder
-  * StringBuilder()
-  * append(STRING)
-  * reverse()
 # Data Structures
 ## Obj
 * Public class MyObj implements Comparable<MyObj>
 * Override public String toString(
 * Override public int compareTo(MyObj)
-## ArrayList
-* Al.add(obj);
-* Al.add(i, obj);
-* Stored in the order added
-* New ArrayList(Arrays.asList(val, val, val))
-* Zero based index = allows duplicate elements
-* Unlike normal array
-  * Dynamic sizing
-## LinkedList
-* Ll.add(obj)
-* Ll.addFirst(obj)
-* Ll.addLast(obj)
-## ArrayList vs LinkedList
-* Arraylist is good for retrieval
-* Linkedlist is good for insertion
-## Hashset – no duplicates allowed
-* By default based on references I think, but if you override hashCode and equals on all the properties, then if 2 objects have the same values then it counts as duplicates
-* Unpredictable order
-  * Same each runtime
-  * Relative order stays the same – not restructured, it looks like
-* HashSet.add()
-## TreeSet
-* Natural ascending order
-* Objects need to implement comparable
 
-## Map
-* Map<keytype, valtype> map = new HashMap<keytype, valtype>();
-  * Eg valtype can be ArrayList<String>
-* Map.put(key, val);
-* No duplicate keys
-* For (Map.Entry entry : map.entrySet())
-  * Or Map.Entry<type, type>
-  * Entry.getKey(), entry.getValue()
-  * Not too predictable order
-* TreeMap sorted
-## Sort
-Collections.sort(Comparable)
-Collections.sort(collection, Comparator)
-### Comparable
-* class
-* Java.lang, natural sorting
-### Comparator
-* interface
-* Java.util, you can make multiple, and choose which one to sort with
-* Comparator<Class>
-  * int compare(Class o1, Class o2)
