@@ -4,6 +4,7 @@
   * override equals, have to override hashcode
   * equals -> same hash code
 * finalize()
+* implied superclass of every class
 
 # wrapper classes
 * Byte, Short, Integer, Long, Float, Double, Character, Boolean
