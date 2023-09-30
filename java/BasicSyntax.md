@@ -13,8 +13,8 @@
 * checked must be declared, runtime is not necessary
 * calling method can try catch or also include in its own method declaration
 * code that throws an error
-  * call a method that includes `throws ExceptionType1, ExceptionType2`
-  * `throw new ExceptionClass("msg");`
+  * call a method that includes `throws ExceptionType1, ExceptionType2` - eg client using this method should handle (eg I use FileOutputStream, I need to handle FileNotFound)
+  * `throw new ExceptionClass("msg");` - especially using custom class (extends Exception), for a simple, readable, meaningful exception for the user and the developer (signatures/catches)
 * `try {} catch (type1 ex) {} catch (type2 ex) {} finally {}`
   * brackets required
   * if try exists, mandatory for either catch or finally to exist
