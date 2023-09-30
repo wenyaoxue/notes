@@ -1,8 +1,13 @@
 # methods
 * declare `access type name(params) throws exceptions {}` + call `name(args);` (may precede with object., class. for static, nothing for local scope, new for constructor)
+* varargs: declare `name(type... arr)` + call `name(new type[]{type, type})` or `name(type, type)`
+  * method receives or auto-creates a variable `type[] arr` to use within the method
+  * variable number of arguments
+  * only one per method, must be the last parameter
+  * eg String.format(), eg Arrays.asList()
 * main `public static void main(String[] args)`
 * constructor no type, same name as class, precede call with `new`
-# classes
+# classesyes
 * extends SuperClassName
 # exceptions
 * checked must be declared, runtime is not necessary
