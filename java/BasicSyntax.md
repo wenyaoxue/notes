@@ -34,3 +34,36 @@
   * compilation error
   * ???
   * overriding and overloading method...
+
+# flow control
+* LABELNAME: statement
+* break
+  * exit enclosing statement, can break LABEL;
+* continue
+  * exit enclosing body (eg current iteration of the loop), can continue LABEL;
+* return
+  * exit enclosing method
+* `while () {}`
+* `do {} while ();`
+* `for (initialization; booleanexpression; statement)`
+  * mult var example
+    * `for (long x = 1, y = 13; x < 2 || y > 10; x++, y--)`
+    * separate init/statement with commas
+    * must be same type
+  * `for(;;)` = infinite loop
+    * each of the 3 is optional
+* `for (type ele: collection) { do something with ele }`
+  * no collection = compilation error
+  * wrong type = compilation error
+  * ele is a copy
+```
+        for (System.out.println(1);false;System.out.println(2))
+            System.out.println("body")
+```
+```
+        int i = 1;
+        for (System.out.println(1), System.out.println(1);i<3;System.out.println(2), System.out.println(i)) {
+            System.out.println("i < 3");
+            i++;
+        }
+```
