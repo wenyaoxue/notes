@@ -15,7 +15,7 @@
   * efficiency/speed
 # Setup
 * everything must be in a class
-* `public static void main(String[] args)`
+* start from public class main
 * play compiles then runs = terminal: `cd src` > `javac FILENAME.java` > (creates FILENAME.class) > `java FILENAME` (or send with args: `java FILENAME arg0 arg1 arg2`)
 # Packages and Classes
 * classes
@@ -23,9 +23,8 @@
 * packages
   * groups of classes or of subpackages
   * import class from package, or qualify name of class `pkg.Class`
-* constructor `public ClassName`, use `new ClassName()`
-* method `public RetType MethodName`, use `obj.method()`
-* `extends SuperClassName`
+* methods
+* inherit (extends) one other class
 * when defining with a subclass, the type the variable is declared with defines the methods and attributes allowed
 # variables & memory
 * can't start with a number
@@ -36,7 +35,6 @@
   * reference on stack, object (includes reference to class (1 created)) on heap, not immutable by default
   * note heap can refer to something else on the heap
   * String is special - immutable, same object for same value WHEN defines as literal `="val"` (new object for each constructor invocation, or for .toLowerCase()...? because created at runtime
-    * method `charAt(index)`
 # scope
 * block, unless class-level
 * cannot redefine variable name if they're in scope at any point at the same time - eg loop
@@ -62,15 +60,8 @@
   * can cast to a superclass / super interface
   * cannot cast object to string, eg superclass to subclass
 ## working with Object and primitive variables
-* primitives as fields in a class
-* will be given default values during class instantiation - 0s and falses
-* wrappers Byte, Short, Integer, Long, Float, Double, Character, Boolean (final classes)
-  * object
-  * autoboxing and unboxing
-    * expecting wrapper, give primitive, or vice versa
-  * direct super class number for numbers
-    * constructor takes primitive variable
-    * `MIN_VALUE`, `MAX_VALUE`, `intValue()`, `equals(VAR)`, `compareTo(VAR)`
+* primitives as fields in a class will be given default values during class instantiation - 0s and falses
+* note, can give primitive where wrapper is expected, + vice versa
 * stack is faster, + no need for garbage collection
 * heap memory - new, old, permanent areas, + requires garbage collection, slow, fragmentation
 ## working with fields
@@ -83,54 +74,9 @@
 * note reassignment kinda like dereference
 # exceptions
 * signal errors with some information, tell someone else to deal with it
-* ex; ex.getMessage(); ex.printStackTrace();
-## `try {} catch (type1 ex) {} catch (type2 ex) {} finally {}`
-* brackets required
-* if try exists, mandatory for either catch or finally to exist
-* code in try block may throw an error (call method with a throws clause, all checked exceptions must be caught or rethrown)
-* chained exceptions - if exception is thrown, exit try block, first matching catch executes, rest are skipped - more specific exceptions must be caught before more general exceptions - won't compile, unreachable statements
-* finally always executes (as long as program is still running, eg no System.exit())
-```
-    public static void main(String[] args) {
-        // method();
-        try {
-            method();
-        }
-        catch (IOException ex) {
-            
-        }
-    }
-    
-    public static void method() throws ArrayIndexOutOfBoundsException, RuntimeException, IOException {}
-```
-## add to method: throws any type of exceptions
-* `throw new ExceptionClass("msg");`
-* checked must be declared, runtime is not necessary
-* calling method can try catch or also include in its own method declaration
-## with inheritance
-* override a method: cannot add new checked higher-level exceptions - can add more exceptions at the same or lower level, doesn't need to throw any exceptions
-  * compilation error
-  * ???
-  * overriding and overloading method...
-## hierarchy
 * checked: must be dealt with in code, try catch, throws, or it will not compile
 * unchecked: crashes, application does not continue, extends RuntimeException
-* Object -> Throwable ->
-  * Exception ->
-    * IOException ->
-      * FileNotFoundException 
-    * RuntimeException (unchecked) ->
-      * ArithmeticException (eg divide by 0)
-      * ArrayIndexOutOfBoundsException
-      * ClassCastException 
-      * IllegalArgumentException -> NumberFormatException
-      * IllegalStateException
-      * NullPointerException
-  * Error (unchecked exceptions that you should not catch, handle, or try to recover from) ->
-    * ExceptionInInitializerError - errors in static field or block
-    * StackOverflowError - infinite loop
-    * NoClassDefFoundError - class was available at compile time but not runtime, or because you handle something else
-    * OutOfMemoryError 
+
 # operators
 * ! - boolean only
 * arithmetic precedence: highest to lowest:
@@ -195,42 +141,17 @@ double val = 8 % 3.5  ;
         }
     }
 ```
-# loops
-* `while () {}`
-* `do {} while ();`
-* `for (initialization; booleanexpression; statement)`
-  * mult var example
-    * `for (long x = 1, y = 13; x < 2 || y > 10; x++, y--)`
-    * separate init/statement with commas
-    * must be same type
-  * `for(;;)` = infinite loop
-    * each of the 3 is optional
-* `for (type ele: collection) { do something with ele }`
-  * no collection = compilation error
-  * wrong type = compilation error
-  * ele is a copy
-```
-        for (System.out.println(1);false;System.out.println(2))
-            System.out.println("body")
-```
-```
-        int i = 1;
-        for (System.out.println(1), System.out.println(1);i<3;System.out.println(2), System.out.println(i)) {
-            System.out.println("i < 3");
-            i++;
-        }
-```
-# advanced flow control
-* add a label to a statement (think assembly language)
-  * LABELNAME: statement
-* break
+# flow control
+* while
+* do while
+* for + for each
+* label (add to statement, think assembly language)
+* break; or break LABEL;
   * exit the enclosing statement - eg of the current loop
   * break LABELNAME - eg if LABELNAME's statement is a loop, break out of that loop, eg larger loop
-* continue
+* continue; or continue LABEL;
   * exit the current iteration of the loop (then go and update and re-evaluate)
-  * continue LABELNAME - ...
 * return
-  * exit the method
 # arrays
 * fixed length
 * all elements have the same type
@@ -286,20 +207,6 @@ double val = 8 % 3.5  ;
   * but arrays are covariant: Subclass[] is a subtype of Superclass[]
     * BUT cannot store elements of different Subclasses in the variable, runtime error - ArrayStoreException
 * cannot create an array with a generic type without a special package
-## collections
-* List class and Set class
-  * constructor can take a List object
-   * makes a shallow copy
-  * method `toArray()` returns `Object[]`
-    * method `toArray(new String[0])` returns `String[]` - array argument is just for establishing type, nothing else, must match type of ArrayList
-    * independent of the List object
-    * shallow copy (eg if elements are objects)
-```
-List<Integer> list = new ArrayList<Integer>(Arrays.asList(new Integer[]{1,2,3}));
-System.out.println(list);
-Integer[] arr = list.toArray(new Integer[0]);
-System.out.println(Arrays.toString(arr));
-```
 ## generics
 *  generics are compile time only
 *  after compilation, erased - eg List<Integer> becomes List
@@ -400,36 +307,7 @@ interface b extends a, c {
 * cannot override (method), inherit (class), reassign value (field, immutable - in class, must be initalized)
   * compilation error
 # methods available on a variable are the ones defined on its type, not implementation
-# ArrayList
-* util
-* constructor can take initial capacity
-* only stores objects
-## methods
-* add(value) - value should match type, may be autoboxed by compiler
-  * index, value
-  * index, otherlist
-* get(index)
-* set(index, value)
-* remove(value) - first instance or index
-* removeAll(otherlist)
-* size()
-* clear()
-* isEmpty()
-* contains(value)
-* equals(otherlist)
-* listIterator()
-  * returns type ListIterator(type) which has methods hasNext() and next()
-* forEach(consumer) - one param -> void
-* sort() = sort(null) or sort(comparator) - 2 params -> int eg a.compareTo(b)
-* removeIf(Predicate) - 1 param -> boolean
-* stream() - returns `Stream<eletype>`
-  * filter(Predicate)
-  * toArray()
-```
-List<Integer> al = new ArrayList<Integer>(Arrays.asList(new Integer[]{1,2,3}));
-        Object[] arr = al.stream().toArray();
-        System.out.println(Arrays.toString(arr));
-```
+
 # Lambda Predicates
 * functional interfaces
   * exactly one abstract method - note has parameter and return type 
@@ -461,64 +339,3 @@ class HelloWorld {
 interface a { int method(int a); }
 interface b { void method(int a); }
 ```
-# Strings and StringBuffer
-* immutable
-* String literal pool - create same string with literals = same object
-* new operator, or using string methods = new string reference
-* operators: +, += (but order of ops is left to right for same precedence)
-## methods
-* equals(otherstr), equalsIgnoreCase(otherstr)
-* length() - eg \t and \n are each one character
-* toUpperCase(), toLowerCase()
-* startsWith(string), endsWith(string), contains(string)
-* trim(), replace(oldChar, newChar) (or string)
-* charAt(index), indexOf(char), indexOf(string), indexOf(string, fromIndex)
-* substring(startIndex), substring(startIndex, endIndex+1)
-## StringBuilder
-* methods same object
-* construct with string or capacity
-* length()
-* capacity() - default 16
-* append(val) - val can be any primitive, string, or StringBuilder
-* indexOf(string)
-* charAt(index)
-* replace(startIndex, endIndex, string)
-* deleteCharAt(index)
-* delete(startIndex, endIndex+1)
-* insert(index, string)
-* substring(startIndex, endIndex+1) - only one that returns a new object
-# Dates and Times
-* java.time.
-* NO CONSTRUCTORS!
-* EXCEPTIONS THROWN for invalid vals
-* immutable
-* LocalDate
-  * now()
-  * of(year, month, day)
-* LocalTime
-  * now()
-  * of(hr, min, sec, nanoSecond)
-* LocalDateTime
-  * now()
-  * of(year, month, day, hr, min)
-* ZonedDateTime
-  * now()
-  * of(year, month, day, hr, min, sec, nanSec, ZoneId.of("America/Chicago"))
-* all accept int, or enum from package with Month.JANUARY, ...
-* plusDays(int) - returns a new object
-  * Months, Years, Hours, Minutes, Seconds, Nanos
-  * minus
-  * plus(period) or plus(duration)
-* equals(otherdate)
-  * isBefore(otherDate), isAfter(otherdate)
-* Period
-  * between(date, date) or ofDays(int) or of(years, months, days)
-  * getYears(), getMonths(), getDays()
-* Duration
-  * between(date, date) or ofHours(int)
-  * getSeconds()
-## format
-* DateTimeFormatter
-* ofPattern
-  * E day of week, M/L month (num/txt), d day of month, y year), h hr,m min, 'literals'
-* exceptions for symbols
