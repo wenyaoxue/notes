@@ -1,3 +1,31 @@
+# access/visibility modifiers
+* public - whole application
+* private - class
+* default - package (same exact package, eg no subpackage), package-private or package-protected
+* protected - package and children - ?
+
+# variables
+* note: variable name can't start with a number
+* note: non- class-level variables are scoped to the block
+## primitives
+* byte, short, int, long, float, double, char, boolean (1, 2, 4, 8, 4, 8, 2 bytes, 1 bit)
+* declare and assign
+  * can do both at once
+  * can declare many together, or declare and assign many together
+### casts
+* suffix - upper or lower case - instead of assuming greater or less precision
+  * no decimals, auto int, L for long
+  * decimal, auto double, F for float, D for double
+  * decimal literal - defaults to double, would have to explicit cast to assign literal to a float
+* upcasting (widening) - (char) - automatically
+* downcasting - manually - `(smallType) bigVar` - without, compile error UNLESS as part of a compound assignment eg smallType += bigType
+* other casting: checked at runtime (ClassCastException)
+  * can cast to a superclass / super interface
+  * cannot cast object to string, eg superclass to subclass
+### class fields
+* primitives as fields in a class will be given default values during class instantiation - 0s and falses
+* note, can give primitive where wrapper is expected, + vice versa
+
 # methods
 * declare `access type name(params) throws exceptions {}` + call `name(args);` (may precede with object., class. for static, nothing for local scope, new for constructor)
 * varargs: declare `name(type... arr)` + call `name(new type[]{type, type})` or `name(type, type)`
@@ -8,7 +36,7 @@
 * main `public static void main(String[] args)`
 * constructor no type, same name as class, precede call with `new`
 # classes
-* extends SuperClassName
+* `public class Subclass extends Superclass implements Interface{ ... superclassProtectedMembers ... }`
 # interface
 * `public interface Name {}`
 * can have abstract methods (abstract keyword optional)
