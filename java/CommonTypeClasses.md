@@ -122,6 +122,25 @@ List<Integer> al = new ArrayList<Integer>(Arrays.asList(new Integer[]{1,2,3}));
         System.out.println(Arrays.toString(arr));
 ```
 
+# Exceptions
+* should have methods getMessage(), printStackTrace()
+* Object -> Throwable ->
+  * Exception ->
+    * IOException ->
+      * FileNotFoundException 
+    * RuntimeException (unchecked) ->
+      * ArithmeticException (eg divide by 0)
+      * ArrayIndexOutOfBoundsException
+      * ClassCastException 
+      * IllegalArgumentException -> NumberFormatException
+      * IllegalStateException
+      * NullPointerException
+  * Error (unchecked exceptions that you should not catch, handle, or try to recover from) ->
+    * ExceptionInInitializerError - errors in static field or block
+    * StackOverflowError - infinite loop
+    * NoClassDefFoundError - class was available at compile time but not runtime, or because you handle something else
+    * OutOfMemoryError 
+
 # Dates and Times
 * java.time.
 * NO CONSTRUCTORS!
