@@ -58,6 +58,7 @@ System.out.println(list);
 Integer[] arr = list.toArray(new Integer[0]);
 System.out.println(Arrays.toString(arr));
 ```
+
 ## ArrayList
 * util
 * constructor can take initial capacity
