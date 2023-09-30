@@ -23,8 +23,6 @@
 * packages
   * groups of classes or of subpackages
   * import class from package, or qualify name of class `pkg.Class`
-* methods
-* inherit (extends) one other class
 * when defining with a subclass, the type the variable is declared with defines the methods and attributes allowed
 # variables & memory
 * can't start with a number
@@ -102,111 +100,10 @@ double val = 8 % 3.5  ;
     * each side evaluated separately
 * = assignment returns value
 * every object has `equals()`
-# conditional logic
-* if (boolean) {} else if () {} else {}
-  * cannot if number - compilation error
-  * {}
-* boolean ? valorstatementiftrue : valorstatementiffalse - can only use to return a value?
-```
-//standalone not allowed true ? System.out.println("true") : System.out.println("false");
-        System.out.println(true ? System.out.println("true") : System.out.println("false"));
-```
-* switch(var) { case val: code }
-  * var cannot be boolean, long, or Object
-  * `break;` exits switch block
-  * `default: code` - order does not matter - only runs if no cases match
-  * match: executes code block and all of the following statements (until break if exists) - ie executes code inside following cases that don't match (and even default)
-    * eg case does not need code, can just let it fall through
-  * val must be constant (`final`) at compile time (eg not argument), same data type, cannot be null
-    * compilation error
-```
-        switch(val) {
-            case 0: System.out.println("0");
-            default: System.out.println("default");
-            case 2: System.out.println("2");
-        }
-```
-```
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int val = scanner.nextInt();
-        myswitch(val);
-        System.out.println("done");
-    }
-    public static void myswitch(int val) {
-        switch(null) {
-            case 0:
-            case 1:
-            case 2:
-        }
-    }
-```
-# flow control
-* while
-* do while
-* for + for each
-* label (add to statement, think assembly language)
-* break; or break LABEL;
-  * exit the enclosing statement - eg of the current loop
-  * break LABELNAME - eg if LABELNAME's statement is a loop, break out of that loop, eg larger loop
-* continue; or continue LABEL;
-  * exit the current iteration of the loop (then go and update and re-evaluate)
-* return
-# arrays
-* fixed length
-* all elements have the same type
-* `TYPE[] arr;` or `TYPE arr[];`
-* `TYPE[] arr = new TYPE[LENGTH];` - given default values (eg null for objects)
-* `TYPE[] arr = new TYPE[]{val, val, val};` or `TYPE[] arr = {val, val, val};`
-  * can use `new TYPE[]{val, val, val}` to pass to methods
-* can have 0 elements
-* too many elements may get OutOfMemoryError, technically max is the max int value
-* `arr[INDEX]` - may get ArrayIndexOutOfBoundsException (runtime)
-* `arr.length` - read only
-* objects
-  * automatically generated classes
-  * equals and hashCode and toString, methods are not overridden, so by default ==
-  * to get expected values see `Arrays` class things
-* `Arrays` class static methods
-  * `equals(arr1, arr2)` <- only goes one level - `deepEquals(arr)`
-  * `hashcode(arr)` <- only goes one level - `deepHashcode(arr)`
-  * `copyOf(arr1, newLength)`
-  *  `toString(arr)` <- only goes one level -  `deepToString(arr)`
-  *  `copyOfRange(arr, indIncl, indExcl)`
-  *  `arraycopy(arr1, srcPos, arr2, destPos, length)` ?
-  *  `sort(arr)`
-  *  `binarySearch(arr, key)`
-## multidimensional arrays
-* note element arrays may have different lengths
-* `new TYPE[firstlevellength][secondlevellength]`, `new TYPE[firstlevellength][]`
-  * can do `type[] var[]` - 2 levels
-* `={{1,2}, {}, {3}, null}`
-* note ArrayIndexOutOfBoundsException vs NullPointerException
-```
-        int[] arr[] = new int[3][];
-        //not allowed: int[] arr[] = new int[][3];
-        int[] arr2[] = arr.clone();
-        System.out.println(Arrays.deepToString(arr));
-        System.out.println(Arrays.deepToString(arr2));
-        Object obj = "string";
-        String str = (String) obj;
-        String[] strarr = new Object[3];
-        Object[] objarr = strarr;
-        // System.out.println(strarr instanceof objarr);
-```
-## copy
-* array has method `clone()` - shallow copy
+
+# shallow copy
   * elements take values, ie if object, both arrays' elements will reference the same object
-## more
-* `varargs` - variable number of arguments (eg String.format)
-  * method signature: `type... vararr`, vararr treated as an array - atuo creates the array if not given an array
-  * only one varargs, must be the last argument
-  * example: `Arrays.asList(VARARGSARR)` returns a `List<>`
-    * note the List and the array will point to the same object - cannot add or remove elements
-* cannot cast Object[] to String[] - not a subtype
-  * but arrays are covariant: Subclass[] is a subtype of Superclass[]
-    * BUT cannot store elements of different Subclasses in the variable, runtime error - ArrayStoreException
-* cannot create an array with a generic type without a special package
+
 ## generics
 *  generics are compile time only
 *  after compilation, erased - eg List<Integer> becomes List
@@ -297,15 +194,7 @@ interface b extends a, c {
   * can change the access modifier, but cannot be more restrictive
 * by default, implied  extends Object
 * eg superclass returns a subclass
-# Object
-* toString()
-* equals() and hashCode()
-  * override equals, have to override hashcode
-  * equals -> same hash code
-* finalize()
-# final
-* cannot override (method), inherit (class), reassign value (field, immutable - in class, must be initalized)
-  * compilation error
+
 # methods available on a variable are the ones defined on its type, not implementation
 
 # Lambda Predicates
