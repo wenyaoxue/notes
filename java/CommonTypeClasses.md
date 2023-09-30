@@ -64,6 +64,7 @@
 * `TYPE[] arr;` or `TYPE arr[];`
 * one pair of brackets per dimension, each pair can go either after type or after the variable name
   * can do `type[] var[]` - 2 levels
+* cannot use generics without a special package
 ## SPECIAL instantiation
 * `new TYPE[LENGTH];` - given default values (eg null for objects)
   * `new TYPE[innerlength][outerlength]`, `new TYPE[innerlength][]`
