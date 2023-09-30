@@ -36,34 +36,82 @@
   * overriding and overloading method...
 
 # flow control
+## keywords
 * LABELNAME: statement
 * break
-  * exit enclosing statement, can break LABEL;
+  * exit enclosing statement (eg loop), can break LABEL (eg larger loop);
 * continue
-  * exit enclosing body (eg current iteration of the loop), can continue LABEL;
+  * exit enclosing body (eg current iteration of the loop, ie skip remaining body, go to update/re-evaluate), can continue LABEL (eg larger loop);
 * return
   * exit enclosing method
-* `while () {}`
-* `do {} while ();`
-* `for (initialization; booleanexpression; statement)`
-  * mult var example
-    * `for (long x = 1, y = 13; x < 2 || y > 10; x++, y--)`
-    * separate init/statement with commas
-    * must be same type
-  * `for(;;)` = infinite loop
-    * each of the 3 is optional
+## if
+* if (boolean) {} else if () {} else {}
+* cannot if number - compilation error
+* {}
+## ? :
+* boolean ? valorstatementiftrue : valorstatementiffalse - can only use to return a value?
+```
+//standalone not allowed true ? System.out.println("true") : System.out.println("false");
+        System.out.println(true ? System.out.println("true") : System.out.println("false"));
+```
+## switch
+* switch(var) { case val: code }
+* var cannot be boolean, long, or Object
+* `break;` exits switch block
+* `default: code` - order does not matter - only runs if no cases match
+* match: executes code block and all of the following statements (until break if exists) - ie executes code inside following cases that don't match (and even default)
+  * eg case does not need code, can just let it fall through
+* val must be constant (`final`) at compile time (eg not argument), same data type, cannot be null
+  * compilation error
+```
+      switch(val) {
+          case 0: System.out.println("0");
+          default: System.out.println("default");
+          case 2: System.out.println("2");
+      }
+```
+```
+  public static void main(String[] args) {
+      Scanner scanner = new Scanner(System.in);
+      int val = scanner.nextInt();
+      myswitch(val);
+      System.out.println("done");
+  }
+  public static void myswitch(int val) {
+      switch(null) {
+          case 0:
+          case 1:
+          case 2:
+      }
+  }
+```
+## `while () {}`
+## `do {} while ();`
+## `for (initialization; booleanexpression; statement)`
+* mult var example
+  * `for (long x = 1, y = 13; x < 2 || y > 10; x++, y--)`
+  * separate init/statement with commas
+  * must be same type
+* `for(;;)` = infinite loop
+  * each of the 3 is optional
 * `for (type ele: collection) { do something with ele }`
   * no collection = compilation error
   * wrong type = compilation error
   * ele is a copy
 ```
-        for (System.out.println(1);false;System.out.println(2))
-            System.out.println("body")
+for (System.out.println(1);false;System.out.println(2))
+    System.out.println("body")
 ```
 ```
-        int i = 1;
-        for (System.out.println(1), System.out.println(1);i<3;System.out.println(2), System.out.println(i)) {
-            System.out.println("i < 3");
-            i++;
-        }
+int i = 1;
+for (System.out.println(1), System.out.println(1);i<3;System.out.println(2), System.out.println(i)) {
+    System.out.println("i < 3");
+    i++;
+}
 ```
+
+# final
+* method, class, field
+* must be initialized, cannot be reassigned (compilation error)
+* override, inherit, reassign
+# static
