@@ -188,6 +188,8 @@ List<Integer> al = new ArrayList<Integer>(Arrays.asList(new Integer[]{1,2,3}));
 
 # Exceptions
 * should have methods getMessage(), printStackTrace()
+* Exception has constructor
+  * Exception(String message, Throwable cause)
 * Object -> Throwable ->
   * Exception ->
     * IOException ->
