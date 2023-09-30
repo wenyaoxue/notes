@@ -7,8 +7,59 @@
   * eg String.format(), eg Arrays.asList()
 * main `public static void main(String[] args)`
 * constructor no type, same name as class, precede call with `new`
-# classesyes
+# classes
 * extends SuperClassName
+# interface
+* `public interface Name {}`
+* can have abstract methods (abstract keyword optional)
+  * `type name();`
+* can have constants
+* starting with java se8, can have public default methods and public static methods
+  * `default type name() {}` 
+* starting with java se9 - private
+* instantiate with a concrete class or a lambda expression
+* can extend any number of interfaces, cannot extend classes / abstract classes
+```
+interface b extends a, c {
+}
+```
+* classes / abstract classes can implement any number of interfaces
+* eg Comparable - eg String extends Comparable
+## functional interface / sam (single abstract method)
+* eg Comparator
+* eg Comparable
+* can annotate interface @FunctionalInterface
+* note default or static method doesn't count as an abstract method
+* ie to implement, must override the sam
+* can be implemented/instantiated with a fatty class/anonymous class
+  * `new InterfaceName() { @Override funcsign() {} }`
+  * `new Comparator<obj>() {}`
+* can be implemented/instantiated in a compound statement: lambda expression/predicate
+  * `(Type var, Type var, Type var) -> {method body}`
+    * can omit parentheses and Type if only one parameter
+    * can omit brackets and return keyword if only one statement
+    * var -> statement
+```
+class HelloWorld {
+    public static void main(String[] args) {
+        a fi = i -> 1;
+        System.out.println(fi.method(3));
+        
+        fi = i -> {System.out.println("fi = i -> {System.out.println(); return 1;};"); return 1;};
+        System.out.println(fi.method(3));
+        
+        fi = (int i) -> {return 1;};
+        System.out.println(fi.method(3));
+        
+        b fi2 = i -> System.out.println("this returns void");
+        fi2.method(3);
+    }
+}
+
+interface a { int method(int a); }
+interface b { void method(int a); }
+```
+
 # exceptions
 * checked must be declared, runtime is not necessary
 * calling method can try catch or also include in its own method declaration
