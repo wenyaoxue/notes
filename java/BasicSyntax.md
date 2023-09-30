@@ -203,3 +203,9 @@ for (System.out.println(1), System.out.println(1);i<3;System.out.println(2), Sys
 * methods - invoked without class object, can only access static variables - `public static RETTYPE METHODNAME() {}`
 * class - ??
 * block - first to be called (after static variables are initialzied, before main, eg to intialize values) - `static {STATEMENT;}`
+* code
+  * `public static int varname;`
+  * `public static void main()`
+    * helper/utility methods, static factory `return new ClassName(...)` (more readable names, can return subclasses, already created things...)
+  * static methods can only use static fields
+  * outside: `Classname.varname` or import static ...
