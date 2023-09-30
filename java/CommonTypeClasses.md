@@ -58,7 +58,39 @@ System.out.println(list);
 Integer[] arr = list.toArray(new Integer[0]);
 System.out.println(Arrays.toString(arr));
 ```
-
+## ArrayList
+* add(obj), add(i, obj)
+* Stored in the order added
+* New ArrayList(Arrays.asList(val, val, val))
+* Zero based index = allows duplicate elements
+* Unlike normal array
+  * Dynamic sizing
+* good for retrieval
+## LinkedList
+* add(obj), addFirst(obj), addLast(obj)
+* good for insertion
+## Hashset – no duplicates allowed
+* By default based on references I think, but if you override hashCode and equals on all the properties, then if 2 objects have the same values then it counts as duplicates
+* Unpredictable order
+  * Same each runtime
+  * Relative order stays the same – not restructured, it looks like
+* HashSet.add()
+## TreeSet
+* Natural ascending order
+* Objects need to implement comparable
+## Map
+* Map<keytype, valtype> map = new HashMap<keytype, valtype>();
+  * Eg valtype can be ArrayList<String>
+* put(key, val);
+* entrySet()
+  * returns a collection of Map.Entry (or Map.Entry<Type, Type>)
+    * Map.Entry has methods getKey(), getValue() 
+  * not too predictable order
+* No duplicate keys
+* TreeMap sorted
+## Sort
+Collections.sort(Comparable)
+Collections.sort(collection, Comparator)
 ## ArrayList
 * util
 * constructor can take initial capacity
