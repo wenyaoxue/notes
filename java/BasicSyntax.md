@@ -171,3 +171,7 @@ for (System.out.println(1), System.out.println(1);i<3;System.out.println(2), Sys
 * must be initialized, cannot be reassigned (compilation error)
 * override, inherit, reassign
 # static
+* variables - first to initialize - `private static TYPE VARNAME=VALUE;`
+* methods - invoked without class object, can only access static variables - `public static RETTYPE METHODNAME() {}`
+* class - ??
+* block - first to be called (after static variables are initialzied, before main, eg to intialize values) - `static {STATEMENT;}`
