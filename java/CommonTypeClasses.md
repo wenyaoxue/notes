@@ -107,6 +107,8 @@ Object[] objarr = strarr;
   * receives an array, returns a List - both will point to the same object, cannot add/remove elements
 
 # Collections
+## Collections
+* static method sort(collection, Comparator<Type> implementation)
 ## List and Set interfaces
   * constructor can take a List object
    * makes a shallow copy
