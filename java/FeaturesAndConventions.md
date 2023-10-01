@@ -33,6 +33,7 @@
   * no reference -> garbage collection
   * finalize() method called by GC
 * note reassignment kinda like dereference
+* note shallow copy means only stack values are copied
 * throws exceptions for protected memory instead of providing unexpected values
 
 # object oriented
