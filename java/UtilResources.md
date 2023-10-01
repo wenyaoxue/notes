@@ -10,7 +10,8 @@
 * static `copyFile(FileObj, new File("filenamewithpath"));`
 ## Scanner
 * constructor takes argument eg `System.in`
-
+* method nextLine()
+* 
 # customize objects
 ## Comparable
 * Java.lang, natural sorting
