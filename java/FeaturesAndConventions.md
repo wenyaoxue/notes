@@ -40,6 +40,14 @@
   * note everything must be in a class
   * note can declare a private class inside another class, inner class, where outer class creates and uses an instance of inner
   * manage own members
+  * restrict/limit access
+    * private, protected, package-private classes and fields
+    * getters/setters (with validation)
+  * immutable objects
+    * final fields, class
+  * return copies instead of fields
+    * eg final is final inside class, but if returned, client can use
+  * method handles fields directly, instead of method on field
 * abstraction
   * keep simple, just what you need
   * detail hiding
@@ -55,7 +63,6 @@
   * static/overloading; dynamic/overriding
   * call a method on an object: find method body to execute at runtime
     * outermost (eg youngest class) - note in memory, a subclass object includes a superclass object
-    * 
 
 # multithreaded
 * concurrency
