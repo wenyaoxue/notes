@@ -7,6 +7,7 @@
 # variables
 * note: variable name can't start with a number
 * note: non- class-level variables are scoped to the block
+* note: available members on an object are the ones defined on its declared type, not instantiated type
 ## primitives
 * byte, short, int, long, float, double, char, boolean (1, 2, 4, 8, 4, 8, 2 bytes, 1 bit)
 * declare and assign
@@ -17,7 +18,7 @@
   * no decimals, auto int, L for long
   * decimal, auto double, F for float, D for double
   * decimal literal - defaults to double, would have to explicit cast to assign literal to a float
-* upcasting (widening) - (char) - automatically
+* upcasting (widening) - (char) - automatically - basically, a variable declared as X can take an object of type X or any subclass of X
 * downcasting - manually - `(smallType) bigVar` - without, compile error UNLESS as part of a compound assignment eg smallType += bigType
 * other casting: checked at runtime (ClassCastException)
   * can cast to a superclass / super interface
@@ -28,13 +29,29 @@
 
 # methods
 * declare `access type name(params) throws exceptions {}` + call `name(args);` (may precede with object., class. for static, nothing for local scope, new for constructor)
-* varargs: declare `name(type... arr)` + call `name(new type[]{type, type})` or `name(type, type)`
-  * method receives or auto-creates a variable `type[] arr` to use within the method
-  * variable number of arguments
-  * only one per method, must be the last parameter
-  * eg String.format(), eg Arrays.asList()
-* main `public static void main(String[] args)`
-* constructor no type, same name as class, precede call with `new`
+## varargs: declare `name(type... arr)` + call `name(new type[]{type, type})` or `name(type, type)`
+* method receives or auto-creates a variable `type[] arr` to use within the method
+* variable number of arguments
+* only one per method, must be the last parameter
+* eg String.format(), eg Arrays.asList()
+## entry method `public static void main(String[] args)`
+## constructor
+* any access (eg private can only use within class), no type, same name as class, any parameters (can overload)
+* iff none are explicitly defined, default empty non-arg is provided by compiler
+* call (note can add arguments)
+  * from outside `new Name()`
+  * from inside another class constructor `this()`
+  * from subclass constructor `super()`
+  * implicit `super();` statement at the beginning of the constructor if there is no super or this call explicitly written
+    * every subclass constructor will eventually invoke a constructor of the superclass - eg call this, which calls super
+  * if super/this call is explicitly written, must be the first line of the constructor (ie only 1 total per constructor! 1 super or 1 this or 0)
+* ``
+## overriding
+* same signature as a method declared in the superclass
+* @Override annotation checks signature at compile time
+* concrete class extending abstract class must override all abstract methods
+* can change the access modifier, but cannot be more restrictive
+
 # classes
 * `public class Subclass extends Superclass implements Interface{ ... superclassProtectedMembers ... }`
 # interface
