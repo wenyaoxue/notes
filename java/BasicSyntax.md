@@ -6,6 +6,7 @@
 
 # variables
 * note: variable name can't start with a number
+* note: cannot redefine variable name if they're in scope at any point at the same time - eg loop
 * note: non- class-level variables are scoped to the block
 * note: available members on an object are the ones defined on its declared type, not instantiated type
 ## primitives
@@ -26,9 +27,42 @@
 ### class fields
 * primitives as fields in a class will be given default values during class instantiation - 0s and falses
 * note, can give primitive where wrapper is expected, + vice versa
+### operators
+* ! - boolean only
+* arithmetic precedence: highest to lowest:
+  * pre `++ --` (and other unary operators, eg + -)`
+  * `* / %`
+  * `+ - (binary)`
+  * `=`
+  * post `++ --`
+  * nested first ()
+```
+double val = 8 % 3.5  ;
+        System.out.println(val);
+```
+* arithmetic operations between different types
+  * promoted to at least int
+  * promoted to larger type
+  * int -> double
+* relational operators
+  * < <= > >=
+  * `&` `|` `^` - no short circuiting; `&&` `||` - short circuiting
+  * `==` `!=`
+    * promotes numeric value types
+    * each side evaluated separately
+* = assignment returns value
+* every object has `equals()`
+
 
 # methods
 * declare `access type name(params) throws exceptions {}` + call `name(args);` (may precede with object., class. for static, nothing for local scope, new for constructor)
+* parameters (declaration) , arguments (values)
+* cannot have the same name amongst themselves
+* can share a name with the class this method is in - field shadowing, use instance `this.var`
+* see varargs - shorthand for array argument
+* stack values passed to the new variable, og stack value does not change
+  * ie object variable stack value is the reference
+* signature = name + parameters
 ## varargs: declare `name(type... arr)` + call `name(new type[]{type, type})` or `name(type, type)`
 * method receives or auto-creates a variable `type[] arr` to use within the method
 * variable number of arguments
@@ -45,9 +79,11 @@
   * implicit `super();` statement at the beginning of the constructor if there is no super or this call explicitly written
     * every subclass constructor will eventually invoke a constructor of the superclass - eg call this, which calls super
   * if super/this call is explicitly written, must be the first line of the constructor (ie only 1 total per constructor! 1 super or 1 this or 0)
-* ``
+## overloading
+* 2 methods with the same name, different parameters in one class
+  * note type erasure - generics != different parameters (ie List<Integer> is the same as List<Double>)
 ## overriding
-* same signature as a method declared in the superclass
+* same signature and return type as a method declared in the superclass, different body
 * @Override annotation checks signature at compile time
 * concrete class extending abstract class must override all abstract methods
 * can change the access modifier, but cannot be more restrictive
@@ -105,7 +141,14 @@ interface a { int method(int a); }
 interface b { void method(int a); }
 ```
 
+# generics
+* compile time only
+  * after, erased -> eg `List<Integer> becomes List`
+
 # exceptions
+* signal errors with some information, tell someone else to deal with it
+* checked: must be dealt with in code, try catch, throws, or it will not compile
+* unchecked: crashes, application does not continue, extends RuntimeException
 * checked must be declared, runtime is not necessary
 * calling method can try catch or also include in its own method declaration
 * code that throws an error
@@ -226,3 +269,8 @@ for (System.out.println(1), System.out.println(1);i<3;System.out.println(2), Sys
     * helper/utility methods, static factory `return new ClassName(...)` (more readable names, can return subclasses, already created things...)
   * static methods can only use static fields
   * outside: `Classname.varname` or import static ...
+# abstract
+* 0+ abstract method = abstract class (cannot be instantiated)
+* `public abstract rettype methodname();` - method overridden, polymorphic runtime code
+* no body
+* `public abstract class ClassName {}` - cannot be instantiated
