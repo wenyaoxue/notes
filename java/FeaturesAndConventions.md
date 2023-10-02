@@ -63,7 +63,7 @@
   * one method, multiple behaviors
   * static/overloading; dynamic/overriding
   * call a method on an object: find method body to execute at runtime
-    * outermost (eg youngest class) - note in memory, a subclass object includes a superclass object
+    * for non-static -> outermost (eg youngest class) - note in memory, a subclass object includes a superclass object
 
 # multithreaded
 * concurrency
