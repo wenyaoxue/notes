@@ -35,13 +35,15 @@ selenium ui automation can be used through java, ie in a maven project
 * `close`, `quit`
 # WebElement methods
 * `clear` - removes any existing text in the input field
-* `sendKeys` - takes argument String value to enter(append, not overwrite)
-* `click`, `isDisplayed`, `getText`
+* `sendKeys`, `type` - takes argument String value to enter(append, not overwrite)
+* `click`, `getText`
 * `getAttribute` - takes argument String ATTRIBUTENAME, returns String
 * `getLocation` returns type `Point` which has methods `getX` and `getY` which both return int
+* `isDisplayed`, `isEnabled`, `isSelected`
 # Select methods
-  * constructor takes argument WebElement (represents a select tag)
+  * constructor takes argument WebElement (represents a select tag) - instead of exposing all at the element level
   * `selectByVisibleText` - takes argument String optiontext
+  * note you can look at Select.java and see how it's implemented
 # JavascriptExecutor methods
 * can define by casting a WebDriver object `= (JavascriptExecutor) driver`
 * `executeScript`
@@ -75,3 +77,4 @@ selenium ui automation can be used through java, ie in a maven project
 * assign element when some condition met, up to NUMS seconds
 * `WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(NUMS)); WebElement ele = wait.until(ExpectedConditions.visibilityOfElementLocated(By....));`
   * visibilityOfElementLocated, elementToBeClickable, etc.
+## fluent wait
