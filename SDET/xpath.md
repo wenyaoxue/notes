@@ -12,12 +12,24 @@
 * queries
   * `*`
   * `TAGNAME`, `TAGNAME[TAGQUALIFIER]`
-  * `following-sibling::SIBLINGQUERY` - can precede with either `//` or `/` (not sure if there's a difference); eg `//QUERY//following-sibling::div[text()='abc']/div` - to get nephew divs of QUERY (children of divs with text 'abc')
-    * `preceding-sibling`
-    * `parent`
+  * `RELATIVERELATION::RELATIVEQUERY` - can precede with either `//` or `/` (not sure if there's a difference); eg `//QUERY//following-sibling::div[text()='abc']/div` - to get nephew divs of QUERY (children of divs with text 'abc') 
+    * `sibling`, `preceding-sibling`, `following-sibling`
+    * `parent` `ancestor`
+    * `child` `descendant`
 * tag qualifiers
   * `@ATTRIBUTENAME='ATTRIBUTEVALUE'`
   * `normalize-space()='HTMLINNERHTMLWITHOUTTRAILLINGLEADINGSPACES']`
     * or `text()` instead of `normalize-space()`
   * `contains(text(), 'SOMETEXT')`
   * `INDEX` - starts at 1, which of the returned elements
+# use
+* priority:
+  * id
+  * name
+  * className
+  * linkText
+  * partialLinkText
+  * tagName
+ 
+  * cssSelector - a little faster but not as flexible, can't do parent 
+  * xpath 
