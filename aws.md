@@ -12,3 +12,80 @@
 * Switch - data forwarding to server
 * many servers to meet demand - rent for data center, power, cooling, maintenance, hard to scale, monitor, handle disasters
 ## Cloud computing
+* on-demand delivery of IT resources - eg power, storage, applications
+* customized to what you need
+* AWS owns and maintains the hardware (their data center)
+* eg gmail, dropbox, netflix
+* types
+  * private cloud - single org, complete control, security, eg provided by rackspace
+  * public cloud - owned and operated by a 3rd party, delivered over the internet, eg provided by microsoft azure, google cloud, aws
+  * hybrid cloud - some servers on premises, extend some capabilities to the cloud
+* 5 characteristics
+  * on-demand self service
+  * broad network access
+  * multi-tenancy and resource pooling
+  * rapid elasticity and scalability
+  * measured service
+* 6 advantages
+  * trade capital expense (CAPEX) for operational expense (OPEX)
+    * don't own hardware
+    * reduce total cost of ownership (TCO) and operational expense (OPEX)
+  * benefit from massive economies of scale
+  * stop guessing capacity
+  * increase speed and agility
+  * stop sending money running and maintaining data centers
+  * go global in minutes
+* s
+  * flexible, cost-effective, scalable, elastic, high-availability, fault-tolerant, agile
+## Types of Cloud Computing
+* Infrastructure as a Service (IaaS)
+  * provide networking, computers, storage
+  * flexible, easy parallel with traditional
+  * eg Amazon EC2
+  * eg GCP, Azure, Rackspace, Digital Ocean, Linode
+* Platform as a Service (PaaS)
+  * removes the need for your organization to manage infrastructure
+  * focus on applications
+  * eg Elastic BeanStalk
+  * eg Heroku, Google App Engine, Windows Azure
+* Software as a Service (SaaS)
+  * completed product that is run and managed by the service provider
+  * eg Rekognition
+  * eg Gmail, Dropbox, Zoom
+* things to manage
+  * applications, data, runtime, middleware, os, virtualization, servers, storage, networking
+* pricing
+  * compute time, data storage, data transfer out of the cloud
+## AWS Cloud Overview
+* launched 2002, market 2004 (SQS), SQS S3 EC2 (2006), dropbox, netflix, airbnb, nasa, mcds, 21st century fox, activision
+* 47% market
+* use cases
+  * build sophisticated, scalable applications
+  * enterprise IT, backup/storage, analytics, website hosting, backend for apps, gaming servers
+* global
+  * regions
+    * coded eg us-east-1
+    * cluster of data centers
+    * most services are region scoped - see [AWS Global Infrastructure > AWS Regional Services](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)
+    * varies by compliance (legality), proximity to customers (latency), available services, pricing 
+  * availability zones
+    * 3-6 per region
+    * coded eg us-east-1a
+    * one or more data centers
+    * each is separated from each other (isolated from disasters) 
+  * data centers
+  * edge locations / points of presence
+    * 400+
+## services
+* choose region (closer = less latency)
+* each service has many features
+* global services
+  * Identity and Access Management (IAM)
+  * Route 53 (DNS service)
+  * CloudFront (Content Delivery Network)
+  * WAF (Web Application Firewall)
+* region scoped services
+  * Amazon EC2 (IaaS)
+  * Elastic Beanstalk (PaaS)
+  * Lambda (Function aaS)
+  * Rekognition (SaaS)
