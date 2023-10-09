@@ -75,6 +75,22 @@ selenium ui automation can be used through java, ie in a maven project
 * `driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(NUMS));`
 ## explicit wait 
 * assign element when some condition met, up to NUMS seconds
-* `WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(NUMS)); WebElement ele = wait.until(ExpectedConditions.visibilityOfElementLocated(By....));`
-  * visibilityOfElementLocated, elementToBeClickable, etc.
-## fluent wait
+* `Wait` is a supertype of `WebDriverWait` and `FluentWait`
+### WebDriverWait
+* uses a given expected condition
+* `ExpectedConditions` methods that return type ExpectedCondition
+  * `visibilityOfElementLocated(By....)`
+  * `elementToBeClickable(By....)`
+```WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(NUMS));
+
+WebElement ele = wait.until(ExpectedCondition);```
+### FluentWait
+* repeatedly checks at intervals until the timeout or until the object is found
+```FluentWait wait = new FluentWait(driver)
+  .withTimeout(NUMS, TimeUnit.SECONDS)
+  .pollingEvery(NUMS, TimeUnit.SECONDS)
+  .ignoring(ExceptionName.class);
+
+WebElement ele = wait.until(new Function<WebDriver, WebElement>() {
+  // declare a function here that takes WebDriver and returns WebElement (eg return if something equals, otherwise return null)
+});```
