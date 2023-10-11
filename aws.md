@@ -54,6 +54,10 @@
   * eg Gmail, Dropbox, Zoom
 * things to manage
   * applications, data, runtime, middleware, os, virtualization, servers, storage, networking
+    * traditional: all
+    * IaaS: first half, idk
+    * PaaS: first 2
+    * SaaS: none
 * pricing
   * compute time, data storage, data transfer out of the cloud
 ## AWS Cloud Overview
@@ -89,3 +93,26 @@
   * Elastic Beanstalk (PaaS)
   * Lambda (Function aaS)
   * Rekognition (SaaS)
+## shared responsibility
+* customer responsible for security in the cloud
+  * customer data
+  * platform, applications, identity and access management
+  * os, network & firewall config
+  * client-side data encryption & data integrity authentication
+  * server-side encryption (file system and/or data)
+  * networking traffic protection (encryption, integrity, identity)
+* aws responsible for the security of the cloud
+  * software - compute, storage, database, networking
+  * hardware/aws global infrastructure - regions, availability zones, edge locations
+* acceptable use policy
+  * illegal, harmful, offensive, insecure, network abuse, message abuse
+# IAM
+* Identity and Access Management
+* global
+* create users and user groups - used for root account
+* groups can only contain users
+* users can belong to 0-n groups
+* policies - JSON documents, assigned to users or groups
+  * define permissions, eg on services/features, resources
+  * least privilege principle
+* 
