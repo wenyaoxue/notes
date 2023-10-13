@@ -1,6 +1,12 @@
 * for cloud practitioner certification (clf c02)
 * https://www.aws.training/Certification
-* aws console https://us-east-2.console.aws.amazon.com/console/home
+* aws management console https://us-east-2.console.aws.amazon.com/console/home
+* other access
+  * AWS CLI (command starts with aws)
+    * download and use in terminal, or CloudShell - icon in console navbar (uses the credentials you're logged in as; virtual environment - eg cloud files, can upload/download)
+    * eg `aws --version`, `aws iam list-users`
+    * aws configure > access key > secret access key > region code
+  * AWS SDK (set of libraries eg JS, Python, PHP, Java, C++, ...)
 # sample questions
 * https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Sample-Questions.pdf
 * https://www.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/?couponCode=OCT_23_GET_STARTED
@@ -110,9 +116,33 @@
 * Identity and Access Management
 * global
 * create users and user groups - used for root account
+  * note best to use root account only to set up the AWS account
+* sign in to AWS account (account id or alias)
 * groups can only contain users
 * users can belong to 0-n groups
-* policies - JSON documents, assigned to users or groups
-  * define permissions, eg on services/features, resources
-  * least privilege principle
-* 
+## policies
+* assigned to users (inline) or groups (may inherit from multiple groups)
+* JSON document (also can use a visual editor)
+  * define permissions, eg on services/features, resources - see access denied or action failed
+  * 0+ statements, Effect Allow/Deny, Principal account/user/role, Action API calls or *, Resource or *, Condition
+* least privilege principle
+* some predefined (AWS managed), can create user-defined - see Policies
+## security
+* Account Settings > Password Policy - required password pattern, change/expire/reuse
+* Profile > Security Credentials > MFA - Multi Factor Authentication
+  * password you know + security device you own
+  * device:
+    * virtual
+      * Google Authenticator, Authy, app
+      * universal 2nd factor security key (U2F) - physical key, other 3rd party key fobs
+  * add and sync device, then added step to sign in process
+* access keys - generated through the AWS Console, managed by users
+  * eg when protect AWS Management Console with password + MFA, but protect AWS CLI (eg aws configure) and AWS SDK with access keys
+  * User > Security Credentials > Create Access Key
+* Credential Report - account - credentials metadata
+* User > Access Advisor - user - can see service access
+## roles
+* like a user, can have policies, used by AWS services
+* eg EC2 instance, Lambda Function, CloudFormation uses an IAM role to access AWS
+## shared responsibility
+* you manage and review passwords/mfa/permissions
