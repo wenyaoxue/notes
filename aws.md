@@ -78,7 +78,7 @@
     * cluster of data centers
     * most services are region scoped - see [AWS Global Infrastructure > AWS Regional Services](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)
     * varies by compliance (legality), proximity to customers (latency), available services, pricing 
-  * availability zones
+  * availability zones (AZ)
     * 3-6 per region
     * coded eg us-east-1a
     * one or more data centers
@@ -192,7 +192,7 @@
 * Instance state -> change
   * stopped - server not running, not paying for it
   * terminated - lose all settings, state, etc.
-## Security Groups
+## Network & Security > Security Groups
 * allow traffic in/out
 * use IP or other security groups
 * security group / firewall containing 1+ EC2 instances
@@ -201,3 +201,48 @@
 * locked down to a region/VPC combo
 * good to have a separate one just for SSH
 * default: all inbound blocked, all outbound authorised
+* ports
+  * 22 - eg allow visiting address from Windows PowerShell - TCP 22
+    * SSH - log into a Linux instance
+    * SFTP - upload files using SSH
+  * 21 - FTP - upload files into a file share
+  * 80 - HTTP - access unsecured websites - eg allow visiting address from laptop - TCP 80
+  * 443 - HTTPS - access secured websites
+  * 3389 - RDP - log into a Windows instance
+  * can choose a type, defined protocol-port pair
+  * source
+* ec2 instances purchasing options
+  * On-Demand Instances - short, pay by sec, highest cost
+  * Reserved - long, specific type, flexible payment/buy sell - 1 or 3 years
+    * Convertible Reserved - long + different types
+  * Savings - long, commit to type/amount of usage, family, region, otherwise flexible
+  * Spot - short, cheap, can lose instances, defined max price, most cost-efficient, must be resilient to failure
+  * Dedicated Hosts - physical server, control instance placement - complience requirements - licenses like socket, core, etc. - on demand or reserved, most expensive, lower level visibility
+  * Dedicated Instances - no shared hardware with other accounts
+  * Capacity Reservations - any duration, on demand whether or not instances are run, no discounts, specific AZ
+## SSH
+* EC2 Instance Connect - web browser, amazon x2
+  * Instances > Instance > Connect button > EC2 Instance Connect
+  * uses ssh - eg uploads a temporary ssh key, needs the security group
+* PuTTy
+* SSH - CLI utility (eg Windows PowerShell or Command Prompt)
+  * `ssh -i KEYFILENAME.pem ec2-user@PUBLICIV4ADDRESS`
+    * key file
+    * properties > security > advanced > owner is you, disable inheritance, select a principal, full permissions, ?
+  * `exit`
+### commands
+* `aws` commands
+  * many commands require access:
+    * DO NOT aws configure - you'll be entering it into the EC2 instance - anyone who accesses the instance can access the code
+    * DO instances > instance > Actions > Security > Modify IAM Role
+      * view at Instances > Instance > Security > IAM Role
+ ## shared responsibility
+ * you're responsible for security groups, os, software, iam, data security
+# EBS
+* storage option for EC2 instances
+* Elastic Block Store Volumes
+* network drives you can attach to your instances while they run - like a USB but not physical, uses network - some latency
+* persist data after instance termination
+* mounted to one instance at a time - can be detached and reattached
+* bound to 1 availability zone
+* specific capacity and speed
