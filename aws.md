@@ -236,13 +236,69 @@
     * DO NOT aws configure - you'll be entering it into the EC2 instance - anyone who accesses the instance can access the code
     * DO instances > instance > Actions > Security > Modify IAM Role
       * view at Instances > Instance > Security > IAM Role
- ## shared responsibility
- * you're responsible for security groups, os, software, iam, data security
-# EBS
+## shared responsibility
+* you're responsible for security groups, os, software, iam, data security
+# EC2 Storage
+## Elastic Block Store > Volumes
+* or Instances > instance > Storage > Block devices 
+* EBS
 * storage option for EC2 instances
 * Elastic Block Store Volumes
 * network drives you can attach to your instances while they run - like a USB but not physical, uses network - some latency
-* persist data after instance termination
-* mounted to one instance at a time - can be detached and reattached
+* persist data after instance termination, can be deleted on termination (eg root by default)
+* mounted to 0-1 instance at a time - can be detached and reattached (note 1 instance can have multiple EBSs attached)
 * bound to 1 availability zone
 * specific capacity and speed
+* Actions > Attach Instance, Delete Volume, Create Snapshot
+## Elastic Block Store > Snapshot
+* backup of an EBS volume
+* recommended (but not necessary) to first detach (clean)
+* use to restore, or copy across AZ or region
+* EBS Snapshot Archive
+  * storage tier - archive tier - 75% cheaper
+  * takes 24-72 hours for restoring the archive
+* Recycle Bin for EBS Snapshots
+  * can be set up, specify retention
+* right click > Copy snapshot > choose destination region
+* Actions > Create volume from snapshot > ..., can pick AZ
+* Actions > Delete snapshot > may go to recycle bin > Resources (and can recover), if rule was created
+* Recycle Bin > Retention Rules, Resources
+## Images (AMI)
+* Amazon Machine Image
+* customization of an EC2 instance
+  * software, config, os, monitoring, ...
+  * faster boot / config - all software is pre-packaged
+* built for a specific region, and can be copied across regions
+* launch from a Public AMI (AWS provided) or your own (you make and maintain) or an AWS marketplace AMI (someone else makes and potentially sells)
+* process (from an EC2 instance)
+  * start an EC2 instance and customize it - Launch Instance
+  * stop the instance (for data integrity)
+  * build an AMI - this will also create EBS snapshots - Instances > instance > right click > Image and Templates > Create Image
+  * launch instances from other AMIs (any region) - Images > AMIs > instance > Launch instance from AMI or Instances > Launch Instance > My AMIs (userdata - run after ami userdata - eg this one include comments and file creation)
+### EC2 Image Builder
+* automated, can be run on a schedule, free service
+* process
+  * EC2 Image Builder
+  * Builder EC2 Instance
+    * apply software
+  * create new AMI
+  * auto test EC2 Instance
+  * ami is distributed, can be multiple regions
+## EC2 Instance Store
+* hardware disk directly attached to the EC2 Instance physical server
+* better IO performance
+* lose their storage if they're stoped (ephemeral) (or if hardware fails)
+* eg buffer, cache, scratch data, temporary content
+* your responsibility to backup and replicate
+## Elastic File System
+* managed Network File System
+* can be mounted on hundreds of EC2 instances at a time (in sync)
+* works with Linux EC2 instances in multi-AZ
+* pay per use
+* highly available, scalable, expensive
+* in a security group
+### EFS-IA
+* Infrequent Access
+* storage class that is cost-optimized for files not accessed often
+* when enabled, files automatically moved based on lifecycle policy
+* transparent to the applications - application does not need to know
