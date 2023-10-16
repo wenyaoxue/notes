@@ -146,3 +146,58 @@
 * eg EC2 instance, Lambda Function, CloudFormation uses an IAM role to access AWS
 ## shared responsibility
 * you manage and review passwords/mfa/permissions
+# Billing Dashboard
+* Root Account > Account > IAM user and role access to Billing information > Edit > Activate IAM Access
+* IAM User > Billing Dashboard > Bills, Free tier, Budgets, ...
+## Cost Management > Budgets
+* Create a Budget
+* get email cost alerts
+# EC2
+* Elastic Compute Cloud
+* IaaS
+* capabilities
+  * renting virtual machines (EC2)
+  * storing data on virtual drives (EBS)
+  * distributing load across machines (ELB)
+  * Scaling the services using an auto-scaling group (ASG)
+## Instances > Launch Instances
+* configure OS
+* configure CPU, RAM, storage (EBS, EFS, or EC2), network (choose an instance type - eg t2.micro is part of the AWS free tier)
+  * instance types
+    * https://aws.amazon.com/ec2/instance-types/ , https://instances.vantage.sh/
+    * `instance class` `generation` `.` `size within the instance class`
+    * general purpose
+      * diversity of workloads
+      * balance between compute, memory, networking
+      * eg t2.micro
+    * compute optimized
+      * high performance, dedicated, ...
+      * instance class c
+    * memory optimized
+      * RAM, databases, cache, business intelligence, unstructured data
+      * r, x, high
+    * storage optimized
+      * transaction, databases, cache, data warehousing, distributed file
+      * i, t, h
+* create a key pair for ssh
+* configure other network settings (security)
+* configure other storage
+* configure EC2 User Data (eg ec2-fundamentals/ec2-user-data.sh)
+  * bootstrap
+  * run script at forst start
+  * updates, software, files, anything
+  * runs with the root user
+## Instances > Instance
+* details, public address (access using this, make sure to use http and not https - may change on each start), private address (stays the same)
+* Instance state -> change
+  * stopped - server not running, not paying for it
+  * terminated - lose all settings, state, etc.
+## Security Groups
+* allow traffic in/out
+* use IP or other security groups
+* security group / firewall containing 1+ EC2 instances
+  * also, an instance can belong to 1+ security groups
+* connection succeeds/times out
+* locked down to a region/VPC combo
+* good to have a separate one just for SSH
+* default: all inbound blocked, all outbound authorised
