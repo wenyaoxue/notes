@@ -58,6 +58,7 @@
   * completed product that is run and managed by the service provider
   * eg Rekognition
   * eg Gmail, Dropbox, Zoom
+* Serverless - you don't work with servers - Lambda (Function as a Service), S3, DynamoDB, Fargate
 * things to manage
   * applications, data, runtime, middleware, os, virtualization, servers, storage, networking
     * traditional: all
@@ -469,4 +470,123 @@
 # Databases
 * note EFS, EBS, EC2 Instance Store, S3 is all on disks
 * Relational Databases, using SQL
-* NoSQL / non-relational Databases
+* NoSQL / non-relational Databases - flexible, scalable, high-0performance, highly functional - eg JSON
+* shared responsibility when aws manages different databases
+  * aws provisions, makes available, allows scaling, backups/restores, provides operations and upgrades, and handles OS, monitors, alerts
+  * storage backed by EBS
+  * can't SSH into instances
+* EC2 instances reads/writes from a database
+## RDS
+* SQL
+* used for Online Transaction Processing (OLTP) like RDS
+* AWS managed databases - engines
+  * Postgres, MySQL, MariaDB, Oracle, Microsoft SQL Server, Aurora (AWS Proprietary database - supports PostgreSQL and MySQL, higher performance, costs more)
+  * storage autoscaling
+* security group
+* port
+* Databases
+* Snapshots
+  * Take from database, Restore to new database, Copy to new location snapshot, Share to new account snapshot
+* Read Replica - copy of database (up to 15) that application can also read from
+  * can be in another region - cost for data transfer
+  * only write to main DB
+* Multi-AZ
+  * Failover in case of AZ outage
+  * copy of database in other AZ, if main fails, triggers use of failover
+## ElastiCache
+* managed Redis or Memcached
+* in-memory databases (high performance, low latency)
+* reduce load for read intensive
+* eg EC2 instance would read/write from both RDS and ElastiCache
+## DynamoDB
+* NoSQL, partition key -> item with key/value, cannot link separate tables
+* distributed serverless database - create Table, create Item in table
+* for massive workloads, standard or infrequent access, specialized in-memory cache: DynamoDB (DAX)
+* single digit millisecond latency
+* integrated with IAM
+* Global Tables - synced copies in multiple regions, can read/write to anyt - active/active replication
+## RedShift
+* based on PostgreSQL
+* Online Analytical Processing (OLAP) - analytics and data warehousing, integrate with BI tools eg Quicksight or Tableau
+* load data once every hour, pay per instance
+* columnar storage (not row based)
+* Massively Parallel Query Execution (MPP) engine, using SQL queries
+## EMR
+* Elastic MapReduce
+* creates/manages Hadoop clusters (of up to hundreds of EC2 instances)
+* supports Big Data tools - ApacheSpark, HBase, Presto, Flink, ...
+* integrated with spot instances
+## Athena
+* serverless query service to analyze S3 objects (CSV, JSON, ORC, Avro, Parquet - built on Presto), eg logs/trails
+* SQL
+* pay $5 per TB scanned (eg cheaper if columnar)
+## QuickSight
+* interactive dashboards from databases, per-session pricing
+## DocumentDB
+* NoSQL, AWS implementation of MongoDB - JSON data
+## Neptune
+* graph database
+## QLDB
+* centralized, verifiable Quantum Ledger Database
+* review history of changes to data (eg financial transactions) - cannot remove/modify
+* can use SQL
+## Amazon Managed Blockchain
+* decentralized blockchain network
+* compatible with HyperLedger Fabric and Ehetereum
+## Glue
+* Extract, Transform, Load (ETL) service - serverless pre-processing (eg prepare for Redshift)
+* Glue Data Catalog - eg used by Athena, Redshift, EMR to build schemas
+## DMS
+* Database Migration Service
+* EC2 instance running DMS creates a database from a source database (can be different types)
+# Other Compute Services
+## Docker
+* software development platform to deploy apps
+* apps are packaged in containers that can be run on any OS
+* eg same instance has many dockers running different types of things
+* hub.docker.com
+* Docker images stored in Docker Repositories
+* many containers per docker - ie no separate OS
+## ECS
+* Elastic Container Service - launch dockers on appropriate EC2 instances
+* you provision and maintain infrastructure (EC2 instances)
+* AWS starts/stops containers, integrates with ALB
+## Fargate
+* Fargate - launch dockers serverless-ly - using CPU/RAM
+* AWS starts/stops containers, integrates with ALB
+## ECR
+* Elastic Container Registry
+* store Docker images that will be launched/run on ECS/Fargate as a container
+## Lambda
+* manage virtual functions, not servers
+* shorter executions, running on-demand (event-driven), automated scaling
+* can monitor and get more resources
+* Node.js, Python, Java, C#, Golang, C# Powershell, Ruby, Custom Runtime API
+* Lambda Container Image, but must implement Lambda Runtime API, less preferred
+* triggered by some event, performs an action eg add to database, upload file, ...
+* priced based on calls + duration
+* Create Function
+  * response, function logs (cloudwatch)
+  * Configuration - memory, timeout, role
+  * Monitor - metrics, cloudwatch logs
+* not by itself publically exposed
+* 15min time limit, limited languages, limited storage
+## API Gateway
+* create a serverless HTTP API, can expose Lambda functions to a client end user
+## Batch
+* batch job - starts and ends
+* dynamically launches EC2 instances or Spot instances
+* you just submit or schedule jobs
+* AWS Batch provisions resources
+* jobs are defined as Docker images and run on ECS, focus less on infrastructure
+* creates EC2/Spot instance
+* no time limit
+## Lightsail
+* virtual servers, storage, databases, networking
+* simple, low/predictable pricing, for people with little cloud experience
+* monitoring
+* use cases
+  * simple web applications
+  * dev/test environment
+* no auto-scaling, limited integrations
+* 
