@@ -302,3 +302,171 @@
 * storage class that is cost-optimized for files not accessed often
 * when enabled, files automatically moved based on lifecycle policy
 * transparent to the applications - application does not need to know
+## shared responsibility
+* aws replicates data, make sure it's safe, and secure
+* you're responsible for setting up backup/snapshots, data encryption, understanding the risks
+## Amazon FSx
+* 3rd party file system
+* Windows File Server
+  * supports protocols like SMB and Windows NTFS
+  * integrated with Microsoft Active Directory
+* Lustre
+  * for high performance computing
+  * Linux, cluster
+# ELB and ASG
+* scalability - larger load
+  * vertical - increase the size - common for non-distributed
+  * horizontal - increase the number - must be distributed - ELB and ASG
+* availability
+  * 2+ AZs - in case of disaster - ELB and ASG
+* elasticity - auto-scaling based on the load (eg on demand, optimize)
+* agility - fast
+## ELB
+* load balancer: server (single point of access, high availability) that forwards traffic to multiple servers (backend EC2 instances)
+* Elastic Load Balancer
+* aws manages, guarantees, take care of upgrades/maintenance/etc.
+  * more expensive but a lot easier than setting up your own
+* 4 types
+  * application load balancer - layer 7
+    * HTTP / HTTPS / gRPC protocols
+    * HTTP Routing features
+    * static DNS (URL)
+  * network load balancer - layer 4
+    * TCP / UDP protocols
+    * ultra high performance
+    * static IP through elastic IP
+  * gateway load balancer - layer 3
+    * GENEVE Protocol on IP packets
+    * route traffic to firewalls that you manage (back to load balancer, then to application)
+    * intrusion detection
+  * classic load balancer (retired 2023) - layer 4 and 7
+* EC2 > Load Balancing > Load Balancers > Create ...
+  * security group: allow HTTP traffic from anywhere
+  * target group: includes the downstream EC2 instances
+  * visit through load balancer DNS name - will load from one of the healthy instances in the target group
+## ASG
+* auto scaling group
+* scale in and out to match the changing load (add/remove EC2 instances)
+  * maintain min/max/desired number of machines running
+  * keep load balancer updated with registered machines
+  * replace unhealthy instances
+* cost savings - optimal capacity
+* EC2 > Auto Scaling > Auto Scaling Groups
+  * info about instances to create
+  * attach to a load balancer / target group
+  * enable health check
+* can see in Instances, Target Groups
+### auto scaling
+* manual - ie desired
+* dynamic
+  * simple/step - eg CPU % triggers
+  * target tracking - average CPU
+  * scheduled - eg time triggers
+* predictive - machine learning to predict traffic, provision in advance
+# S3
+* infinitely scaling storage (backup, archive)
+* can use to host websites, application, media, ...
+* global service, regional buckets
+* bucket
+  * globally unique name
+  * created in a region
+  * stores objects
+  * create, upload, add folder
+* objects
+  * have a key (full path, including object name) - not really a directory
+  * value content - max 5000GB, upload 5GB each
+  * metadata, tags, version
+  * open (URL includes credentials), object URL (public)
+## Security
+* eg access object url content, access static website without 403 forbidden error
+* user-based: IAM - only my account
+* resource-based
+  * S3 bucket rules
+    * Bucket > Permissions > Block public access (highest priority, can be set at account level), Bucket policy (Action GetObject, BucketARN/*)
+  * access control list (ACL)
+    * bucket (most common) or object
+  * JSON based policies
+    * resources, effect (allow/deny), actions (API), principal (account/user)
+    * besides access, can also force encrypt at upload
+* access if IAM allows or resource allows and there's no expicit DENY
+* encryption keys
+## static website hosting
+* Bucket > Properties > Static website hosting > (html file name - should be in bucket) , link
+## Versioning
+* enabled at bucket level
+  * files not versioned prior to enabling: version = null
+  * suspending versioning does not delete previous versions
+* upload object with same key = overwrite, new version
+* can restore, roll back
+* Bucket > Properties > Bucket Versioning OR when you Create Bucket
+* Bucket > Objects > Show versions and delete a versioned object = permanently delete
+* Bucket > Objects > DO NOT Show versions and delete = adds a delete marker
+  * same object, new version = delete marker - ie delete marker can be deleted, but while it's the most recent version, the file will be treated as if it does not exist
+## Replication
+* 2 buckets
+  * versioning must be enabled in both - version IDs are also replicated exactly
+  * can be different accounts
+  * asynchronous copying
+  * S3 needs IAM permissions (read and write buckets)
+* Source Bucket > Management > Replication Rules
+  * Source scope all objects, Destination bucket name, Create new IAM Role, just new or (also previous objects is a different feature)
+* cross or same region - CRR (eg compliance, lower latency access, replication across accounts), SRR (eg log aggregation, live replication between production and test accounts)
+## Storage Classes
+* Bucket > Upload > Properties > Storage class OR Bucket > Object > Properties > Storage class
+* Bucket > Management > Lifecycle rules
+  * scope all objects
+  * storage class, days after creation
+* object has a storage class - can set on creation, modify (manually or using S3 Lifecycle config)
+* durability - not lost, same for all storage classes
+* availability - readily available (time wise)
+* Storage Classes
+  * Standard - General Purpose - frequently accessed, low latency, high throughput, can sustain 2 concurrent facility failures
+    * eg big data analytics, applications, content distribution
+  * Infrequent Access - infrequently accessed, rapid access time, less available, minimum 30 days
+    * Standard - Infrequent Access  (eg disaster recovery, backups)
+    * One Zone - Infrequent Access - only 1 AZ (eg secondary backup copies)
+  * Glacier - low cost, archiving/backup, pay for storage + retrieval 
+    * Glacier Instant Retrieval - ms, minimum 90 days, less available
+    * Glacier Flexible Retrieval - min/few hrs/many hrs, minimum 90 days
+    * Glacier Deep Archive - 12/48 hrs, minimum 180 days
+  * Intelligent Tiering - monitoring/auto-tiering fees, no retrieval charges, less available
+    * frequent access, infrequent access, archive instant access, archive access, deep archive access
+## encryption
+* server-side - default
+* client-side - encrypt before uploading
+## shared responsibility
+* aws durability, sustain loss, ...
+* you're responsible for versioning, bucket policies, replications, logging/monitoring, storage classes, data encryption at rest and in transit
+# AWS Snow Family
+* highly secure, portable device
+* use cases
+  * collect and process data at the edge
+    * process data while it's being created on an edge location - limited internet, computing power
+    * preprocess, machine elarning, transcoding streams
+  * migrate data into and out of AWS - most common
+    * connectivity, bandwidth, network cost
+    * physical offline devices to load data onto (using client AWS OpsHub), send to plug into infrastructure, import/export to an S3 bucket, then gets wiped
+* Snowcone (data migration and edge computing) < 8 TB
+  * snowcone and snowcone ssd (bigger)
+  * smaller
+  * provide your own battery/cable
+  * can use AWS DataSync
+  * wired or wireless, usb or battery
+  * can run EC2 Instances and AWS Lambda Functions and can use for 1-3 years
+* Snowball Edge (data migration and edge computing) < 10 PBs
+  * data transfers
+  * storage optimized or compute optimized
+  * large data cloud migrations, DC decomission, disaster recovery
+  * can run EC2 Instances and AWS Lambda Functions and can use for 1-3 years
+* Snowmobile (data migration)
+  * truck
+  * huge
+  * temperature controlled, GPS, 24/7 video
+# Storage Gateway
+* for hybrid cloud
+  * because might require on data, things might take too long, etc.
+  * S3 is proprietary, Storage gateway bridges on-premises to cloud data
+# Databases
+* note EFS, EBS, EC2 Instance Store, S3 is all on disks
+* Relational Databases, using SQL
+* NoSQL / non-relational Databases
