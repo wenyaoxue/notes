@@ -81,16 +81,20 @@ objects are created by, ie constructors are invoked by
 ## Factory
 * public class ClassNameFactory {
   * option 1
-    * public static ClassName create(params) {
-      * ... return new SubClassName();
-    * }
+    ```
+    public static ClassName create(params) {
+      ... return new SubClassName();
+    }
+    ```
   * option 2
-    * private static Properties pro = new Properties();
-    * static { try { pro.load(new FileInputStream("fac.properties")); } catch (Exception e) {} }
-      * on each line of project/src/fac.properties: param=fullpkg.SubClassName
-    * public static ClassName create(param) {
-      * Class cls = Class.forName(pro.getProperty(""+type)); return (ClassName)cls.newInstance();
-    * }
+    ```
+    private static Properties pro = new Properties();
+    static { try { pro.load(new FileInputStream("fac.properties")); } catch (Exception e) {} }
+      on each line of project/src/fac.properties: param=fullpkg.SubClassName
+    public static ClassName create(param) {
+      Class cls = Class.forName(pro.getProperty(""+type)); return (ClassName)cls.newInstance();
+    }
+    ```
 * }
 * client: ClassNameFactory.create(PARAM)
 * eg superclass returns a subclass
