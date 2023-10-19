@@ -38,7 +38,10 @@
   * https://github.com/wenyaoxue/notes/tree/main/java
 
 # Selenium Java Library
-
+## Add dependencies
+* for each of the below links, click the newest version, click the Maven dependency to copy, past in the dependencies section of pom.xml
+* [web driver](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java)
+* [browser driver](https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager)
 
 # Test Library Alternatives
 * can be created with a wizard, which really just helps set up the library and annotations
