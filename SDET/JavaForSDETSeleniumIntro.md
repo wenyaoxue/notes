@@ -16,13 +16,29 @@
   * auto-matched by IDE
 * public class
   * one per file, must match file name
-# main
-* generally, one file/class per project that acts as a client, managing the application behavior
-* main function in the class is the entry point for the application execution
-* `public static void main(String[] args) {}`
-* 
-# classes/objects
-  * other files define classes to be used as types and handle 
+* methods
+  * main method - entry point for the application execution
+    * generally, one file/class per project that acts as a client, managing the application behavior in the main method
+    * `public static void main(String[] args) {}`
+* variables
+  * scoped to class, method, or block
+  * declare, assign, re-assign
+  * typed - primitives, objects
+* flow control
+  * if
+  * for, while, do-while
+* classes/objects
+  * generally, besides the client class which gets executed, other files define classes to be used as types and carry out details of the functionalities
+  * constructor
+  * methods
+    * overloading
+  * inheritance
+    * method overriding
+* my notes - more details
+  * https://github.com/wenyaoxue/notes/tree/main/java
+
+# Selenium Java Library
+
 
 # Test Library Alternatives
 * can be created with a wizard, which really just helps set up the library and annotations
@@ -42,6 +58,14 @@
   * Hover over error and Add TestNG library
 * Right Click file > Run As > TestNG Test OR Alt+Shift+X, N
   * enter from Test annotation, results in Console, Results of running class ...
+  * if console shows error cannot find slf4j, add the following dependency to pom.xml
+    ```
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.26</version>
+    </dependency>
+    ```
 
 # others
 QTP UFT
