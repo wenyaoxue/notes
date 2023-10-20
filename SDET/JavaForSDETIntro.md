@@ -36,8 +36,10 @@
     * method overriding
   * static, abstract, final
   * abstract methods, abstract classes, interfaces
+  	* List interface, implemented by ArrayList class
 * my notes - more details
   * https://github.com/wenyaoxue/notes/tree/main/java
+* Assignments: A1, A2
 
 # Selenium Java Library
 https://github.com/wenyaoxue/notes/blob/main/SDET/ui-seleniumjava.md
