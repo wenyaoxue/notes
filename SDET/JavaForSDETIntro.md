@@ -77,7 +77,11 @@ Create a package `pagemodel`, and create all of the following inside that packag
 
 
 # Selenium Java Library
-https://github.com/wenyaoxue/notes/blob/main/SDET/ui-seleniumjava.md
+* https://github.com/wenyaoxue/notes/blob/main/SDET/ui-seleniumjava.md
+## A3 WebDriver
+Create a new project SpreeUISelenium, add the 2 dependencies to pom.xml, then carry out the following in src/test/java
+* Create a package 
+Create a package `pagemodel`, and create all of the following inside that package:
 
 # Test Library Alternatives
 * can be created with a wizard, which really just helps set up the library and some starter annotations
