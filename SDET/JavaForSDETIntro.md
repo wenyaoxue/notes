@@ -34,7 +34,7 @@
   * generally, besides the client class which gets executed, other files define classes to be used as types and carry out details of the functionalities
   * constructor
   * methods
-    * overloading
+    * toString, overloading
   * inheritance
     * method overriding
   * static, abstract, final
