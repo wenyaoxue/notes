@@ -27,6 +27,7 @@
 * flow control
   * if
   * for, while, do-while
+  * Thread.sleep()
 * classes/objects, etc.
   * generally, besides the client class which gets executed, other files define classes to be used as types and carry out details of the functionalities
   * constructor
