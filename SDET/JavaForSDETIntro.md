@@ -24,6 +24,7 @@
   * scoped to class, method, or block
   * declare, assign, re-assign
   * typed - primitives, objects
+  * auto-cast: assigning a subtype to a supertype
 * flow control
   * if
   * for, while, do-while
