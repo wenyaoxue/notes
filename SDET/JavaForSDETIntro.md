@@ -24,7 +24,7 @@
   * scoped to class, method, or block
   * declare, assign, re-assign
   * typed - primitives, objects
-  * auto-cast: assigning a subtype to a supertype
+  * auto-cast: assigning a subtype to a supertype, manual cast
 * flow control
   * if
   * for, while, do-while
@@ -38,6 +38,7 @@
   * inheritance
     * method overriding
   * static, abstract, final
+  * wrapper classes
   * abstract methods, abstract classes, interfaces
   	* List interface, implemented by ArrayList class
 * [my notes - more details](https://github.com/wenyaoxue/notes/tree/main/java)
@@ -195,11 +196,35 @@ Create a package `pagemodel`, and create all of the following inside that packag
     ```
 # Selenium Java Library
 * https://github.com/wenyaoxue/notes/blob/main/SDET/ui-seleniumjava.md
+* Create a new project SeleniumUIAutomationDemo, add the 2 dependencies to pom.xml, then carry out the following in src/test/java
 ## A3 WebDriver
-Create a new project SpreeUISelenium, add the 2 dependencies to pom.xml, then carry out the following in src/test/java
-* Create a package 
-Create a package `pagemodel`, and create all of the following inside that package:
-
+* Create a class `SpreeWebDriverDemo` in package `javaautodemo`. Simulate the following test case using Selenium UI automation by carrying out all of the following inside the main function:
+  * Download Chrome
+  * Open a Chrome browser
+    * Adjust the code to open an incognito Chrome browser, but keep your code simple enough to be able to switch this feature on and off
+  * Set the window size to 400x600, then maximize the window (check one at a time to visually verify)
+  * Go to `https://demo.spreecommerce.org/login` (there are 2 options, check both to learn)
+  * Document the website title (System.out.print)
+  * Document the website URL (System.out.print)
+  * Document the website's HTML content (System.out.print)
+  * For each of the following items, identify that it exists by going through the website's HTML (System.out.print the Java reference to the WebElement produced by findElement/findElements - ie if the item is not found, an error will be thrown) - note and test the different ways you can find the same item - for now just that the item exists (no error), the next assignment will more thoroughly verify that you've found the right item
+    * Search Icon
+    * Spree Logo
+    * Email Text Box
+    * Password Text Box
+    * Remember me Check Box
+    * Login Button
+    * Facebook Icon
+    * Address and Email Text
+  * Click the browser's back button
+  * Close the browser (there are 2 options, check both to learn, make sure to do last in order to be able to visually verify the ending state)
+* Adjust the code to complete all of the above without visually opening the browser on your machine. Make your code simple to switch this feature on and off, so that you can visually check for issues should any come up (good practice)
+## A4 WebElement
+* actual actions
+## Find practice
+* through Java
+* just through browser, xpath
+  * more complicated finds
 # Test Library Alternatives
 * can be created with a wizard, which really just helps set up the library and some starter annotations
 * like other libraries, classes, methods, and annotations are provided, to use within a basic Java class as covered before
