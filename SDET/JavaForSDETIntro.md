@@ -77,8 +77,122 @@ Create a package `pagemodel`, and create all of the following inside that packag
     * `add` values 1, 2, and 3 (3 statements)
     * print all values in the object, using a for loop, and methods `size` and `get` (2 statements)
 ### Run Client as a Java Application, then Email Page.java, Website.java, Client.java, and a screenshot of the console to Crystal.Wen@ltimindtree.com
+## More
+### Ticketing
+* In a new package, implement a series of classes to represent the following ticketing system
+  * One-Time ticket: one-way travel, specified origin/destination, used the same day it is issued
+  * Return ticket: two-way travel, specified origin/destination, departing ticket used the same day it is issued, return ticket used within a week from the day it is issued
+  * Multi-use ticket: 10, 15, or 20 trips, specified origin/destination, departing and return tickets can be used any number of times within 60 days from the day it is issued
+* Create a main function in a client class in the package, that shows that the tickets would work as specified
+### Orchestra
+* In a new package, implement a series of classes to represent the following orchestra
+  * Musical Instrument Lending Library
+    * can receive an instrument: test it (makes a sound using it), then add it to the inventory
+    * can test all its instruments
+    * can loan an instrument: return the first instrument in inventory (and remove it from inventory)
+    * can print all instruments in its inventory
+  * Musicians
+    * can accept an instrument, test its instrument (make a sound) if it has one, play its instrument if it has one, and return its instrument
+  * Instruments - each can make a sound based on its type, and each can be played based on the particular instrument
+    * 2 types of brass instruments (trombone, trumpet) - each has a size
+    * 2 types of string instruments (cello, violin) - each has a pitch
+    * 2 types of percussion instruments (drum, cymbal)
+  * Orchestra - can add musicians, and can play (each musician plays)
+  * Example client
+    ```
+            Drum drum = new Drum();
+	    Cello cello = new Cello(673);
+	    Cymbal cymbal = new Cymbal();
+	    Trombone tbone = new Trombone(4);
+	    Trumpet trpt = new Trumpet(12) ;
+	    Violin violin = new Violin(567) ;
+	    
+	    MILL mill = new MILL();
+	    System.out.println(mill);
+	    
+	    mill.receiveInstr(trpt);
+	    mill.receiveInstr(violin);
+	    mill.receiveInstr(tbone);
+	    mill.receiveInstr(drum);
+	    mill.receiveInstr(cello);
+	    mill.receiveInstr(cymbal);
+	    System.out.println(mill);
+	  
+	    mill.dailyTestPlay();
+	  
+	    Musician harpo = new Musician("Harpo");
+	    Musician groucho = new Musician("Groucho");
 
+	    groucho.testPlay();	 // Groucho doesn't have an instrument yet.
 
+	    groucho.acceptInstr(mill.loanOut());
+	    groucho.testPlay();
+
+	    mill.dailyTestPlay();
+	  
+	    groucho.testPlay();	
+	    mill.receiveInstr(groucho.giveBackInstr());
+	    harpo.acceptInstr(mill.loanOut());
+	    groucho.acceptInstr(mill.loanOut());
+	    groucho.testPlay();
+	    harpo.testPlay();
+	    
+	    mill.dailyTestPlay();
+
+	    System.out.println(mill);
+
+	    mill.receiveInstr(groucho.giveBackInstr());
+
+	    mill.receiveInstr(harpo.giveBackInstr());
+
+	    mill.dailyTestPlay();
+	  
+	    
+	    Musician bob = new Musician("Bob");
+	    Musician sue = new Musician("Sue");
+	    Musician mary = new Musician("Mary");
+	    Musician ralph = new Musician("Ralph");
+	    Musician jody = new Musician("Judy");
+	    Musician morgan = new Musician("Morgan");
+
+	    Orch orch = new Orch();
+	   
+	    orch.addPlayer(bob);
+	    orch.play();
+
+	    sue.acceptInstr(mill.loanOut());
+	    orch.addPlayer(sue);
+
+	    ralph.acceptInstr(mill.loanOut());
+
+	    mary.acceptInstr(mill.loanOut());
+	    orch.addPlayer(mary);
+
+	    mill.receiveInstr(ralph.giveBackInstr());
+
+	    jody.acceptInstr(mill.loanOut());
+	    orch.addPlayer(jody);
+
+	    morgan.acceptInstr(mill.loanOut());
+
+	    orch.play();
+
+	    orch.addPlayer(ralph);
+
+	    orch.play();
+		
+	    bob.acceptInstr(mill.loanOut());
+
+	    ralph.acceptInstr(mill.loanOut());
+
+	    orch.play();
+
+	    orch.addPlayer(morgan);
+
+	    orch.play();
+
+	    System.out.println(mill);
+    ```
 # Selenium Java Library
 * https://github.com/wenyaoxue/notes/blob/main/SDET/ui-seleniumjava.md
 ## A3 WebDriver
