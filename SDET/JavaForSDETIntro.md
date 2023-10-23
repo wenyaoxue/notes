@@ -209,7 +209,6 @@ Create a package `pagemodel`, and create all of the following inside that packag
   * Document the website's HTML content (System.out.print)
   * For each of the following items, identify that it exists by going through the website's HTML (System.out.print the Java reference to the WebElement produced by findElement/findElements - ie if the item is not found, an error will be thrown) - note and test the different ways you can find the same item - for now just that the item exists (no error), the next assignment will more thoroughly verify that you've found the right item
     * Search Icon
-    * Spree Logo
     * Email Text Box
     * Password Text Box
     * Remember me Check Box
