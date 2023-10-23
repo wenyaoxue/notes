@@ -220,10 +220,11 @@ Create a package `pagemodel`, and create all of the following inside that packag
 * Adjust the code to complete all of the above without visually opening the browser on your machine. Make your code simple to switch this feature on and off, so that you can visually check for issues should any come up (good practice)
 ## A4 WebElement
 * actual actions
-## Find practice
+## A5 Find practice
 * through Java
 * just through browser, xpath
   * more complicated finds
+## A6 POM 
 # Test Library Alternatives
 * can be created with a wizard, which really just helps set up the library and some starter annotations
 * like other libraries, classes, methods, and annotations are provided, to use within a basic Java class as covered before
