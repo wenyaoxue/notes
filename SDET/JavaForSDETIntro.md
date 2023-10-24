@@ -232,13 +232,58 @@ Create a package `pagemodel`, and create all of the following inside that packag
 	  * Click Add new address
 	  * Select the country United States and the state New York, enter a 5 digit number for zipcode, fill out the rest of the form, then click Save
 	  * Document the address html element's class and location (x and y) (System.out.print)
-	  * Find the address html element (WebElement) and document whether it is displayed (System.out.print, verify manually that it is true)
-   * 
+	  * Find the address html element (WebElement, find based on address format "firstname lastname\naddress1 address2,\n city, st zipcode,\n country") and document whether it is displayed (System.out.print, verify manually that it is true)
+    * Click the update address icon, change the last name, and repeat the previous step with the new lastname
+    * Click the delete address icon
+    * Document the number of addresses that are shown (use findElements size, manual check console results, should be 0)
+    * Click logout
+    * Document the current link (manual check console results, should be login link)
+    * Click login
+    * Enter the valid credentials and click login
+    * Document the current link (manual check console results, should be account link)
+  * Carry out all of the following inside one function
+  	* Open up https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+    * Enter valid credentials and click login
+    * Document whether the dashboard is displayed (manual check console results, should be true)
+	* Carry out all of the following inside one function
+	  * Open up http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx
+    * Enter valid credentials and click login
+    * Document whether the All Orders page is displayed (manual check console results, should be true)
+    * Click Order, fill out the form correctly, click Process
+    * Document whether the message "New order has been successfully added." is displayed (manual check console results, should be true)
+    * Click logout
+    * Document the current link (manual check console results, should be login link)
+	* Carry out all of the following inside one function
+  	* Open up https://datatables.net/examples/data_sources/server_side
+    * Type Sakura in the search box
+    * Document Sakura's salary (manual check console results, should be 139575)
+    * Reset the search (eg clear the search box and enter \n)
+    * Click First name
+    * Document the first first name that shows (manual check console results, should be Zorita)
+    * Click First name
+    * Document the first first name that shows (manual check console results, should be Airi)
+    * Document the number of entries the table says it contains (manual check console results, should be 57 - Showing ... of 57 entries)
+    * Go through each page of the table, and document every first name and the total number of first names (use an ArrayList as you click the next button until it is disabled, manual check console results, should be 57)
+
 ## A5 Find practice
 * through Java
 * just through browser, xpath
   * more complicated finds
 ## A6 POM 
+spreePom project  without test
+## implicit waits,
+## data provider - orange order, spree address
+## js executor
+** otherdemo
++ 	* Carry out all of the following inside one function
+  	* Open up https://admin-demo.nopcommerce.com/
+    * Click Login, Click Catalog, Click Products
+    * Scroll to and document the number of total products (manual check console results, find from eg 1-15 of 45 items)
+    * Click Add new
+    * Fill out the form - name, sku - then scroll to save, then click save
+    * Scroll to and document the number of total products (manual check console results, find from eg 1-15 of 46 items)
+    * Go through every page in the table until you find your item, document that you found it, document the name and sku that are shown in the table (manual check console results), then click delete
+    * Scroll to and document the number of total products (manual check console results, find from eg 1-15 of 45 items)
 # Test Library Alternatives
 * can be created with a wizard, which really just helps set up the library and some starter annotations
 * like other libraries, classes, methods, and annotations are provided, to use within a basic Java class as covered before
@@ -359,3 +404,5 @@ Create a package `pagemodel`, and create all of the following inside that packag
 # others
 QTP UFT
 want to learn automation
+## com.spree, com.weborder
+batch execution
