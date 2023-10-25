@@ -275,19 +275,19 @@ Create a package `pagemodel`, and create all of the following inside that packag
 * Adjust the code to complete all of the above without visually opening the browser on your machine. Make your code simple to switch this feature on and off, so that you can visually check for issues should any come up (good practice)
 ## A4 WebElement
 * Create a class `SpreeWebElementDemo` in package `javaautodemo`. Simulate the following test cases using Selenium UI automation by calling each of the following from the main method:
-	* Carry out all of the following inside one function
-	  * Open up https://demo.spreecommerce.org on a Chrome browser
-	  * Click the profile icon, then click the SIGN UP link
-	  * Fill in the form with '1', '123456', and '123456', then click Sign Up
-	  * Clear all the text boxes
-	  * Enter some email (format correctly) in the email text box (use Java Random library)
-	  * If the error message includes "Email has already been taken", document the email you tried and note that it already existed (System.out.print) then clear the email text box. Otherwise, return to the previous step
-	  * Document the email that caused the success
-	  * Enter 123456 in the password text boxes, then click Sign Up
-	  * Click Add new address
-	  * Select the country United States and the state New York, enter a 5 digit number for zipcode, fill out the rest of the form, then click Save
-	  * Document the address html element's class and location (x and y) (System.out.print)
-	  * Find the address html element (WebElement, find based on address format "firstname lastname\naddress1 address2,\n city, st zipcode,\n country") and document whether it is displayed (System.out.print, verify manually that it is true)
+  * Carry out all of the following inside one function
+    * Open up https://demo.spreecommerce.org on a Chrome browser
+    * Click the profile icon, then click the SIGN UP link
+    * Fill in the form with '1', '123456', and '123456', then click Sign Up
+    * Clear all the text boxes
+    * Enter some email (format correctly) in the email text box (use Java Random library)
+    * If the error message includes "Email has already been taken", document the email you tried and note that it already existed (System.out.print) then clear the email text box. Otherwise, return to the previous step
+    * Document the email that caused the success
+    * Enter 123456 in the password text boxes, then click Sign Up
+    * Click Add new address
+    * Select the country United States and the state New York, enter a 5 digit number for zipcode, fill out the rest of the form, then click Save
+    * Document the address html element's class and location (x and y) (System.out.print)
+    * Find the address html element (WebElement, find based on address format "firstname lastname\naddress1 address2,\n city, st zipcode,\n country") and document whether it is displayed (System.out.print, verify manually that it is true)
     * Click the update address icon, change the last name, and repeat the previous step with the new lastname
     * Click the delete address icon
     * Document the number of addresses that are shown (use findElements size, manual check console results, should be 0)
