@@ -79,6 +79,61 @@ Create a package `pagemodel`, and create all of the following inside that packag
     * print all values in the object, using a for loop, and methods `size` and `get` (2 statements)
 ### Run Client as a Java Application, then Email Page.java, Website.java, Client.java, and a screenshot of the console to Crystal.Wen@ltimindtree.com
 ## More
+### Molecule Formatting
+* A lab has a system to keep track of its hydrocarbons - a hydrocarbon is part hydrogen, part carbon.
+	* Currently, the system is to define each molecule with a formula and a name. For example: `C4H10`, `n-Butane`
+ 	* They want to update the system to define each molecule with a number of carbons, a number of hydrogens, and a list of names. For example: `4`, `10`, `n-Butane, Butane`
+* In a new package, implement the following:
+  * Each molecule, as described by the old system: `MoleculeV1`
+  	* variables `name` and `formula`
+    * constructor which initializes both variables
+    * a get method for each variable
+  * Each molecule, to put into the new system: `MoleculeV2`
+  	* variables `c`, `h`, and `names` (`List<String>`)
+    * constructor which initializes c and h, and initializes names using a new ArrayList object
+    * a toString method
+    * an addNameIfMatches method which takes a MoleculeV1, and adds its name to `this` names if its formula matches `this` c and h
+* example main and output
+  ```
+  List<MoleculeV1> mlclV1s = new ArrayList<MoleculeV1>();
+mlclV1s.add(new MoleculeV1("n-Butane", "C4H10"));
+mlclV1s.add(new MoleculeV1("Propyne", "C3H3"));
+mlclV1s.add(new MoleculeV1("1,3-Butadiyne", "C4H2"));
+mlclV1s.add(new MoleculeV1("Hexane", "C6H14"));
+mlclV1s.add(new MoleculeV1("Butane", "C4H10"));
+mlclV1s.add(new MoleculeV1("iso-Butane", "C4H10"));
+mlclV1s.add(new MoleculeV1("Pentane", "C5H12"));
+
+
+List<MoleculeV2> mlclV2s = new ArrayList<MoleculeV2>();
+mlclV2s.add(new MoleculeV2(4, 10));
+mlclV2s.add(new MoleculeV2(3, 3));
+mlclV2s.add(new MoleculeV2(4, 2));
+mlclV2s.add(new MoleculeV2(6, 14));
+mlclV2s.add(new MoleculeV2(5, 12));
+
+//for each old molecule
+for (int i1 = 0; i1 < mlclV1s.size(); i1++) {
+  MoleculeV1 oldMolecule = mlclV1s.get(i1);
+  //add its name to the new molecule if it matches
+  for (int i2 = 0; i2 < mlclV2s.size(); i2++) {
+    MoleculeV2 newMoleculeToCheck = mlclV2s.get(i2);
+    newMoleculeToCheck.addNameIfMatches(oldMolecule);
+  }
+}
+
+//print all new molecules
+for (int i = 0; i < mlclV2s.size(); i++) {
+  System.out.println(mlclV2s.get(i));
+}
+  ```
+  ```
+C4H10 -- n-Butane Butane iso-Butane 
+C3H3 -- Propyne 
+C4H2 -- 1,3-Butadiyne 
+C6H14 -- Hexane 
+C5H12 -- Pentane 
+  ```
 ### Ticketing
 * In a new package, implement a series of classes to represent the following ticketing system
   * One-Time ticket: one-way travel, specified origin/destination, used the same day it is issued
