@@ -297,10 +297,10 @@ Create a package `pagemodel`, and create all of the following inside that packag
     * Enter the valid credentials and click login
     * Document the current link (manual check console results, should be account link)
   * Carry out all of the following inside one function
-  	* Open up https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
-		* Enter valid credentials and click login
+		* Open up https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+    * Enter valid credentials and click login
 		* Document whether the dashboard is displayed (manual check console results, should be true)
-	* Carry out all of the following inside one function
+  * Carry out all of the following inside one function
 		* Open up http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx
   	* Enter valid credentials and click login
     * Document whether the All Orders page is displayed (manual check console results, should be true)
