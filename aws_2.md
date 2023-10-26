@@ -100,3 +100,17 @@
 # Monitoring
 ## CloudWatch
 * metrics for every service, variable, timestamp, dashboard
+* alarms - configure with time and metric, publish message to SNS topic
+  * EC2 instance Alarm Status - creates CloudWatch alarm - eg action Recover, Reboot
+  * billing alarm: only in us-east-1
+* log - can collect from Beanstalk, ECS, Lambda print/exception statements, CloudTrail, EC2 machines or on-premises servers with the CloudWatch Log Agent installed and IAM permissions, Route53
+* eg EC2 (CPU, status, network) EBS (reads wrotes), S3 (size, number, requests), billing (est charge), service limits
+## EventBridge
+* source - eg based on time, based on service event type like sign in
+* destination - eg trigger script, send SNS topic
+* event rule/schema (can disable/delete), bus, archive
+## CloudTrail
+* governance, compliance, audit
+* enabled by default
+* history of events / API calls - any activity
+* can send to CloudWatch or S3
