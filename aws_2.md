@@ -164,11 +164,12 @@
 * Standard - enabled for all users, protection from layer 3/4 attacks, SYN/UDP, Reflection
 * Advanced 24/7, more sophisticated attacks against specific services, response team
 * eg on Route 53, on CloudFront, Load Balancer
+* DDoS only
 ## WAF - Web Application Firewall set rules, protection from layer 7 (HTTP), eg on ALB, API Gateway, CLoudFront
 * WACL Web Access Control List
   * IP addresses, HTTP headers, body, URI strings, SQL injection, Cross Site Scripting, size, geo match, count occurrences (rate-based)
 ## CloudFront, Route 53, Load Balancer, Scaling - edge
-## AWS Network Firewall
+## Network Firewall
 * protect entire VPC, layer 3 to 7
 * any traffic direction
 ## Penetration Testing
@@ -184,3 +185,152 @@
 * AWS owned: across multiple accounts, you can't view the keys
 * CloudHSM Keys - generated from CloudHSM hardware device
 * for EBS, S3, Redshift, RDS, EFS, CloudTrail (auto), Storage Gateway
+## AWS Certificate Manager (ACM)
+* loads SSL/TLS Certificates onto ALB/CloudFront Distrubutions/API Gateway APIs
+* in-flight encryption for websites, enableshttps
+## Secrets Manager
+* store and rotate
+* generate using Lambda
+* integrate with RDS - mainly
+* encrypted using KMS
+* name, key/value
+## Artifact
+* Global, AWS compliance documentation and agreements
+* Reports, auditors, ...
+* Agreemenents - BAA, HIPAA
+## GuardDuty
+* Intelligent Threat Discovery
+* machine learning
+* input: cloudtrail events logs, vpc flow logs, dns logs, optional features
+* can setup to trigger EventBridge which -> lambda or SNS
+* dedicated finding for cryptocurrency
+## Inspector
+* automated security assessments/analyses/identification, when needed, vulnerabilities, risk score
+* for ec2 instances, container images push to Amazon ECR, lambda functions
+* reporting and integration with AWS security hub
+* can send findings to EventBridge
+## Config
+* auditing and recording compliance
+* evaluate and record specific rules (configurations) and its changes over time (+ CloudTrail link) across relevant resources, eg check access
+* region-scoped, can be aggregated
+* can store to S3 to analyze by Athena, can send to SNS Topic
+* not free
+## Macie
+* data security and data privacy service
+* machine learning and pattern matching to discover and protect your sensitive data
+* identify and alert you to sensitive data, such as personally identifiable information
+* analyze S3 and notify EventBridge
+## Security Hub
+* manage security and automate checks across accounts
+* auto aggregates above services into one hub, must enable Config
+* goes to EventBridge, Amazon Detective, Security Hub findings
+## Amazon Detective
+* quick deep analysis to find root cause
+## can contact abuse team if you suspect prohibited behavior
+## root user has complete access, only one who can change account settings (close, support plan, restore IAM), register as a seller, some S3 stuff, sign up for GovCloud
+## IAM access analyzer
+* which resources are shared externally
+* define zone of trust, finding = access from outside, + archive or archive rules/actions for intended/not intended
+# Machine Learning
+* Rekognition - objects, people, text, and scenes in images and videos
+* Transcribe - speech to text using Automatic Speech Recognition, incl language, automatically remove PII
+* Polly - text to speech
+* Translate
+* Lex - similar to Alexa, speech recognition, natural language understanding, chatbots/call center bots
+* Connect - receive calls, create contact flows, cloud-based contact center
+* eg connect -> Lex -> Lambda
+* Comprehend - NLP
+* SageMaker - used to build ML models
+* Forecast - timeseries + features ->
+* Kendra - builds a knowledge index, document search service
+* Personalize - similar to Amazon.com, personalized recommendations
+* Textract - text, handwriting, data from scanned documents
+# AWS Organizations
+* Global service
+* master/management and children accounts
+  * benefits: consolidated billing, aggregated usage pricing, pooling of EC2 instances
+  * API: automatically create accounts
+  * invitation
+* send logs to a central account
+* eg one account, vpc per dept/project/environment
+* Structured with Organization Units and Accounts
+* Service Control Policies
+  * whitelist or blacklist IAM actions attached at the OU or Account level, does not apply to master account
+  * applied to all users/roles of the account, including Root
+  * does not affect service linked roles
+  * by default all DENY
+  * disable services, or force compliance
+  * inherited, Deny overrides Authorize
+* Backup policies, Tag policies, AI services opt-out policies
+## Control Tower
+* set up multi-account environment, secure, compliant, best practices, automate
+* runs on top of Organizations
+* OUs, accounts, guardrails, users
+## Resource Access Manager
+* share resources with any other account (avoid duplication)
+* eg VPC
+## Service Catalog
+* pre-authorized products predefined by admins (another user)
+* CloudFormation Templates in a Portfolio + control
+## Pricing models
+* pay as you go, save when you reserve, pay less by using more, pay less as AWS grows
+* pay for what you use
+* savings: commit some amount
+## Billing and Costing Tools
+* Compute Optimizer - optimal amount of resources
+* Pricing Calculator - estimate, + service/configuration
+* Billing Dashboard - month-to-date, by service, free tier, forecast
+* Billing Dashboard > Cost Allocation Tags - create excel sheet based on tag categories; tagged resources using Resource Groups & Tag Editor
+* Billing Dashboard > Cost and Usage Reports - per service per hour, most granular
+* Billing Dashboard > Cost Explorer - analyze at high level, total costs and usage across accounts, hourresource info as well, + savings plan, + forecast
+* Billing Alarms - stored in CloudWatch, actual
+* Budgets - Usage, Cost, Reservation, Savings Plans, SNS, lots of filters, actual and forecasted
+* Cost Anomaly Detection - uses ML, report + root-cause analysis, alerts or summary
+* Service Quotas - alert limits, request quota increase
+## Trusted Advisor - account assessment
+* analysis+recommendations on 5 categories: Cost Optimization, Performance, Security, Fault Tolerance, Service Limits
+* basic/developer Support plan - 7 core checks: S3 Bucket Permissions, Security Groups, IAM Use, MFA on Root Account, EBS Public Snapshots, RDS Public Snapshots, Service Limits
+* business/enterprise support plan - full checks, set alarms, support API
+## Support Plans
+* Basic - free, customer service, documentation
+* Developer - business hours email to Cloud Support Associates
+* Business - 24/7 phone, email, chat to cloud support engineers, additional fee for infrastructure event management, production response times
+* Enterprise On-Ramp - business critical, Technical Account Managers, Concierge Support Team, Infrastructure event management, well-architected & operations Reviews, business critical system response time
+* Enterprise - designated Technical Account Manager, business critical 15 minute response time
+# Advanced Identity
+## STS Security Token Service
+* temporary, limited-privileges credentials
+* used for eg IAM roles, or external access
+## Cognito
+* identity for web/mobile applications users (potentially millions)
+* database of users
+## Directory Services
+* managed Microsoft Active Directory (AD) - database of objects, centralized security, credentials for machines connected to domain controller
+* manage users, supports MFA, establish trust connections with on-premises AD
+* AD Connector - redirect to on-premise AD
+* Simple AD - cannot be joined with AD
+## IAM Identity Center
+* single sign-on -> links to all AWS accounts in AWS Organizations, Business cloud applications, SAML apps, EC2 Windows instances
+* built in identity store, or connect to a 3rd party eg AD, OneLogin, Okta, ...
+# Other AWS Services
+* WorkSpaces - Desktop As a Service, provision Windows or Linux desktop, cloud VDI, deployed in an AZ
+* AppStream 2.0 - Desktop Application Streaming Service, deliver app from within a web browser, can configure instance type
+* IoT Core - Internet of Things - connect IoT devices to the cloud, messages
+* Elastic Transcoder - convert media files
+* AppSync - store/sync data for your application, uses GraphQL, auto generate client code, integrations with dynamo DB and lambda, subscriptions, data synchronization, security, can be used by amplify
+* Amplify - set of tools for full stack web/mobile applications; configures the backend
+* Device Farm - test against real browsers, mobile devices, tablets - devices you can configure
+* Backup - manage and automate data backup, retention periods, lifecycle, policies, regions
+* Disaster Recovery - backup and restore is cheapest, pilot light core functions/minimal setup is ready, warm standby full app at minimum size is ready, multi-site/hot-site full app at full size is ready
+* Elastic Disaster Recovery, DRS - recover physical, virtual, and cloud-based servers, continuous replication using a Replication Agent, minutes failover, then failback
+* DataSync - move data from on-premises to AWS - replicates first full load, and then incremenetal
+* Application Discovery Service - gather info about on-premises data centers, data and dependency, plan for migration
+	* using Agentless Discovery Connector or Application Discovery Agent, results in Migration Hub
+* Application Migration Service (MGN) - lift-and-shift, rehost, simplify migrating applications, continuous replication using a Replication Agent , aupports lots of things, minimal downtime
+* DMS Database Migration Service
+* Migration Evaluator - Agentless Collector for discovery, take a snapshot, analyze current and define target state, develop plan
+* Migration Hub - inventory data for assessment, planning, and tracking of migrations, has Orchestrator feature for templates
+* Fault Injection Simulator - for chaos engineering, experiment template, disrupt resources, + results
+* Step Functions - visual workflow of Lambda functions - sequence, parallel, conditions, timeouts, error handling, can integrate with other services, can implement human approval feature
+* Ground Station - for satellite communications/operations, provides a global network, download and send/process data
+* Pinpoint - 2-way marketing message/reply: email, SMS, push, voice, in-app messaging, can segment/personalize, scalable: templates/schedules/campaigns (unlike SNS and SES)
