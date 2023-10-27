@@ -140,6 +140,19 @@ Create a package `pagemodel`, and create all of the following inside that packag
   * Return ticket: two-way travel, specified origin/destination, departing ticket used the same day it is issued, return ticket used within a week from the day it is issued
   * Multi-use ticket: 10, 15, or 20 trips, specified origin/destination, departing and return tickets can be used any number of times within 60 days from the day it is issued
 * Create a main function in a client class in the package, that shows that the tickets would work as specified
+### Login
+* In a new package, implement a series of classes to represent the following login process:
+  * Login Credentials
+  	* username, password
+    * add needed methods
+  * User Info
+    * username, email
+    * add needed methods
+	* Website Accounts Manager
+  	* website name, list of Login Credentials for every registered user, list of User Info for every registered user
+    * register(email, username, password) - tries to register ++ provides feedback: IF username does not already exist and the password is at least 6 characters long, adds appropriate object to both lists
+    * logIn - checks if credentials provided matches anyone in Login Credentials ++ provides feedback
+    * resetPassword(email, password, passwordconfirm) - tries to change password ++ provides feedback: IF email matches an email in all User Info and password matches passwordConfirm, change the LoginCredentials object password
 ### Orchestra
 * In a new package, implement a series of classes to represent the following orchestra
   * Musical Instrument Lending Library
