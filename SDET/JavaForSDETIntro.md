@@ -143,7 +143,8 @@ Create a package `pagemodel`, and create all of the following inside that packag
 ### Login
 * In a new package, implement a series of classes to represent the following login process:
   * Login Credentials
-  	* username, password
+    * username, password
+    * changePassword(username, password, newpassword) - changes if username and password match
     * add needed methods
   * User Info
     * username, email
