@@ -148,8 +148,8 @@ Create a package `pagemodel`, and create all of the following inside that packag
   * User Info
     * username, email
     * add needed methods
-	* Website Accounts Manager
-  	* website name, list of Login Credentials for every registered user, list of User Info for every registered user
+  * Website Accounts Manager
+    * website name, list of Login Credentials for every registered user, list of User Info for every registered user
     * register(email, username, password) - tries to register ++ provides feedback: IF username does not already exist and the password is at least 6 characters long, adds appropriate object to both lists
     * logIn - checks if credentials provided matches anyone in Login Credentials ++ provides feedback
     * resetPassword(email, password, passwordconfirm) - tries to change password ++ provides feedback: IF email matches an email in all User Info and password matches passwordConfirm, change the LoginCredentials object password
