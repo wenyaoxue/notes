@@ -154,6 +154,8 @@ Create a package `pagemodel`, and create all of the following inside that packag
     * register(email, username, password) - tries to register ++ provides feedback: IF username does not already exist and the password is at least 6 characters long, adds appropriate object to both lists
     * logIn - checks if credentials provided matches anyone in Login Credentials ++ provides feedback
     * resetPassword(email, password, passwordconfirm) - tries to change password ++ provides feedback: IF email matches an email in all User Info and password matches passwordConfirm, change the LoginCredentials object password
+  * AccountsClient
+    * main: check that everything works. 2 tips: 1) make a list of everything that should cause some sort of failure 2) you should only be calling WebsiteAccountsManager objects
 ### Orchestra
 * In a new package, implement a series of classes to represent the following orchestra
   * Musical Instrument Lending Library
