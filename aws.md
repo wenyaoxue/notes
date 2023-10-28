@@ -1,5 +1,6 @@
 * for cloud practitioner certification (clf c02)
 * https://www.aws.training/Certification
+* https://aws.amazon.com/certification/certified-cloud-practitioner/
 * aws management console https://us-east-2.console.aws.amazon.com/console/home
 * other access
   * AWS CLI (command starts with aws)
