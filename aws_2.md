@@ -334,3 +334,27 @@
 * Step Functions - visual workflow of Lambda functions - sequence, parallel, conditions, timeouts, error handling, can integrate with other services, can implement human approval feature
 * Ground Station - for satellite communications/operations, provides a global network, download and send/process data
 * Pinpoint - 2-way marketing message/reply: email, SMS, push, voice, in-app messaging, can segment/personalize, scalable: templates/schedules/campaigns (unlike SNS and SES)
+# AWS Architecting & Ecosystem
+## Principles
+* auto scale instead of guess
+* test at production scale
+* automate
+* allow evolution
+* data-informed
+* improve
+* 6 Design Principles - scalable, disposable, automated, loosely coupled, service-based
+* 6 pillars - operational excellence (good, manageable code), security (identity, tracing, encryption), reliability (scaling, recovery), performance efficiency (make use of new services/technologies), cost optimized (resources you need, awareness), sustainable (environmental impact, energy efficiency)
+## Well-Architected Tool - review pillars or other metrics, like a survey
+## Cloud Adoption Framework - white paper, help you develop a comprehensive plan
+* 6 perspectives, each with a set aof capabilities: Business, People (bridge between technology and business), Governance, Platform, Security, Operations
+* 4 Transformation Domains - Technology, Process, Organization, Product
+* 4 Transformation Phases - Envision, Align, Launch, Scale
+## Right sizing, start small, elastic, lowest possible cost
+## Resources - Blogs, Forums, Whitepapers, Guides, Quick Starts, Solutions, Knowledge Center
+## Marketplace
+## Training (Digital, Private, Cert for US Govt or Enterprise), Academy
+## Professional Services & Partner Network (APN) - Technology, Consulting, Training, may have Competencies, can become better through Navigate Program
+## IQ - contractors (Experts), give secure access to account
+## re:Post - forum, Q&A, premium answered by AWS Support engineers
+## Managed Services (AMS) - team of experts, manage and operate your infrastructure, handles common activities, implement best practices and maintains your stuff
+# Prepare
