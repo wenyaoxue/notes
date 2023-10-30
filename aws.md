@@ -11,6 +11,7 @@
 # sample questions
 * https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Sample-Questions.pdf
 * https://www.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/?couponCode=OCT_23_GET_STARTED
+* https://awscertificationpractice.benchprep.com/app/aws-certified-cloud-practitioner-official-practice-question-set-clf-c02#exams/details/207433
 # What is Cloud Computing
 ## Traditional IT Overview
 * server: CPU+RAM, Storage, Database, Network (many servers)
