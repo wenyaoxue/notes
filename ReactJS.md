@@ -2,11 +2,15 @@
 * single page application framework
 * used by Facebook and Instagram
 * Es6 - component and routing (not TS like angular, component directives services pipes routing)
-# Setup
+# Setup (eg in VSC terminal)
+* `node -v` - if it doesn't work, download and use the setup wizard from nodejs.org, then close and reopen vsc and try again
 * `npm i -g create-react-app`
 * `npx create-react-app APPNAME`
 * `cd APPNAME`
-* `npm start`
+* `npm start`, ctrl+c to stop
+* change React.StrictMode to div in APPNAME/src/index.js
+* edit App.js and other components
+ ## info
 * person interacts with index.html, which uses index.js to load components
   * root.render a div, not a React.StrictMode, or else things will be getting rendered twice?? i guess
 # Component
