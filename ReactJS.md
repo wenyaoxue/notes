@@ -41,6 +41,8 @@ export default COMPONENTNAME
 ```
 * no `this`, no `render`, ever
 * lightweight, faster to load
+## notes
+* style property must be written as `style={{STYLEPROPNAME: 'STYLEPROPVAL', STYLEPROPNAME:...}}`
 # variables
 ## props
 * read only
