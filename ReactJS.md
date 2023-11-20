@@ -114,17 +114,18 @@ export default COMPONENTNAME
 * VARNAME can be used anywhere, SETVARFUNC takes 1 parameter (VARNAME val)
 * `useEffect(FUNC)` - calls FUNC on load and on every state variable update, `useEffect(FUNC, [var, var, var])` - calls FUNC on load and on every update of state variable in the list
 # router
-## setup terminal `npm i react-router-dom@4.1.2 --force`
+## setup terminal `npm i react-router-dom`
 ## component that defines routes (eg named RouteDefs, included in App.js)
 ### paths -> component
 * `import { BrowserRouter, Route, Switch, Routes }` from 'react-router-dom`, + import components
 * component returns a BrowserRouter element, which can only have one child, options:
   * div, Switch (only match one route, eg blank -> page not found), Routes (newer version, not included in 4.1.2)
-    * include Route child components:
-      * `<Route path='/PATH' component={COMPONENTNAME}/>`
-      * exact property `exact={true}` which will make sure full path matches (ie '/' -> default page)
-      * path property can include variables eg `"/user/:id"` - then the component can do `const {id} = useParams();`
-      * for multiple components `<Route path='/' element={<CT1/>}>  <Route path='/' element={<CT2/>}></Route>  </Route>}`
+    * include a child component `<Route/>` for each path, with properties:
+      * `path='/PATH'`
+        * can include variables eg `"/user/:id"` - then the component can do `const {id} = useParams();`
+      * `Component={COMPONENTNAME}` or `element={<COMPONENTNAME/>}`
+      * `exact={true}` which will make sure full path matches (ie '/' -> default page) 
+    * for multiple components `<Route path='/' element={<CT1/>}>  <Route path='/' element={<CT2/>}></Route>  </Route>}`
 ### links -> paths
 * add import from react-router-dom: NavLink
 * `const Header = () => (<header>  <NavLink to="path" exact={true}>LINKTEXT</NavLink>,...  </header>)`
