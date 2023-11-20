@@ -42,7 +42,8 @@ export default COMPONENTNAME
 * no `this`, no `render`, ever
 * lightweight, faster to load
 ## notes
-* style property must be written as `style={{STYLEPROPNAME: 'STYLEPROPVAL', STYLEPROPNAME:...}}`
+* style property eg `style={{STYLEPROPNAME: 'STYLEPROPVAL', STYLEPROPNAME:...}}`
+* onclick property eg `onclick={(e) => { FUNCTIONNAME(e) }}` where FUNCTIONNAME is created like `const FUNCTIONNAME = (e) => {}` as part of //can do things here
 # variables
 ## props
 * read only
