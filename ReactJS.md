@@ -44,6 +44,7 @@ export default COMPONENTNAME
 ## notes
 * style property eg `style={{STYLEPROPNAME: 'STYLEPROPVAL', STYLEPROPNAME:...}}`
 * onclick property eg `onclick={(e) => { FUNCTIONNAME(e) }}` where FUNCTIONNAME is created like `const FUNCTIONNAME = (e) => {}` as part of //can do things here
+* if you're referencing another file by name (eg not including it with component syntax) the file should be in public, eg / is in the public folder
 # variables
 ## props
 * read only
