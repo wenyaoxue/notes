@@ -117,9 +117,9 @@ export default COMPONENTNAME
 ## setup terminal `npm i react-router-dom@4.1.2 --force`
 ## component that defines routes (eg named RouteDefs, included in App.js)
 ### paths -> component
-* `import { BrowserRouter, Route, Switch }` from 'react-router-dom`, + import components
+* `import { BrowserRouter, Route, Switch, Routes }` from 'react-router-dom`, + import components
 * component returns a BrowserRouter element, which can only have one child, options:
-  * div, Switch (only match one route, eg blank -> page not found)
+  * div, Switch (only match one route, eg blank -> page not found), Routes (newer version, not included in 4.1.2)
     * include Route child components:
       * `<Route path='/PATH' component={COMPONENTNAME}/>`
       * exact property `exact={true}` which will make sure full path matches (ie '/' -> default page)
