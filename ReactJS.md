@@ -115,16 +115,16 @@ export default COMPONENTNAME
 * `useEffect(FUNC)` - calls FUNC on load and on every state variable update, `useEffect(FUNC, [var, var, var])` - calls FUNC on load and on every update of state variable in the list
 # router
 ## setup terminal `npm i react-router-dom@4.1.2 --force`
-## setup landingpage.js component:
+## component that defines routes (eg named RouteDefs, included in App.js)
 ### paths -> component
-* `import { BrowserRouter, Route }` from 'react-router-dom`, + import components
-* `const routes = (<BrowserRouter><div>  <Route path='/PATH' component={COMPONENTNAME}/>,...  </div></BrowserRouter>)`
-  * div because only one child of BrowserRouter allowed
-  * wrap routes in `<Switch>` to only match one route (ie blank -> page not found), import from react-router-dom
-  * route has property `exact={true}` which will make sure full path matches (ie '/' -> default page)
-  * route path can include variables eg `"/user/:id"` - then the component can do `const {id} = useParams();`
-  * for a route to render multiple components:
-    * <Route path='/' element={<CT1/>}><Route path='/' element={<CT2/>}></Route></Route>}
+* `import { BrowserRouter, Route, Switch }` from 'react-router-dom`, + import components
+* component returns a BrowserRouter element, which can only have one child, options:
+  * div, Switch (only match one route, eg blank -> page not found)
+    * include Route child components:
+      * `<Route path='/PATH' component={COMPONENTNAME}/>`
+      * exact property `exact={true}` which will make sure full path matches (ie '/' -> default page)
+      * path property can include variables eg `"/user/:id"` - then the component can do `const {id} = useParams();`
+      * for multiple components `<Route path='/' element={<CT1/>}>  <Route path='/' element={<CT2/>}></Route>  </Route>}`
 ### links -> paths
 * add import from react-router-dom: NavLink
 * `const Header = () => (<header>  <NavLink to="path" exact={true}>LINKTEXT</NavLink>,...  </header>)`
