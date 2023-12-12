@@ -1,5 +1,5 @@
 * see axisname table https://www.w3schools.com/xml/xpath_axes.asp
-* browser console: `$x("XPATHELEMENTQUERY")` returns a list of html elements
+* browser > inspect > console > `$x("XPATHELEMENTQUERY")` returns a list of html elements
 * browser > inspect > elements > ctrl+f
 * selenium java: `driver.findElement(By.xpath("XPATHELEMENTQUERY"));` returns a WebElement (findElements returns a List of WebElements)
 
