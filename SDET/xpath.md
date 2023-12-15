@@ -16,10 +16,9 @@
     * `parent` `ancestor`
     * `child` `descendant`
 * tag qualifiers
-  * `@ATTRIBUTENAME='ATTRIBUTEVALUE'`
-  * `normalize-space()='HTMLINNERHTMLWITHOUTTRAILLINGLEADINGSPACES']`
-    * or `text()` instead of `normalize-space()`
-  * `contains(text(), 'SOMETEXT')`
+  * `VARIABLE='VALUE'`
+    * variable: `@ATTRIBUTENAME` `text()` `normalize-space()` (innerhtml, spaces trimmed)
+  * `contains(VARIABLE, 'VALUE')`
   * `INDEX` - starts at 1, which of the returned elements
 # use
 * priority:
