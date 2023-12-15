@@ -29,6 +29,5 @@
   * linkText
   * partialLinkText
   * tagName
- 
   * cssSelector - a little faster but not as flexible, can't do parent 
   * xpath 
