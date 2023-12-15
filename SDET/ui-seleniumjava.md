@@ -43,6 +43,8 @@ selenium ui automation can be used through java, ie in a maven project
 # Select methods
   * constructor takes argument WebElement (represents a select tag) - instead of exposing all at the element level
   * `selectByVisibleText` - takes argument String optiontext
+  * `selectByValue`
+  * `selectByIndex`
   * note you can look at Select.java and see how it's implemented
 # JavascriptExecutor methods
 * can define by casting a WebDriver object `= (JavascriptExecutor) driver`
