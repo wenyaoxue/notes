@@ -9,13 +9,13 @@ advantages
 # REST service setup
 * generate project from start.spring.io, dependencies
   * spring web, devtools
-  * lombok - see misc.md
+  * lombok - see Other Tools.md - class constructor + getters/setters
   * eureka discovery client - see registry
   * jpa, mysql, spring data mongodb - see persistentstorage.md
 * import > existing maven projects > downloaded path > select pom.xml > finish
 * right click on project > Properties > Java Build Path > Source > double click src/main/resources/Excluded** > Select ** > Remove > Finish > Apply and Close
 * setting the port
-  * option 1 - set server.port property (application.properties)
+  * option 1 - set server.port property (src/main/resources/application.properties)
     * option 1 hard code port number `server.port=7777`
     * option 2 - if app is registered, auto-generate a port number
       * `server.port=${PORT:0}`
