@@ -151,8 +151,8 @@ app.listen(port, function() {})
 # `Concatenate to string `rgb( ${r}, ${g}, ${b} )``
 # `(function() {all code})()`
 # Cookies, domain level, client side stores, server side reads and edits, small, file: 
-  * `document.cookie.split(‘; ‘)[index].split(‘=’)[1]`
-  * `document.cookie = ‘varname=’+varval; (note = not += ; doesn’t overwrite)`
+  * `let rtrvdCookie = document.cookie.split('; ')[index].split('=')[1]`
+  * `document.cookie = 'varname='+varval; //(note = not += ; doesn’t overwrite)`
 # local storage, domain level, client side only, string based
   * `localStorage.setItem(varname, varval); (eg previous dropdown selection, high score)`
   * `localStorage.getItem(‘varname’); (could be null=false)`
